@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace MySARAssist
+namespace MySARAssist.ResourceClasses
 {
     static class StatisticalTools
     {

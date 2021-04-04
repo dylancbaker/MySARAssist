@@ -6,21 +6,15 @@ using System.Threading.Tasks;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
-using MySARAssist.ResourceClasses;
+
 namespace MySARAssist.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class HowToRangeOfDetectionPage : ContentPage
+    public partial class SignOutQRPage : ContentPage
     {
-        public HowToRangeOfDetectionPage()
+        public SignOutQRPage()
         {
             InitializeComponent();
-        }
-
-        protected override void OnAppearing()
-        {
-            base.OnAppearing();
-            ResourceHelper.setThemeColor();
         }
     }
 }

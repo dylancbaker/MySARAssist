@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MySARAssist.Views.SignInManagementPage"
+              xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core" 
+              ios:Page.UseSafeArea="true"
+             Title="Sign in and out">
+    <ContentPage.Content>
+        <ScrollView Style="{DynamicResource backgroundStyle}" Padding="20">
+            <StackLayout>
+                <Label Style="{DynamicResource titleLabelStyle}" HorizontalTextAlignment="Center" FontSize="Large" HorizontalOptions="FillAndExpand" Text="Currently Selected Member:"></Label>
+                <StackLayout Orientation="Horizontal" Margin="0,0,0,40">
+                    <Label x:Name="lblCurrentMember" Style="{DynamicResource labelStyle}" HorizontalTextAlignment="Center" HorizontalOptions="FillAndExpand" Text="{Binding CurrentMemberName}"></Label>
+                    <Button Text="Change" x:Name="btnChangeSelectedMember" Style="{DynamicResource smButtonStyle}" Command="{Binding ChangeSelectedMemberCommand}"></Button>
+                </StackLayout>
+
+                <Button x:Name="btnSignIn" Text="Sign In to a Task" Style="{DynamicResource buttonStyle}" Command="{Binding SignInCommand}"></Button>
+                <Button x:Name="btnSignOut" Text="Sign Out of a Task" Style="{DynamicResource buttonStyle}" Margin="0,0,0,40" Command="{Binding SignOutCommand}"></Button>
+                <Button x:Name="btnEditUserList" Text="Edit Saved Members" Style="{DynamicResource buttonStyle}" Command="{Binding EditTeamMembersCommand}"></Button>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

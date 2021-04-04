@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
-
+using MySARAssist.ResourceClasses;
 namespace MySARAssist.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]

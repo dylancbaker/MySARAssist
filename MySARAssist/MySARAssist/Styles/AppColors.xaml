@@ -18,5 +18,7 @@
     <Color x:Key="BackgroundColor_Dark">#090909</Color>
     <Color x:Key="BackgroundColor_Light">#FEFEFE</Color>
 
+    <Color x:Key="veryLightRed">#D9A49C</Color>
+    <Color x:Key="veryDarkRed">#66171D</Color>
 
 </ResourceDictionary>

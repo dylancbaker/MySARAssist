@@ -7,6 +7,12 @@ namespace MySARAssist.Models
 {
     public class TeamMember
     {
+        public TeamMember()
+        {
+            PersonID = Guid.NewGuid();
+            MemberActive = true;
+        }
+
         private Guid _PersonID;
         private string _Name;
         private string _Group;
@@ -123,5 +129,43 @@ namespace MySARAssist.Models
             }
         }
         public string D4HStatus { get => _D4HStatus; set => _D4HStatus = value; }
+        public bool CurrentlySelected { get => _CurrentlySelected; set => _CurrentlySelected = value; }
+
+
+
+        public string StringForQR
+        {
+            get
+            {
+                StringBuilder qr = new StringBuilder();
+                qr.Append(PersonID.ToString()); qr.Append(";");
+
+                qr.Append(Name); qr.Append(";");
+                qr.Append(OrganizationID); qr.Append(";");
+                qr.Append(Address); qr.Append(";");
+                qr.Append(Phone); qr.Append(";");
+                qr.Append(Email); qr.Append(";");
+                qr.Append(Callsign); qr.Append(";");
+                qr.Append(Reference); qr.Append(";");
+                //qualifications
+                if (GSAR) { qr.Append("1"); } else { qr.Append("0"); }
+                if (GSTL) { qr.Append("1"); } else { qr.Append("0"); }
+                if (SARM) { qr.Append("1"); } else { qr.Append("0"); }
+                if (FirstAid) { qr.Append("1"); } else { qr.Append("0"); }
+                if (RopeRescue) { qr.Append("1"); } else { qr.Append("0"); }
+                if (Tracker) { qr.Append("1"); } else { qr.Append("0"); }
+                if (Swiftwater) { qr.Append("1"); } else { qr.Append("0"); }
+                if (MountainRescue) { qr.Append("1"); } else { qr.Append("0"); }
+                qr.Append(";");
+
+                //nok
+                qr.Append(NOKName); qr.Append(";");
+                qr.Append(NOKRelation); qr.Append(";");
+                qr.Append(NOKPhone); qr.Append(";");
+
+
+                return qr.ToString();
+            }
+        }
     }
 }

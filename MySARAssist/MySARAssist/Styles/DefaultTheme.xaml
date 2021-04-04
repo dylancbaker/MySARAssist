@@ -24,7 +24,7 @@
     <!-- labels-->
     <Style TargetType="Label" x:Key="labelStyleBasic">
         <!-- add any styling generic to labels-->
-        <Setter Property="FontSize" Value="Medium"></Setter>
+        <Setter Property="FontSize" Value="Large"></Setter>
     </Style>
     <Style TargetType="Label" x:Key="labelStyle" BasedOn="{StaticResource labelStyleBasic}">
 
@@ -33,7 +33,7 @@
         <Setter Property="TextColor" Value="{StaticResource ICABlue}"></Setter>
     </Style>
     <Style TargetType="Label" x:Key="labelStyleDarkTheme" BasedOn="{StaticResource labelStyleBasic}">
-        <Setter Property="TextColor" Value="{StaticResource ICAYellow}"></Setter>
+        <Setter Property="TextColor" Value="{StaticResource LightYellow}"></Setter>
     </Style>
 
 
@@ -44,7 +44,68 @@
     </Style>
 
 
+    <!--- these frames are used for some lists to help seperate the items-->
+    <Style TargetType="StackLayout" x:Key="listViewCellStyle">
+        <Setter Property="Padding" Value="10"></Setter>
+    </Style>
 
+    <Style x:Key="listViewStyleBasic" TargetType="ListView">
+
+    </Style>
+    <Style x:Key="listViewStyle" TargetType="ListView" BasedOn="{StaticResource listViewStyleBasic}">
+
+    </Style>
+    <Style x:Key="listViewStyleLight" TargetType="ListView" BasedOn="{StaticResource listViewStyleBasic}">
+        <Setter Property="BackgroundColor" Value="{StaticResource BackgroundColor_Light}"></Setter>
+    </Style>
+    <Style x:Key="listViewStyleDark" TargetType="ListView" BasedOn="{StaticResource listViewStyleBasic}">
+        <Setter Property="BackgroundColor" Value="{StaticResource BackgroundColor_Dark}"></Setter>
+    </Style>
+
+
+    <Style TargetType="Frame" x:Key="listFrameStyleBasic">
+        <Setter Property="HasShadow" Value="True"></Setter>
+        <Setter Property="Margin" Value="0, 0, 0, 10"></Setter>
+    </Style>
+    <Style TargetType="Frame" x:Key="listFrameStyle" BasedOn="{StaticResource listFrameStyleBasic}">
+
+    </Style>
+    <Style TargetType="Frame" x:Key="listFrameStyleLightTheme" BasedOn="{StaticResource listFrameStyleBasic}">
+        <Setter Property="BorderColor" Value="{StaticResource darkGrey}"></Setter>
+        <Setter Property="BackgroundColor" Value="{StaticResource BackgroundColor_Light}"></Setter>
+    </Style>
+    <Style TargetType="Frame" x:Key="listFrameStyleDarkTheme" BasedOn="{StaticResource listFrameStyleBasic}">
+        <Setter Property="BorderColor" Value="{StaticResource lightGrey}"></Setter>
+        <Setter Property="BackgroundColor" Value="{StaticResource BackgroundColor_Dark}"></Setter>
+    </Style>
+
+
+
+
+    <Style TargetType="Frame" x:Key="listFrameSelectedStyle" BasedOn="{StaticResource listFrameStyleBasic}">
+        <Setter Property="BorderColor" Value="{StaticResource Primary}"></Setter>
+    </Style>
+    <Style TargetType="Frame" x:Key="listFrameSelectedLightStyle" BasedOn="{StaticResource listFrameStyleBasic}">
+        <Setter Property="BorderColor" Value="{StaticResource Primary}"></Setter>
+        <Setter Property="BackgroundColor" Value="{StaticResource veryLightRed}"></Setter>
+    </Style>
+    <Style TargetType="Frame" x:Key="listFrameSelectedDarkStyle" BasedOn="{StaticResource listFrameStyleBasic}">
+        <Setter Property="BorderColor" Value="{StaticResource Primary}"></Setter>
+
+        <Setter Property="BackgroundColor" Value="{StaticResource veryDarkRed}"></Setter>
+    </Style>
+
+
+    <Style TargetType="Frame" x:Key="listFrameNotSelectedStyle" BasedOn="{StaticResource listFrameStyleBasic}">
+    </Style>
+    <Style TargetType="Frame" x:Key="listFrameNotSelectedLightStyle" BasedOn="{StaticResource listFrameStyleBasic}">
+        <Setter Property="BorderColor" Value="{StaticResource darkGrey}"></Setter>
+        <Setter Property="BackgroundColor" Value="{StaticResource lightGrey}"></Setter>
+    </Style>
+    <Style TargetType="Frame" x:Key="listFrameNotSelectedDarkStyle" BasedOn="{StaticResource listFrameStyleBasic}">
+        <Setter Property="BorderColor" Value="{StaticResource lightGrey}"></Setter>
+        <Setter Property="BackgroundColor" Value="{StaticResource BackgroundColor_Dark}"></Setter>
+    </Style>
 
 
 
@@ -136,13 +197,13 @@
 
     <Style x:Key="BaseStyle" TargetType="Element">
         <Setter Property="Shell.BackgroundColor" Value="{StaticResource ICABlue}" />
-        <Setter Property="Shell.ForegroundColor" Value="{StaticResource ICAYellow}" />
+        <Setter Property="Shell.ForegroundColor" Value="{StaticResource LightYellow}" />
 
         <Setter Property="Shell.TitleColor" Value="{StaticResource white}" />
         <Setter Property="Shell.DisabledColor" Value="#B4FFFFFF" />
         <Setter Property="Shell.UnselectedColor" Value="{StaticResource BackgroundColor_Dark}" />
         <Setter Property="Shell.TabBarBackgroundColor" Value="{StaticResource ICABlue}" />
-        <Setter Property="Shell.TabBarForegroundColor" Value="{StaticResource ICAYellow}"/>
+        <Setter Property="Shell.TabBarForegroundColor" Value="{StaticResource LightYellow}"/>
         <Setter Property="Shell.TabBarUnselectedColor" Value="{StaticResource BackgroundColor_Dark}"/>
         <Setter Property="Shell.TabBarTitleColor" Value="{StaticResource BackgroundColor_Dark}"/>
         <!--

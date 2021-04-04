@@ -1,0 +1,76 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MySARAssist.Views.EditSavedTeamMemberPage"
+             Title="Edit Team Member"
+              xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core" 
+              ios:Page.UseSafeArea="true">
+    <ContentPage.Content>
+        <ScrollView Margin="20" Style="{DynamicResource backgroundStyle}">
+            <StackLayout>
+                <Label  Style="{DynamicResource titleLabelStyle}">Member Information</Label>
+                <Entry  Style="{DynamicResource entryStyle}" Placeholder="Full Name" x:Name="txtFullName"></Entry>
+                <Picker x:Name="pickOrganization" 
+                        Title="Select a SAR Team" 
+                        Style="{DynamicResource pickerStyle}"
+                        ItemDisplayBinding="{Binding OrganizationName}"
+                        >
+                </Picker>
+                <Entry  Style="{DynamicResource entryStyle}" Placeholder="Address"  x:Name="txtAddress"></Entry>
+                <Entry  Style="{DynamicResource entryStyle}" Placeholder="Phone" Keyboard="Telephone" x:Name="txtPhone"></Entry>
+                <Entry  Style="{DynamicResource entryStyle}" Placeholder="Email" Keyboard="Email" x:Name="txtEmail"></Entry>
+                <Entry  Style="{DynamicResource entryStyle}" Placeholder="EMBC ID#" Keyboard="Numeric" x:Name="txtRef"></Entry>
+                <Entry  Style="{DynamicResource entryStyle}" Placeholder="Callsign" x:Name="txtCallsign"></Entry>
+
+                <Label Style="{DynamicResource subtitleLabelStyle}" >Qualifications</Label>
+                <StackLayout Orientation="Horizontal">
+                    <CheckBox x:Name="chkGSAR"></CheckBox>
+                    <Label Style="{DynamicResource labelStyle}" Text="Ground SAR" VerticalOptions="Center"></Label>
+
+                </StackLayout>
+                <StackLayout Orientation="Horizontal">
+                    <CheckBox x:Name="chkGSTL"></CheckBox>
+                    <Label Style="{DynamicResource labelStyle}" Text="Ground SAR Team Leader" VerticalOptions="Center"></Label>
+
+                </StackLayout>
+                <StackLayout Orientation="Horizontal">
+                    <CheckBox x:Name="chkSARM"></CheckBox>
+                    <Label Style="{DynamicResource labelStyle}" Text="SAR Manager" VerticalOptions="Center"></Label>
+
+                </StackLayout>
+                <StackLayout Orientation="Horizontal">
+                    <CheckBox x:Name="chkTracker"></CheckBox>
+                    <Label Style="{DynamicResource labelStyle}" Text="Tracker" VerticalOptions="Center"></Label>
+
+                </StackLayout>
+                <StackLayout Orientation="Horizontal">
+                    <CheckBox x:Name="chkRopeRescue"></CheckBox>
+                    <Label Style="{DynamicResource labelStyle}" Text="Rope Rescue" VerticalOptions="Center"></Label>
+
+                </StackLayout>
+                <StackLayout Orientation="Horizontal">
+                    <CheckBox x:Name="chkFirstAid"></CheckBox>
+                    <Label Style="{DynamicResource labelStyle}" Text="First Aid" VerticalOptions="Center"></Label>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal">
+                    <CheckBox x:Name="chkSwiftwater"></CheckBox>
+                    <Label Style="{DynamicResource labelStyle}" Text="Swiftwater" VerticalOptions="Center"></Label>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal">
+                    <CheckBox x:Name="chkMountainRescue"></CheckBox>
+                    <Label Style="{DynamicResource labelStyle}" Text="Mountain Rescue" VerticalOptions="Center"></Label>
+                </StackLayout>
+
+                <Label Style="{DynamicResource subtitleLabelStyle}">Emergency Contact</Label>
+                <Entry  Style="{DynamicResource entryStyle}" Placeholder="Emergency Contact Name" x:Name="txtNOKName"></Entry>
+                <Entry  Style="{DynamicResource entryStyle}" Placeholder="Relationship" x:Name="txtNOKRelationship"></Entry>
+                <Entry  Style="{DynamicResource entryStyle}" Placeholder="Phone Number" Keyboard="Telephone" x:Name="txtNOKPhone"></Entry>
+
+                <StackLayout Orientation="Horizontal">
+                    <Button x:Name="btnCancel" Style="{DynamicResource buttonStyle}" Text="Cancel" HorizontalOptions="FillAndExpand" Clicked="btnCancel_Clicked"></Button>
+                    <Button x:Name="btnSave" Style="{DynamicResource buttonStyle}" Text="Save" HorizontalOptions="FillAndExpand" Clicked="btnSave_Clicked"></Button>
+                </StackLayout>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

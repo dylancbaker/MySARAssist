@@ -4,7 +4,7 @@ using System.Text;
 using System.Globalization;
 using Xamarin.Forms;
 
-namespace MySARAssist
+namespace MySARAssist.ResourceClasses
 {
     public class DoubleConverter : IValueConverter
     {

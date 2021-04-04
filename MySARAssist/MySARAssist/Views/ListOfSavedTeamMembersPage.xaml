@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MySARAssist.Views.ListOfSavedTeamMembersPage" 
+             Title="Saved Team Members"
+              xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core" 
+              ios:Page.UseSafeArea="true">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem x:Name="btnAdd" IconImageSource="images/plus2x.png" Command="{Binding AddMemberCommand}"></ToolbarItem>
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+        <ListView x:Name="lbMemberList" HasUnevenRows="True" Style="{DynamicResource listViewStyle}" ItemsSource="{Binding Items}" ItemSelected="lbMemberList_ItemSelected"
+                   IsPullToRefreshEnabled="True" RefreshCommand="{Binding LoadItemsCommand}" IsRefreshing="{Binding IsRefreshing}" SeparatorVisibility="None">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <Frame Style="{StaticResource listFrameStyle}">
+                            <Label Style="{DynamicResource labelStyle}" Text="{Binding NameWithGroup}"></Label>
+                        </Frame>
+                    </ViewCell>
+                </DataTemplate>
+
+            </ListView.ItemTemplate>
+        </ListView>
+    </ContentPage.Content>
+</ContentPage>

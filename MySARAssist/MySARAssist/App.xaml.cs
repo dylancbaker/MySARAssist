@@ -10,6 +10,8 @@ namespace MySARAssist
     public partial class App : Application
     {
         public static TeamMember CurrentTeamMember { get; set; }
+        public static Services.TeamMember_ManagerService TeamMemberManager { get; private set; }
+
 
         public static string DatabaseLocation = string.Empty;
 
@@ -22,8 +24,10 @@ namespace MySARAssist
         public App(string databaseLocation)
         {
             DatabaseLocation = databaseLocation;
+            TeamMemberManager = new Services.TeamMember_ManagerService();
             InitializeComponent();
             MainPage = new AppShell();
+            CurrentTeamMember = TeamMemberManager.GetCurrentTeamMember();
         }
 
         protected override void OnStart()

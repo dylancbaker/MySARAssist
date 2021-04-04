@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using Xamarin.Forms;
 
-namespace MySARAssist
+namespace MySARAssist.ResourceClasses
 {
     public static class ResourceHelper
     {
@@ -36,7 +36,8 @@ namespace MySARAssist
                 SetDynamicResource("editorStyle", "editorStyleDarkTheme");
                 SetDynamicResource("pickerStyle", "pickerStyleDarkTheme");
                 SetDynamicResource("flyoutItemLayoutStyle", "flyoutItemLayoutStyleDark");
-
+                SetDynamicResource("listFrameStyle", "listFrameStyleDarkTheme");
+                SetDynamicResource("listViewStyle", "listViewStyleDark");
             }
             else
             {
@@ -48,7 +49,8 @@ namespace MySARAssist
                 SetDynamicResource("editorStyle", "editorStyleLightTheme");
                 SetDynamicResource("pickerStyle", "pickerStyleLightTheme");
                 SetDynamicResource("flyoutItemLayoutStyle", "flyoutItemLayoutStyleLight");
-
+                SetDynamicResource("listFrameStyle", "listFrameStyleLightTheme");
+                SetDynamicResource("listViewStyle", "listViewStyleLight");
             }
 
         }
