@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MySARAssist.Views.HowToRangeOfDetectionPage"
+             Title="How get a Range of Detection"
+              xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core" 
+              ios:Page.UseSafeArea="true" >
+    <ContentPage.Content>
+        <ScrollView  Style="{DynamicResource backgroundStyle}" Padding="20">
+            <StackLayout Orientation="Vertical" >
+                <Label  Style="{DynamicResource labelStyle}" Text="A Range of Detection test is done in the field, using an area of terrain representative of the general search area. This is done during a search to help managers estimate the level of coverage, and therefore the Probability of Detection from visual sweep assignments."></Label>
+                <Label Style="{DynamicResource labelStyle}" FontAttributes="Italic" Text="*Hint: this goes much faster having multiple people conduct the test at the same time."></Label>
+                <Label Style="{DynamicResource labelStyle}" Text="1. Place an object in a location typical of your search area. The object should be similar to what you expect the subject to be carying or wearing."></Label>
+                <Label Style="{DynamicResource labelStyle}" Text="2. Walk in straight lines away from the object in cardinal directions (NSEW)."></Label>
+                <Label Style="{DynamicResource labelStyle}" Text="3. Keep walking until you can no longer see the object."></Label>
+                <Label Style="{DynamicResource labelStyle}" Text="4. Walk past that point, turn around, and walk back."></Label>
+                <Label Style="{DynamicResource labelStyle}" Text="5. Count paces from when you see the item to when you reach it."></Label>
+                <Label Style="{DynamicResource labelStyle}" Text="6. Repeat for NE, NW, SE, SW for a total of 8 data points."></Label>
+                <Label Style="{DynamicResource labelStyle}" Text="7. Convert the paces to meters, take an average distance and report it to command."></Label>
+
+                <Image Source="RangeOfDetection.png" HorizontalOptions="FillAndExpand" Aspect="AspectFit" VerticalOptions="FillAndExpand"></Image>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

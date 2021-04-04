@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ResourceDictionary xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MySARAssist.Styles.AppColors">
+    
+    <Color x:Key="Primary">#4582EC</Color>
+    <Color x:Key="darkGrey">#333333</Color>
+    <Color x:Key="darkerGrey">#505050</Color>
+    <Color x:Key="mediumGrey">#AAAAAA</Color>
+    <Color x:Key="lightGrey">#CFCFCF</Color>
+    <Color x:Key="white">#FFFFFF</Color>
+    <Color x:Key="black">#000000</Color>
+    <Color x:Key="red">#ec4564</Color>
+    <Color x:Key="ICABlue">#4582EC</Color>
+    <Color x:Key="ICAYellow">#F0AD4E</Color>
+    <Color x:Key="LightYellow">#ecde45</Color>
+    <Color x:Key="darkBlue">#17294c</Color>
+    <Color x:Key="BackgroundColor_Dark">#090909</Color>
+    <Color x:Key="BackgroundColor_Light">#FEFEFE</Color>
+
+
+</ResourceDictionary>

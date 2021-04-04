@@ -1,0 +1,82 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MySARAssist.Views.VisualSweepCalculatorPage"
+               xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core" 
+             Title="Visual Sweep Spacing Calculator"
+             ios:Page.UseSafeArea="true"
+             >
+    <ContentPage.Content>
+        <ScrollView   Style="{DynamicResource backgroundStyle}" Padding="20">
+            <Grid >
+                <Grid.RowDefinitions>
+
+
+                    <!-- RD -->
+                    <RowDefinition Height="50"></RowDefinition>
+                    <RowDefinition Height="60"></RowDefinition>
+                    <!-- Visibility -->
+                    <RowDefinition Height="50"></RowDefinition>
+                    <RowDefinition Height="60"></RowDefinition>
+                    <!-- Target POD -->
+                    <RowDefinition Height="50"></RowDefinition>
+                    <RowDefinition Height="60"></RowDefinition>
+
+                    <!-- buttons -->
+                    <RowDefinition Height="70"></RowDefinition>
+
+                    <!-- results-->
+                    <RowDefinition Height="50"></RowDefinition>
+                    <RowDefinition Height="40"></RowDefinition>
+                    <RowDefinition Height="50"></RowDefinition>
+                    <RowDefinition Height="40"></RowDefinition>
+
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="0.5*"></ColumnDefinition>
+                    <ColumnDefinition Width="0.5*"></ColumnDefinition>
+                    <ColumnDefinition Width="0.5*"></ColumnDefinition>
+                    <ColumnDefinition Width="0.5*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+
+
+                <Label Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" FontSize="Large" FontAttributes="Bold" Text="Range of Detection (meters)" Style="{DynamicResource titleLabelStyle}" ></Label>
+                <Button Grid.Row="0" Grid.Column="3" Text="?" Command="{Binding HowToRDCommand}"></Button>
+
+                <Editor Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Keyboard="Numeric" Text="{Binding RangeOfDetection}" FontSize="Large" Placeholder="Range of Detection / AMDR"  Style="{DynamicResource editorStyle}"></Editor>
+                <Button Grid.Row="1" Grid.Column="2"  Grid.ColumnSpan="1" Text="+"  Command="{Binding RDUpCommand}" FontSize="Large"></Button>
+                <Button Grid.Row="1" Grid.Column="3"  Grid.ColumnSpan="1" Text="-" Command="{Binding RDDownCommand}" FontSize="Large"></Button>
+
+
+
+                <Label Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="4" FontSize="Large" FontAttributes="Bold" Text="Target Visibility"  Style="{DynamicResource titleLabelStyle}"></Label>
+                <Picker Grid.Column="0" Grid.Row="3" Grid.ColumnSpan="4" x:Name="Visibility" Title="Select Target Visibility" SelectedIndex="{Binding SelectedVisibilityIndex}" Style="{DynamicResource pickerStyle}">
+                    <Picker.ItemsSource>
+                        <x:Array Type="{x:Type x:String}">
+                            <x:String>High Visibility</x:String>
+                            <x:String>Medium Visibility</x:String>
+                            <x:String>Low Visibility</x:String>
+                        </x:Array>
+                    </Picker.ItemsSource>
+                </Picker>
+
+                <Label Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="4" FontSize="Large" FontAttributes="Bold" Text="Ideal POD" Style="{DynamicResource titleLabelStyle}"></Label>
+                <Editor Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="2" Keyboard="Numeric" Text="{Binding TargetPODAsPercent, Mode=TwoWay}" FontSize="Large" Placeholder="Target POD"  Style="{DynamicResource editorStyle}"></Editor>
+                <Button Grid.Row="5" Grid.Column="2"  Grid.ColumnSpan="1" Text="+"  Command="{Binding IdealPODUpCommand}" FontSize="Large"></Button>
+                <Button Grid.Row="5" Grid.Column="3"  Grid.ColumnSpan="1" Text="-" Command="{Binding IdealPODDownCommand}" FontSize="Large"></Button>
+
+
+
+                <Button Grid.Row="6" Grid.Column="0"  Grid.ColumnSpan="2" Text="Calculate" BackgroundColor="{DynamicResource ICABlue}" TextColor="White" Command="{Binding CalculateCommand}" FontSize="Large"></Button>
+                <Button Grid.Row="6" Grid.Column="2" Grid.ColumnSpan="2" Text="Clear" BackgroundColor="{DynamicResource darkRedButtonColour}" TextColor="White" Command="{Binding EraseCommand}" FontSize="Large"></Button>
+
+                <Label Grid.Column="0" Grid.Row="7" Grid.ColumnSpan="4" FontSize="Large" FontAttributes="Bold"  Text="Spacing Between Team Members" Style="{DynamicResource titleLabelStyle}"></Label>
+                <Label Grid.Column="0" Grid.Row="8" Grid.ColumnSpan="4" FontSize="Large"  Text="{Binding TeamSpacing}"  Style="{DynamicResource labelStyle}"></Label>
+
+                <Label Grid.Column="0" Grid.Row="9" Grid.ColumnSpan="4" FontSize="Large" FontAttributes="Bold" Text="Probability of Detection (POD)" Style="{DynamicResource titleLabelStyle}"></Label>
+                <Label Grid.Column="0" Grid.Row="10" Grid.ColumnSpan="4" FontSize="Large"  Text="{Binding POD}" Style="{DynamicResource labelStyle}"></Label>
+
+            </Grid>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

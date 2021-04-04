@@ -1,0 +1,216 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ResourceDictionary xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MySARAssist.Styles.DefaultTheme">
+
+    
+    
+    <!-- form backgorund-->
+    <Style x:Key="backgroundStyle" TargetType="VisualElement">
+        <Setter Property="BackgroundColor" 
+                Value="{StaticResource BackgroundColor_Light}" />
+    </Style>
+
+    <Style x:Key="backgroundStyleLight" TargetType="VisualElement">
+        <Setter Property="BackgroundColor" Value="{StaticResource BackgroundColor_Light}" />
+    </Style>
+
+    <Style x:Key="backgroundStyleDark" TargetType="VisualElement">
+        <Setter Property="BackgroundColor" 
+                Value="{StaticResource BackgroundColor_Dark}" />
+    </Style>
+
+
+    <!-- labels-->
+    <Style TargetType="Label" x:Key="labelStyleBasic">
+        <!-- add any styling generic to labels-->
+        <Setter Property="FontSize" Value="Medium"></Setter>
+    </Style>
+    <Style TargetType="Label" x:Key="labelStyle" BasedOn="{StaticResource labelStyleBasic}">
+
+    </Style>
+    <Style TargetType="Label" x:Key="labelStyleLightTheme" BasedOn="{StaticResource labelStyleBasic}">
+        <Setter Property="TextColor" Value="{StaticResource ICABlue}"></Setter>
+    </Style>
+    <Style TargetType="Label" x:Key="labelStyleDarkTheme" BasedOn="{StaticResource labelStyleBasic}">
+        <Setter Property="TextColor" Value="{StaticResource ICAYellow}"></Setter>
+    </Style>
+
+
+    <!-- Bold Labels-->
+    <Style TargetType="Label" x:Key="labelStyleBold" BasedOn="{StaticResource labelStyle}">
+        <Setter Property="FontAttributes"  Value="Bold"></Setter>
+        <Setter Property="VerticalOptions" Value="EndAndExpand"></Setter>
+    </Style>
+
+
+
+
+
+
+
+
+    <!-- Entry-->
+    <Style TargetType="Entry" x:Key="entryStyleBasic">
+    </Style>
+    <Style TargetType="Entry" x:Key="entryStyle" BasedOn="{StaticResource entryStyleBasic}">
+
+    </Style>
+    <Style TargetType="Entry" x:Key="entryStyleLightTheme" BasedOn="{StaticResource entryStyleBasic}">
+        <Setter Property="TextColor" Value="{StaticResource darkGrey}"></Setter>
+    </Style>
+    <Style TargetType="Entry" x:Key="entryStyleDarkTheme" BasedOn="{StaticResource entryStyleBasic}">
+        <Setter Property="TextColor" Value="{StaticResource white}"></Setter>
+        <Setter Property="BackgroundColor" Value="{StaticResource darkerGrey}"></Setter>
+        <Setter Property="PlaceholderColor" Value="{StaticResource lightGrey}"></Setter>
+    </Style>
+
+
+    <!-- Entry-->
+    <Style TargetType="Editor" x:Key="editorStyleBasic">
+    </Style>
+    <Style TargetType="Editor" x:Key="editorStyle" BasedOn="{StaticResource editorStyleBasic}">
+
+    </Style>
+    <Style TargetType="Editor" x:Key="editorStyleLightTheme" BasedOn="{StaticResource editorStyleBasic}">
+        <Setter Property="TextColor" Value="{StaticResource darkGrey}"></Setter>
+        <Setter Property="BackgroundColor" Value="{StaticResource lightGrey}"></Setter>
+    </Style>
+    <Style TargetType="Editor" x:Key="editorStyleDarkTheme" BasedOn="{StaticResource editorStyleBasic}">
+        <Setter Property="TextColor" Value="{StaticResource white}"></Setter>
+        <Setter Property="BackgroundColor" Value="{StaticResource darkerGrey}"></Setter>
+        <Setter Property="PlaceholderColor" Value="{StaticResource lightGrey}"></Setter>
+    </Style>
+
+
+    <!-- Picker -->
+    <Style TargetType="Picker" x:Key="pickerStyleBasic"></Style>
+    <Style TargetType="Picker" x:Key="pickerStyle" BasedOn="{StaticResource pickerStyleBasic}">
+    </Style>
+    <Style TargetType="Picker" x:Key="pickerStyleLightTheme" BasedOn="{StaticResource pickerStyleBasic}">
+        <Setter Property="TextColor" Value="{StaticResource darkGrey}"></Setter>
+    </Style>
+    <Style TargetType="Picker" x:Key="pickerStyleDarkTheme" BasedOn="{StaticResource pickerStyleBasic}">
+        <Setter Property="TextColor" Value="{StaticResource white}"></Setter>
+        <Setter Property="BackgroundColor" Value="{StaticResource darkerGrey}"></Setter>
+        <Setter Property="TitleColor" Value="{StaticResource lightGrey}"></Setter>
+    </Style>
+
+
+    <!-- title label-->
+    <Style TargetType="Label" x:Key="titleLabelStyleBasic">
+        <Setter Property="FontSize" Value="Title"></Setter>
+        <Setter Property="Margin" Value="0, 10, 0, 10"></Setter>
+    </Style>
+    <Style TargetType="Label" x:Key="titleLabelStyle" BasedOn="{StaticResource titleLabelStyleBasic}">
+
+    </Style>
+    <Style TargetType="Label" x:Key="titleLabelStyleLightTheme" BasedOn="{StaticResource titleLabelStyleBasic}">
+        <Setter Property="TextColor" Value="{StaticResource darkGrey}"></Setter>
+    </Style>
+    <Style TargetType="Label" x:Key="titleLabelStyleDarkTheme" BasedOn="{StaticResource titleLabelStyleBasic}">
+        <Setter Property="TextColor" Value="{StaticResource lightGrey}"></Setter>
+    </Style>
+
+    <!-- subtitle label-->
+    <Style TargetType="Label" x:Key="subtitleLabelStyleBasic">
+        <Setter Property="FontSize" Value="Subtitle"></Setter>
+        <Setter Property="Margin" Value="0, 0, 0, 10"></Setter>
+        <Setter Property="FontAttributes" Value="Bold"></Setter>
+    </Style>
+    <Style TargetType="Label" x:Key="subtitleLabelStyle" BasedOn="{StaticResource subtitleLabelStyleBasic}">
+
+    </Style>
+    <Style TargetType="Label" x:Key="subtitleLabelStyleLightTheme" BasedOn="{StaticResource subtitleLabelStyleBasic}">
+        <Setter Property="TextColor" Value="{StaticResource darkGrey}"></Setter>
+    </Style>
+    <Style TargetType="Label" x:Key="subtitleLabelStyleDarkTheme" BasedOn="{StaticResource subtitleLabelStyleBasic}">
+        <Setter Property="TextColor" Value="{StaticResource lightGrey}"></Setter>
+    </Style>
+
+
+
+
+    <!--- Flyout menu stuff-->
+
+
+    <Style x:Key="BaseStyle" TargetType="Element">
+        <Setter Property="Shell.BackgroundColor" Value="{StaticResource ICABlue}" />
+        <Setter Property="Shell.ForegroundColor" Value="{StaticResource ICAYellow}" />
+
+        <Setter Property="Shell.TitleColor" Value="{StaticResource white}" />
+        <Setter Property="Shell.DisabledColor" Value="#B4FFFFFF" />
+        <Setter Property="Shell.UnselectedColor" Value="{StaticResource BackgroundColor_Dark}" />
+        <Setter Property="Shell.TabBarBackgroundColor" Value="{StaticResource ICABlue}" />
+        <Setter Property="Shell.TabBarForegroundColor" Value="{StaticResource ICAYellow}"/>
+        <Setter Property="Shell.TabBarUnselectedColor" Value="{StaticResource BackgroundColor_Dark}"/>
+        <Setter Property="Shell.TabBarTitleColor" Value="{StaticResource BackgroundColor_Dark}"/>
+        <!--
+                <Setter Property="Shell.BackgroundColor" Value="{StaticResource Primary}" />
+                <Setter Property="Shell.ForegroundColor" Value="{StaticResource white}" />
+               
+                <Setter Property="Shell.TitleColor" Value="{StaticResource white}" />
+                <Setter Property="Shell.DisabledColor" Value="#B4FFFFFF" />
+                <Setter Property="Shell.UnselectedColor" Value="{StaticResource BackgroundColor_Dark}" />
+                <Setter Property="Shell.TabBarBackgroundColor" Value="{StaticResource Primary}" />
+                <Setter Property="Shell.TabBarForegroundColor" Value="{StaticResource greenButtonColour}"/>
+                <Setter Property="Shell.TabBarUnselectedColor" Value="{StaticResource BackgroundColor_Dark}"/>
+                <Setter Property="Shell.TabBarTitleColor" Value="{StaticResource BackgroundColor_Dark}"/> -->
+    </Style>
+    <Style TargetType="TabBar" BasedOn="{StaticResource BaseStyle}" />
+    <Style TargetType="FlyoutItem" BasedOn="{StaticResource BaseStyle}" />
+    <!--
+            Default Styles for all Flyout Items
+            https://docs.microsoft.com/xamarin/xamarin-forms/app-fundamentals/shell/flyout#flyoutitem-and-menuitem-style-classes
+            -->
+    <Style Class="FlyoutItemLabelStyle" TargetType="Label">
+        <Setter Property="TextColor" Value="{StaticResource BackgroundColor_Dark}"></Setter>
+    </Style>
+
+    <Style x:Key="flyoutItemLayoutStyle"  Class="FlyoutItemLayoutStyle" TargetType="Layout" ApplyToDerivedTypes="True">
+    </Style>
+    <Style x:Key="flyoutItemLayoutStyleLight" Class="FlyoutItemLayoutStyle" TargetType="Layout" ApplyToDerivedTypes="True" BasedOn="{StaticResource flyoutItemLayoutStyle}">
+        <Setter Property="BackgroundColor" Value="LightBlue"></Setter>
+        <Setter Property="Shell.FlyoutBackgroundColor" Value="{StaticResource BackgroundColor_Light}"></Setter>
+        <Setter Property="VisualStateManager.VisualStateGroups">
+            <VisualStateGroupList>
+                <VisualStateGroup x:Name="CommonStates">
+                    <VisualState x:Name="Normal">
+                        <VisualState.Setters>
+                            <Setter Property="BackgroundColor" Value="Transparent" />
+                            <Setter TargetName="FlyoutItemLabel" Property="Label.TextColor" Value="{StaticResource black }" />
+                        </VisualState.Setters>
+                    </VisualState>
+                    <VisualState x:Name="Selected">
+                        <VisualState.Setters>
+                            <Setter Property="BackgroundColor" Value="{StaticResource darkBlue}" />
+                        </VisualState.Setters>
+                    </VisualState>
+                </VisualStateGroup>
+            </VisualStateGroupList>
+        </Setter>
+    </Style>
+    <Style x:Key="flyoutItemLayoutStyleDark" Class="FlyoutItemLayoutStyle" TargetType="Layout" ApplyToDerivedTypes="True" BasedOn="{StaticResource flyoutItemLayoutStyle}">
+        <Setter Property="BackgroundColor" Value="Orange"></Setter>
+        <Setter Property="Shell.FlyoutBackgroundColor" Value="{StaticResource mediumGrey}"></Setter>
+        <Setter Property="VisualStateManager.VisualStateGroups">
+            <VisualStateGroupList>
+                <VisualStateGroup x:Name="CommonStates">
+                    <VisualState x:Name="Normal">
+                        <VisualState.Setters>
+                            <Setter Property="BackgroundColor" Value="Transparent" />
+                            <Setter TargetName="FlyoutItemLabel" Property="Label.TextColor" Value="{StaticResource white }" />
+                        </VisualState.Setters>
+                    </VisualState>
+                    <VisualState x:Name="Selected">
+                        <VisualState.Setters>
+                            <Setter Property="BackgroundColor" Value="{StaticResource darkGrey}" />
+                            <Setter TargetName="FlyoutItemLabel" Property="Label.TextColor" Value="{StaticResource white }" />
+                        </VisualState.Setters>
+                    </VisualState>
+                </VisualStateGroup>
+            </VisualStateGroupList>
+        </Setter>
+    </Style>
+
+</ResourceDictionary>
