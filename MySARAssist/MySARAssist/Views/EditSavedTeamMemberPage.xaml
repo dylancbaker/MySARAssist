@@ -9,66 +9,66 @@
         <ScrollView Margin="20" Style="{DynamicResource backgroundStyle}">
             <StackLayout>
                 <Label  Style="{DynamicResource titleLabelStyle}">Member Information</Label>
-                <Entry  Style="{DynamicResource entryStyle}" Placeholder="Full Name" x:Name="txtFullName"></Entry>
-                <Picker x:Name="pickOrganization" 
+                <Entry  Style="{DynamicResource entryStyle}" Placeholder="Full Name" x:Name="txtFullName" Text="{Binding CurrentMember.Name, Mode=TwoWay}"></Entry>
+                <Picker x:Name="pickOrganization" ItemsSource="{Binding Organizations}"
                         Title="Select a SAR Team" 
                         Style="{DynamicResource pickerStyle}"
                         ItemDisplayBinding="{Binding OrganizationName}"
                         >
                 </Picker>
-                <Entry  Style="{DynamicResource entryStyle}" Placeholder="Address"  x:Name="txtAddress"></Entry>
-                <Entry  Style="{DynamicResource entryStyle}" Placeholder="Phone" Keyboard="Telephone" x:Name="txtPhone"></Entry>
-                <Entry  Style="{DynamicResource entryStyle}" Placeholder="Email" Keyboard="Email" x:Name="txtEmail"></Entry>
-                <Entry  Style="{DynamicResource entryStyle}" Placeholder="EMBC ID#" Keyboard="Numeric" x:Name="txtRef"></Entry>
-                <Entry  Style="{DynamicResource entryStyle}" Placeholder="Callsign" x:Name="txtCallsign"></Entry>
+                <Entry  Style="{DynamicResource entryStyle}" Placeholder="Address"  x:Name="txtAddress" Text="{Binding CurrentMember.Address, Mode=TwoWay}"></Entry>
+                <Entry  Style="{DynamicResource entryStyle}" Placeholder="Phone" Keyboard="Telephone" x:Name="txtPhone" Text="{Binding CurrentMember.Phone, Mode=TwoWay}"></Entry>
+                <Entry  Style="{DynamicResource entryStyle}" Placeholder="Email" Keyboard="Email" x:Name="txtEmail" Text="{Binding CurrentMember.Email, Mode=TwoWay}"></Entry>
+                <Entry  Style="{DynamicResource entryStyle}" Placeholder="EMBC ID#" Keyboard="Numeric" x:Name="txtRef" Text="{Binding CurrentMember.Reference, Mode=TwoWay}"></Entry>
+                <Entry  Style="{DynamicResource entryStyle}" Placeholder="Callsign" x:Name="txtCallsign" Text="{Binding CurrentMember.Callsign, Mode=TwoWay}"></Entry>
 
                 <Label Style="{DynamicResource subtitleLabelStyle}" >Qualifications</Label>
                 <StackLayout Orientation="Horizontal">
-                    <CheckBox x:Name="chkGSAR"></CheckBox>
+                    <CheckBox x:Name="chkGSAR" IsChecked="{Binding CurrentMember.GSAR}"></CheckBox>
                     <Label Style="{DynamicResource labelStyle}" Text="Ground SAR" VerticalOptions="Center"></Label>
 
                 </StackLayout>
                 <StackLayout Orientation="Horizontal">
-                    <CheckBox x:Name="chkGSTL"></CheckBox>
+                    <CheckBox x:Name="chkGSTL" IsChecked="{Binding CurrentMember.GSTL}"></CheckBox>
                     <Label Style="{DynamicResource labelStyle}" Text="Ground SAR Team Leader" VerticalOptions="Center"></Label>
 
                 </StackLayout>
                 <StackLayout Orientation="Horizontal">
-                    <CheckBox x:Name="chkSARM"></CheckBox>
+                    <CheckBox x:Name="chkSARM" IsChecked="{Binding CurrentMember.SARM}"></CheckBox>
                     <Label Style="{DynamicResource labelStyle}" Text="SAR Manager" VerticalOptions="Center"></Label>
 
                 </StackLayout>
                 <StackLayout Orientation="Horizontal">
-                    <CheckBox x:Name="chkTracker"></CheckBox>
+                    <CheckBox x:Name="chkTracker" IsChecked="{Binding CurrentMember.Tracker}"></CheckBox>
                     <Label Style="{DynamicResource labelStyle}" Text="Tracker" VerticalOptions="Center"></Label>
 
                 </StackLayout>
                 <StackLayout Orientation="Horizontal">
-                    <CheckBox x:Name="chkRopeRescue"></CheckBox>
+                    <CheckBox x:Name="chkRopeRescue" IsChecked="{Binding CurrentMember.RopeRescue}"></CheckBox>
                     <Label Style="{DynamicResource labelStyle}" Text="Rope Rescue" VerticalOptions="Center"></Label>
 
                 </StackLayout>
                 <StackLayout Orientation="Horizontal">
-                    <CheckBox x:Name="chkFirstAid"></CheckBox>
+                    <CheckBox x:Name="chkFirstAid" IsChecked="{Binding CurrentMember.FirstAid}"></CheckBox>
                     <Label Style="{DynamicResource labelStyle}" Text="First Aid" VerticalOptions="Center"></Label>
                 </StackLayout>
                 <StackLayout Orientation="Horizontal">
-                    <CheckBox x:Name="chkSwiftwater"></CheckBox>
+                    <CheckBox x:Name="chkSwiftwater" IsChecked="{Binding CurrentMember.Swiftwater}"></CheckBox>
                     <Label Style="{DynamicResource labelStyle}" Text="Swiftwater" VerticalOptions="Center"></Label>
                 </StackLayout>
                 <StackLayout Orientation="Horizontal">
-                    <CheckBox x:Name="chkMountainRescue"></CheckBox>
+                    <CheckBox x:Name="chkMountainRescue" IsChecked="{Binding CurrentMember.MountainRescue}"></CheckBox>
                     <Label Style="{DynamicResource labelStyle}" Text="Mountain Rescue" VerticalOptions="Center"></Label>
                 </StackLayout>
 
                 <Label Style="{DynamicResource subtitleLabelStyle}">Emergency Contact</Label>
-                <Entry  Style="{DynamicResource entryStyle}" Placeholder="Emergency Contact Name" x:Name="txtNOKName"></Entry>
-                <Entry  Style="{DynamicResource entryStyle}" Placeholder="Relationship" x:Name="txtNOKRelationship"></Entry>
-                <Entry  Style="{DynamicResource entryStyle}" Placeholder="Phone Number" Keyboard="Telephone" x:Name="txtNOKPhone"></Entry>
+                <Entry  Style="{DynamicResource entryStyle}" Placeholder="Emergency Contact Name" x:Name="txtNOKName" Text="{Binding CurrentMember.NOKName, Mode=TwoWay}"></Entry>
+                <Entry  Style="{DynamicResource entryStyle}" Placeholder="Relationship" x:Name="txtNOKRelationship" Text="{Binding CurrentMember.NOKRelation, Mode=TwoWay}"></Entry>
+                <Entry  Style="{DynamicResource entryStyle}" Placeholder="Phone Number" Keyboard="Telephone" x:Name="txtNOKPhone" Text="{Binding CurrentMember.NOKPhone, Mode=TwoWay}"></Entry>
 
                 <StackLayout Orientation="Horizontal">
-                    <Button x:Name="btnCancel" Style="{DynamicResource buttonStyle}" Text="Cancel" HorizontalOptions="FillAndExpand" Clicked="btnCancel_Clicked"></Button>
-                    <Button x:Name="btnSave" Style="{DynamicResource buttonStyle}" Text="Save" HorizontalOptions="FillAndExpand" Clicked="btnSave_Clicked"></Button>
+                    <Button x:Name="btnCancel" Style="{DynamicResource buttonStyle}" Text="Cancel" HorizontalOptions="FillAndExpand" Command="{Binding CancelCommand}"></Button>
+                    <Button x:Name="btnSave" Style="{DynamicResource buttonStyle}" Text="Save" HorizontalOptions="FillAndExpand" Command="{Binding SaveCommand}"></Button>
                 </StackLayout>
             </StackLayout>
         </ScrollView>

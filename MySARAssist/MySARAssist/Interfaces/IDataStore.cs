@@ -9,6 +9,7 @@ namespace MySARAssist.Interfaces
     {
         Task<bool> AddItemAsync(T item);
         Task<bool> UpdateItemAsync(T item);
+        Task<bool> UpsertItemAsync(T item);
         Task<bool> DeleteItemAsync(Guid id);
         Task<T> GetItemAsync(Guid id);
 

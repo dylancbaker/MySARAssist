@@ -61,7 +61,16 @@ namespace MySARAssist.Services
             return await Task.FromResult(true);
         }
 
-
+        public async Task<bool> UpsertItemAsync(TeamMember item)
+        {
+            if(_AllTeamMembers.Where(o=>o.PersonID == item.PersonID).Any())
+            {
+                return await UpdateItemAsync(item);
+            } else
+            {
+                return await AddItemAsync(item);
+            }
+        }
 
         private static bool saveToSQLite(TeamMember member)
         {
