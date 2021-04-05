@@ -38,6 +38,7 @@ namespace MySARAssist.ResourceClasses
                 SetDynamicResource("flyoutItemLayoutStyle", "flyoutItemLayoutStyleDark");
                 SetDynamicResource("listFrameStyle", "listFrameStyleDarkTheme");
                 SetDynamicResource("listViewStyle", "listViewStyleDark");
+                SetDynamicResource("buttonStyle", "buttonStyleDarkTheme");
             }
             else
             {
@@ -51,6 +52,7 @@ namespace MySARAssist.ResourceClasses
                 SetDynamicResource("flyoutItemLayoutStyle", "flyoutItemLayoutStyleLight");
                 SetDynamicResource("listFrameStyle", "listFrameStyleLightTheme");
                 SetDynamicResource("listViewStyle", "listViewStyleLight");
+                SetDynamicResource("buttonStyle", "buttonStyleLightTheme");
             }
 
         }

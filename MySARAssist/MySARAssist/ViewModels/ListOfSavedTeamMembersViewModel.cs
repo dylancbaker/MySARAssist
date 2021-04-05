@@ -5,6 +5,7 @@ using System.Text;
 using Xamarin.Forms;
 using MySARAssist.Models;
 using System.Threading.Tasks;
+using MySARAssist.Interfaces;
 
 namespace MySARAssist.ViewModels
 {
@@ -19,7 +20,33 @@ namespace MySARAssist.ViewModels
 
             LoadItemsCommand = new Command(async () => await ExecuteLoadItemsCommand());
 
-            ItemTapped = new Command<TeamMember>(OnItemSelected);
+            //ItemTapped = new Command<TeamMember>(OnItemSelected);
+            EditTeamMemberCommand = new Command((e) =>
+            {
+                Guid selected_memberID = new Guid(e.ToString());
+
+                Shell.Current.GoToAsync($"{nameof(Views.EditSavedTeamMemberPage)}?strTeamMemberID={selected_memberID}");
+            });
+
+            SelectTeamMemberCommand = new Command((e) =>
+            {
+                Guid selected_memberID = new Guid(e.ToString());
+
+                App.TeamMemberManager.setCurrentTeamMember(selected_memberID);
+                App.CurrentTeamMember = App.TeamMemberManager.GetCurrentTeamMember();
+                OnPropertyChanged(nameof(App.CurrentTeamMember));
+
+                DependencyService.Get<Toast>().Show("Selected Member Updated");
+                try
+                {
+                    ExecuteLoadItemsCommand();
+                } catch (Exception)
+                {
+
+                }
+                
+            });
+
             AddMemberCommand = new Command(OnAddMember);
         }
 
@@ -33,7 +60,8 @@ namespace MySARAssist.ViewModels
         }
 
 
-
+        public Command EditTeamMemberCommand { get; }
+        public Command SelectTeamMemberCommand { get; }
         public Command LoadItemsCommand { get; }
         public Command<TeamMember> ItemTapped { get; }
         public bool IsRefreshing { get; set; }

@@ -1,10 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Linq;
 
 namespace MySARAssist.Models
 {
-    public class Organization
+    public class Organization : IEquatable<Organization>
     {
         public Organization() { }
         public Organization(Guid id, string name) { OrganizationID = id; OrganizationName = name; }
@@ -20,12 +21,18 @@ namespace MySARAssist.Models
         private int _userCount = 0;
         public int UserCount { get => _userCount; set => _userCount = value; }
 
+        public bool Equals(Organization other)
+        {
+            // Would still want to check for null etc. first.
+            return this.OrganizationID == other.OrganizationID;
+        }
 
         public List<Organization> getStaticOrganizationList()
         {
-            //to be used when the org list is needed and internet is not avilable;
-            List<Organization> organizations = new List<Organization>();
+            //to be used when the org list is needed
+            //note these org IDs correspond to IDs in the Incident Command Assistant software (ICA) and should be changed in both places if they're changed at all.
 
+            List<Organization> organizations = new List<Organization>();
             organizations.Add(new Organization(new Guid("46698CE0-B146-40E2-B834-0089DECE3896"), "Mackenzie SAR"));
             organizations.Add(new Organization(new Guid("9202836C-DC5C-4C62-8190-022A03769098"), "Revelstoke SAR"));
             organizations.Add(new Organization(new Guid("BE921E46-2521-4B8C-9438-0645CCB19DE8"), "Arrowsmith SAR"));
@@ -73,7 +80,6 @@ namespace MySARAssist.Models
             organizations.Add(new Organization(new Guid("4643747E-FB2A-4230-B4B8-8506F9951DFF"), "Chetwynd SAR"));
             organizations.Add(new Organization(new Guid("B865EDF6-F0A7-4241-8CD4-8A5942C7B18A"), "Tumbler Ridge SAR"));
             organizations.Add(new Organization(new Guid("589F720D-A304-49CF-B40C-8E944D7C9D2F"), "Fort St. James SAR"));
-            organizations.Add(new Organization(new Guid("96BA69A4-436C-4DA1-85B1-992E84C36019"), "Unassigned"));
             organizations.Add(new Organization(new Guid("893B590C-A159-4A89-9CA4-A3DF24D6ABFE"), "Sunshine Coast SAR"));
             organizations.Add(new Organization(new Guid("B04FE1E7-979F-40CC-892C-A74EEA295ECB"), "Kaslo SAR"));
             organizations.Add(new Organization(new Guid("8B8D2A86-91D6-4606-B2D7-A9EDF3C8EE35"), "Burns Lake SAR"));
@@ -109,9 +115,14 @@ namespace MySARAssist.Models
             organizations.Add(new Organization(new Guid("71FFF997-108B-4DDF-914E-F81069F8EA26"), "Barriere SAR"));
             organizations.Add(new Organization(new Guid("A3190007-E0EA-49F8-95F8-F8FF8396A38B"), "Cranbrook SAR"));
             organizations.Add(new Organization(new Guid("F1B9CA16-CB19-4DD2-961F-FE3EB6CC6477"), "Archipelago SAR"));
+
+            organizations = organizations.OrderBy(o => o.OrganizationName).ToList();
+
+            //Add the weird ones at the end after sorting the list
             organizations.Add(new Organization(new Guid("02035C34-CD9C-4B3D-9C22-5AF29068A0D9"), "Non-SAR"));
             organizations.Add(new Organization(new Guid("8CBE0C6D-78B1-4600-96C0-21E3C16A444D"), "Great Hat Web Design"));
-            //02035C34-CD9C-4B3D-9C22-5AF29068A0D9
+            organizations.Add(new Organization(new Guid("96BA69A4-436C-4DA1-85B1-992E84C36019"), "Unassigned"));
+            
 
             return organizations;
         }

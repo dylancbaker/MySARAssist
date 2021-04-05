@@ -8,13 +8,23 @@ namespace MySARAssist.ViewModels
     {
         public SignInQRViewModel()
         {
-
+            SignInTime = DateTime.Now.TimeOfDay;
+            MustBeOutTime = DateTime.Now.TimeOfDay;
         }
-        private DateTime _SignInTime;
-        private DateTime _MustBeOutTime;
+        private TimeSpan _SignInTime;
+        private TimeSpan _MustBeOutTime;
         private bool _UseMustBeOutTime;
 
-        public DateTime SignInTime
+        public string CurrentMemberName
+        {
+            get
+            {
+                if (App.CurrentTeamMember != null) { return App.CurrentTeamMember.NameWithGroup; }
+                else { return "-No member selected-"; }
+            }
+        }
+
+        public TimeSpan SignInTime
         {
             get => _SignInTime; set
             {
@@ -24,9 +34,9 @@ namespace MySARAssist.ViewModels
             }
         }
 
-        public DateTime MustBeOutTime
+        public TimeSpan MustBeOutTime
         {
-            get => _SignInTime; set
+            get => _MustBeOutTime; set
             {
                 _MustBeOutTime = value;
                 OnPropertyChanged(nameof(MustBeOutTime));
@@ -49,14 +59,23 @@ namespace MySARAssist.ViewModels
             get
             {
                 string qrString = "~" + App.CurrentTeamMember.StringForQR;
-                qrString += SignInTime + ";";
+                qrString += convertTimespanToDate(SignInTime) + ";";
                 if (UseMustBeOutTime)
                 {
-                    qrString += MustBeOutTime + ";";
+                    qrString += convertTimespanToDate(MustBeOutTime) + ";";
                 }
                 qrString += "~";
                 return qrString;
             }
+        }
+
+        private DateTime convertTimespanToDate(TimeSpan ts)
+        {
+            DateTime today = DateTime.Now;
+
+            DateTime dt = new DateTime(today.Year, today.Month, today.Day);
+            dt = dt + ts;
+            return dt;
         }
     }
 }

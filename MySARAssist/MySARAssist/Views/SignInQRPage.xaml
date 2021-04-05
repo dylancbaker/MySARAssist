@@ -8,9 +8,9 @@
              ios:Page.UseSafeArea="true"
             >
     <ContentPage.Content>
-        <StackLayout Margin="10" Padding="10"  Style="{DynamicResource backgroundStyle}">
+        <StackLayout Padding="20" Style="{DynamicResource backgroundStyle}">
             <Label Text="Sign in to a task as..." HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Center" Style="{DynamicResource subtitleLabelStyle}"></Label>
-            <Label x:Name="lblUserName" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Center" Style="{DynamicResource titleLabelStyle}" Text="{Binding CurrentTeamMemberName}"></Label>
+            <Label x:Name="lblUserName" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Center" Style="{DynamicResource titleLabelStyle}" Text="{Binding CurrentMemberName}"></Label>
 
             <StackLayout Orientation="Horizontal">
                 <Label Style="{DynamicResource labelStyle}" VerticalOptions="Center" Text="Sign In Time"></Label>

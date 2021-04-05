@@ -6,11 +6,11 @@
               xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core" 
               ios:Page.UseSafeArea="true">
     <ContentPage.Content>
-        <ScrollView Margin="20" Style="{DynamicResource backgroundStyle}">
+        <ScrollView Padding="15" Style="{DynamicResource backgroundStyle}">
             <StackLayout>
                 <Label  Style="{DynamicResource titleLabelStyle}">Member Information</Label>
                 <Entry  Style="{DynamicResource entryStyle}" Placeholder="Full Name" x:Name="txtFullName" Text="{Binding CurrentMember.Name, Mode=TwoWay}"></Entry>
-                <Picker x:Name="pickOrganization" ItemsSource="{Binding Organizations}"
+                <Picker x:Name="pickOrganization" ItemsSource="{Binding Organizations}" SelectedItem="{Binding CurrentMember.MemberOrganization, Mode=TwoWay}"
                         Title="Select a SAR Team" 
                         Style="{DynamicResource pickerStyle}"
                         ItemDisplayBinding="{Binding OrganizationName}"
@@ -68,6 +68,7 @@
 
                 <StackLayout Orientation="Horizontal">
                     <Button x:Name="btnCancel" Style="{DynamicResource buttonStyle}" Text="Cancel" HorizontalOptions="FillAndExpand" Command="{Binding CancelCommand}"></Button>
+                    <Button x:Name="btnDelete" Style="{DynamicResource buttonStyleRed}" Text="Delete" HorizontalOptions="FillAndExpand" Clicked="btnDelete_Clicked"></Button>
                     <Button x:Name="btnSave" Style="{DynamicResource buttonStyle}" Text="Save" HorizontalOptions="FillAndExpand" Command="{Binding SaveCommand}"></Button>
                 </StackLayout>
             </StackLayout>

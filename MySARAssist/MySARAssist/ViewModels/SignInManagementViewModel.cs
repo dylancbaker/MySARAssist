@@ -21,6 +21,11 @@ namespace MySARAssist.ViewModels
         public Command EditTeamMembersCommand { get; }
         public Command ChangeSelectedMemberCommand { get; }
 
+        public void OnAppearing()
+        {
+            OnPropertyChanged(nameof(CurrentMemberName));
+            OnPropertyChanged(nameof(AllowSignInAndOut));
+        }
 
         public string CurrentMemberName
         {
@@ -28,6 +33,14 @@ namespace MySARAssist.ViewModels
             {
                 if (App.CurrentTeamMember != null) { return App.CurrentTeamMember.NameWithGroup; }
                 else { return "-No member selected-"; }
+            }
+        }
+
+        public bool AllowSignInAndOut
+        {
+            get
+            {
+                return App.CurrentTeamMember != null;
             }
         }
 

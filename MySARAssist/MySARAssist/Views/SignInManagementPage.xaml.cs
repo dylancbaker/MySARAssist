@@ -25,6 +25,7 @@ namespace MySARAssist.Views
         {
             base.OnAppearing();
             ResourceHelper.setThemeColor();
+            _viewModel.OnAppearing();
         }
     }
 }

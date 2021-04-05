@@ -48,7 +48,19 @@ namespace MySARAssist.Services
 
         public async Task<IEnumerable<TeamMember>> GetItemsAsync(bool forceRefresh = false)
         {
-            return await Task.FromResult(_AllTeamMembers);
+            /*
+            if(forceRefresh || !_AllTeamMembers.Any())
+            {
+                _AllTeamMembers.Clear();
+                _AllTeamMembers = GetTeamMembers();
+            }*/
+            List<TeamMember> members = GetTeamMembers();
+            List<Organization> allOrgs = new Organization().getStaticOrganizationList();
+            foreach(TeamMember member in members)
+            {
+                if(member.OrganizationID != Guid.Empty && allOrgs.Where(o=>o.OrganizationID == member.OrganizationID).Any()) { member.MemberOrganization = allOrgs.Where(o => o.OrganizationID == member.OrganizationID).First(); }
+            }
+            return members;
         }
 
       
@@ -119,6 +131,53 @@ namespace MySARAssist.Services
             {
                 return null;
             }
+        }
+
+        public async void setCurrentTeamMember(Guid selected_memberID)
+        {
+            foreach(TeamMember m in _AllTeamMembers)
+            {
+                m.CurrentlySelected = false;
+                saveToSQLite(m);
+            }
+            if (_AllTeamMembers.Where(o => o.PersonID == selected_memberID).Any())
+            {
+                _AllTeamMembers.Where(o => o.PersonID == selected_memberID).First().CurrentlySelected = true;
+                //member.CurrentlySelected = true;
+                await UpsertItemAsync(_AllTeamMembers.Where(o => o.PersonID == selected_memberID).First());
+            }
+        }
+
+        private List<TeamMember> GetTeamMembers()
+        {
+            List<TeamMember> members = new List<TeamMember>();
+            using (SQLiteConnection conn = new SQLiteConnection(App.DatabaseLocation))
+            {
+                conn.CreateTable<TeamMember>();
+                members = conn.Table<TeamMember>().OrderBy(o => o.Name).ToList();
+                //assessments = assessments.Where(o => user.thisUserCanView(o)).ToList();
+
+               
+            }
+
+            return members;
+        }
+
+        public Organization GetMostCommonOrganization()
+        {
+            Organization mostPopularOrg = null;
+
+            List<Organization> allOrgs = new Organization().getStaticOrganizationList();
+            foreach(Organization org in allOrgs)
+            {
+                org.UserCount = _AllTeamMembers.Where(o => o.OrganizationID == org.OrganizationID).Count();
+            }
+            if(allOrgs.Where(o=>o.UserCount > 0).Any())
+            {
+                mostPopularOrg = allOrgs.OrderByDescending(o => o.UserCount).First();
+            }
+
+            return mostPopularOrg;
         }
     }
 }

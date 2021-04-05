@@ -14,8 +14,8 @@
                     <Button Text="Change" x:Name="btnChangeSelectedMember" Style="{DynamicResource smButtonStyle}" Command="{Binding ChangeSelectedMemberCommand}"></Button>
                 </StackLayout>
 
-                <Button x:Name="btnSignIn" Text="Sign In to a Task" Style="{DynamicResource buttonStyle}" Command="{Binding SignInCommand}"></Button>
-                <Button x:Name="btnSignOut" Text="Sign Out of a Task" Style="{DynamicResource buttonStyle}" Margin="0,0,0,40" Command="{Binding SignOutCommand}"></Button>
+                <Button x:Name="btnSignIn" Text="Sign In to a Task" IsEnabled="{Binding AllowSignInAndOut}"  Style="{DynamicResource buttonStyle}" Command="{Binding SignInCommand}"></Button>
+                <Button x:Name="btnSignOut" Text="Sign Out of a Task" IsEnabled="{Binding AllowSignInAndOut}"  Style="{DynamicResource buttonStyle}" Margin="0,0,0,40" Command="{Binding SignOutCommand}"></Button>
                 <Button x:Name="btnEditUserList" Text="Edit Saved Members" Style="{DynamicResource buttonStyle}" Command="{Binding EditTeamMembersCommand}"></Button>
             </StackLayout>
         </ScrollView>

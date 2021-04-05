@@ -10,6 +10,7 @@
             <ResourceDictionary Source="/Styles/AppColors.xaml" />
             <ResourceDictionary Source="/Styles/DefaultTheme.xaml" />
             <local1:DoubleConverter x:Key="doubleConverter" />
+            <local1:IntConverter x:Key="intConverter" />
         </ResourceDictionary>        
     </Application.Resources>
 </Application>

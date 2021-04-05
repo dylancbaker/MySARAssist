@@ -109,7 +109,33 @@
 
 
 
+    <!-- Buttons-->
+    <Style x:Key="buttonStyleBasic" TargetType="Button">
+        <Setter Property="BorderWidth" Value="1"></Setter>
+        <Setter Property="CornerRadius" Value="5"></Setter>
+        <Setter Property="Padding" Value="5, 10, 5, 10"></Setter>
+    </Style>
+    <Style x:Key="buttonStyle" TargetType="Button" BasedOn="{StaticResource buttonStyleBasic}">
+        <Setter Property="BorderColor" Value="{StaticResource mediumGrey}"></Setter>
+    </Style>
+    <Style x:Key="buttonStyleLightTheme" TargetType="Button" BasedOn="{StaticResource buttonStyleBasic}">
+        <Setter Property="BackgroundColor" Value="{StaticResource lightGrey}"></Setter>
+        <Setter Property="TextColor" Value="{StaticResource darkGrey}"></Setter>
+        <Setter Property="BorderColor" Value="{StaticResource darkGrey}"></Setter>
+    </Style>
+    <Style x:Key="buttonStyleDarkTheme" TargetType="Button" BasedOn="{StaticResource buttonStyleBasic}">
+        <Setter Property="BackgroundColor" Value="{StaticResource darkGrey}"></Setter>
+        <Setter Property="TextColor" Value="{StaticResource lightGrey}"></Setter>
+        <Setter Property="BorderColor" Value="{StaticResource lightGrey}"></Setter>
+    </Style>
 
+
+    <Style x:Key="buttonStyleRed" TargetType="Button" BasedOn="{StaticResource buttonStyleBasic}">
+        <Setter Property="BackgroundColor" Value="{StaticResource darkRedButtonColour}"></Setter>
+        <Setter Property="TextColor" Value="{StaticResource white}"></Setter>
+        <Setter Property="BorderColor" Value="{StaticResource white}"></Setter>
+
+    </Style>
 
     <!-- Entry-->
     <Style TargetType="Entry" x:Key="entryStyleBasic">

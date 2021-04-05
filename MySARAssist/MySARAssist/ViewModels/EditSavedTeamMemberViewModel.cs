@@ -15,7 +15,10 @@ namespace MySARAssist.ViewModels
             Organizations = new Organization().getStaticOrganizationList();
             CancelCommand = new Command(OnCancelCommand);
             SaveCommand = new Command(OnSaveCommand);
+            DeleteCommand = new Command(OnDeleteCommand);
             CurrentMember = new TeamMember();
+            Organization mostPopularOrg = App.TeamMemberManager.GetMostCommonOrganization();
+            if (mostPopularOrg != null) { CurrentMember.MemberOrganization = mostPopularOrg; }
         }
 
         public List<Organization> Organizations { get; private set; }
@@ -23,6 +26,7 @@ namespace MySARAssist.ViewModels
 
         public Command CancelCommand { get; }
         public Command SaveCommand { get; }
+        public Command DeleteCommand { get; }
 
         public Guid TeamMemberID
         {
@@ -36,6 +40,8 @@ namespace MySARAssist.ViewModels
                 else
                 {
                     CurrentMember = new TeamMember();
+                    
+
                 }
                 OnPropertyChanged(nameof(CurrentMember));
             }
@@ -53,6 +59,7 @@ namespace MySARAssist.ViewModels
         }
         private async void OnSaveCommand()
         {
+
             if (await App.TeamMemberManager.UpsertItemAsync(CurrentMember))
             {
                 DependencyService.Get<Toast>().Show("Team Member Saved");
@@ -60,6 +67,22 @@ namespace MySARAssist.ViewModels
             } else
             {
                 DependencyService.Get<Toast>().Show("ERROR: Member not saved");
+            }
+        }
+        private async void OnDeleteCommand()
+        {
+            if(await App.TeamMemberManager.DeleteItemAsync(CurrentMember.PersonID))
+            {
+                if(App.CurrentTeamMember.PersonID == CurrentMember.PersonID)
+                {
+                    App.CurrentTeamMember = null;
+                }
+                DependencyService.Get<Toast>().Show("Team Member Deleted");
+                await Shell.Current.GoToAsync("..");
+            }
+            else
+            {
+                DependencyService.Get<Toast>().Show("ERROR: Member not deleted");
             }
         }
     }

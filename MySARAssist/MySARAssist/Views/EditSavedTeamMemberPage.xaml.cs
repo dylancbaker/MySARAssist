@@ -40,5 +40,14 @@ namespace MySARAssist.Views
             base.OnAppearing();
             ResourceHelper.setThemeColor();
         }
+
+        private async void btnDelete_Clicked(object sender, EventArgs e)
+        {
+            var answer = await DisplayAlert("Delete member?", "Are you sure you want to delete this member?", "Yes", "No");
+            if (answer)
+            {
+                _viewModel.DeleteCommand.Execute(null);
+            }
+        }
     }
 }

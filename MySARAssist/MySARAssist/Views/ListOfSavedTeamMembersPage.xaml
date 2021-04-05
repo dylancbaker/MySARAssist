@@ -4,23 +4,32 @@
              x:Class="MySARAssist.Views.ListOfSavedTeamMembersPage" 
              Title="Saved Team Members"
               xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core" 
-              ios:Page.UseSafeArea="true">
+              ios:Page.UseSafeArea="true" >
     <ContentPage.ToolbarItems>
         <ToolbarItem x:Name="btnAdd" Text="Add Member" Command="{Binding AddMemberCommand}"></ToolbarItem>
     </ContentPage.ToolbarItems>
     <ContentPage.Content>
-        <ListView x:Name="lbMemberList" HasUnevenRows="True" Style="{DynamicResource listViewStyle}" ItemsSource="{Binding Items}" ItemSelected="lbMemberList_ItemSelected"
-                   IsPullToRefreshEnabled="True" RefreshCommand="{Binding LoadItemsCommand}" IsRefreshing="{Binding IsRefreshing}" SeparatorVisibility="None">
-            <ListView.ItemTemplate>
-                <DataTemplate>
-                    <ViewCell>
-                        <Frame Style="{StaticResource listFrameStyle}">
-                            <Label Style="{DynamicResource labelStyle}" Text="{Binding NameWithGroup}"></Label>
-                        </Frame>
-                    </ViewCell>
-                </DataTemplate>
+        <StackLayout Padding="20" Style="{DynamicResource backgroundStyle}">
+            <ListView x:Name="lbMemberList" HasUnevenRows="True" Style="{DynamicResource listViewStyle}" ItemsSource="{Binding Items}" ItemSelected="lbMemberList_ItemSelected"
+                       IsPullToRefreshEnabled="True" RefreshCommand="{Binding LoadItemsCommand}" IsRefreshing="{Binding IsRefreshing}" SeparatorVisibility="None" >
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout Orientation="Horizontal" Margin="0,0,0,10">
+                                <Label Style="{DynamicResource labelStyle}" Text="{Binding NameWithGroupAndCurrent}"></Label>
+                                <Button Style="{DynamicResource buttonStyle}" VerticalOptions="Center" Text="Select" CommandParameter="{Binding PersonID}" Command="{Binding 
+                                        Path=BindingContext.SelectTeamMemberCommand, 
+                                        Source={x:Reference lbMemberList}}"></Button>
+                                <Button Style="{DynamicResource buttonStyle}" VerticalOptions="Center" Text="Edit" CommandParameter="{Binding PersonID}" Command="{Binding 
+                                        Path=BindingContext.EditTeamMemberCommand, 
+                                        Source={x:Reference lbMemberList}}"></Button>
+                            
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
 
-            </ListView.ItemTemplate>
-        </ListView>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
     </ContentPage.Content>
 </ContentPage>

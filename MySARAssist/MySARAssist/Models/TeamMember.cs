@@ -11,11 +11,12 @@ namespace MySARAssist.Models
         {
             PersonID = Guid.NewGuid();
             MemberActive = true;
+            MemberOrganization = new Organization(new Guid("96BA69A4-436C-4DA1-85B1-992E84C36019"), "Unassigned");
         }
 
         private Guid _PersonID;
         private string _Name;
-        private string _Group;
+        //private string _Group;
         private string _Callsign;
         private string _Phone;
         private bool _RopeRescue;
@@ -32,7 +33,7 @@ namespace MySARAssist.Models
         private bool _SARM;
         private string _barcode;
         private bool _signedIn;
-        private Guid _organizationID;
+      //  private Guid _organizationID;
         private Guid _userID;
         private bool _memberActive;
         private DateTime _lastUpdatedUTC;
@@ -44,13 +45,14 @@ namespace MySARAssist.Models
         private string _NOKPhone;
         private string _D4HStatus;
         private bool _CurrentlySelected;
+        private Organization _MemberOrganization;
 
         [PrimaryKey]
         public Guid PersonID { get => _PersonID; set => _PersonID = value; }
 
         public string Name { get => _Name; set => _Name = value; }
 
-        public string Group { get => _Group; set => _Group = value; } //Use OrganizationName for this value
+        public string Group { get => _MemberOrganization.OrganizationName; set => _MemberOrganization.OrganizationName = value; } //Use OrganizationName for this value
         public string NameWithGroup
         {
             get
@@ -75,6 +77,20 @@ namespace MySARAssist.Models
                 else { return Name; }
             }
         }
+        public string NameWithGroupAndCurrent
+        {
+            get
+            {
+                StringBuilder sb = new StringBuilder();
+                if (CurrentlySelected) { sb.Append("*"); }
+                sb.Append(Name);
+                if (!string.IsNullOrEmpty(Group))
+                {
+                    sb.Append(" ("); sb.Append(Group); sb.Append(")");
+                }
+                return sb.ToString();
+            }
+        }
 
 
         public string Callsign { get => _Callsign; set => _Callsign = value; }
@@ -92,7 +108,7 @@ namespace MySARAssist.Models
         public bool SARM { get { return _SARM; } set { _SARM = value; } }
         public string Barcode { get { return _barcode; } set { _barcode = value; } }
         public bool SignedInToTask { get { return _signedIn; } set { _signedIn = value; } }
-        public Guid OrganizationID { get => _organizationID; set => _organizationID = value; }
+        public Guid OrganizationID { get => _MemberOrganization.OrganizationID; set => _MemberOrganization.OrganizationID = value; }
         public Guid UserID { get => _userID; set => _userID = value; }
         public bool MemberActive { get => _memberActive; set => _memberActive = value; }
         public DateTime LastUpdatedUTC { get => _lastUpdatedUTC; set => _lastUpdatedUTC = value; }
@@ -130,7 +146,9 @@ namespace MySARAssist.Models
         }
         public string D4HStatus { get => _D4HStatus; set => _D4HStatus = value; }
         public bool CurrentlySelected { get => _CurrentlySelected; set => _CurrentlySelected = value; }
-
+        
+        [Ignore]
+        public Organization MemberOrganization { get => _MemberOrganization; set => _MemberOrganization = value; }
 
 
         public string StringForQR

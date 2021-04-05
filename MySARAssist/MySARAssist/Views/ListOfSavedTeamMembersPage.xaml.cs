@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MySARAssist.ResourceClasses;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -22,11 +23,20 @@ namespace MySARAssist.Views
             this.BindingContext = _viewModel;
 
         }
+        protected async override void OnAppearing()
+        {
+            base.OnAppearing();
+            ResourceHelper.setThemeColor();
+            lbMemberList.BeginRefresh();
+             //_viewModel.ExecuteLoadItemsCommand();
+        }
 
         private void lbMemberList_ItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
-            Models.TeamMember member = (Models.TeamMember)e.SelectedItem;
-            _viewModel.OnItemSelected(member);
+            lbMemberList.SelectedItem = null;
+
+           
+
         }
     }
 }
