@@ -18,7 +18,23 @@
         </Grid>
 
     </Shell.FlyoutHeader>
-    
+
+
+    <FlyoutItem Title="Sign In or Out" Icon="ClockIcon.png">
+        <ShellContent Route="SignInManagementPage" ContentTemplate="{DataTemplate local:SignInManagementPage}" />
+    </FlyoutItem>
+    <FlyoutItem Title="Calculators" Icon="CalculatorIcon.png">
+        <ShellContent Route="Calculators" ContentTemplate="{DataTemplate local:CalculatorsPage}" />
+    </FlyoutItem>
+    <FlyoutItem Title="Network Settings" Icon="icon_about.png" IsVisible="False">
+        <ShellContent Route="NetworkSettingsPage" ContentTemplate="{DataTemplate local:NetworkSettingsPage}" />
+    </FlyoutItem>
+
+    <FlyoutItem Title="About" Icon="InfoIcon.png">
+        <ShellContent Route="AboutPage" ContentTemplate="{DataTemplate local:AboutPage}" />
+    </FlyoutItem>
+
+
     <!--
         The overall app visual hierarchy is defined here, along with navigation.
     
@@ -93,24 +109,7 @@
         https://docs.microsoft.com/dotnet/api/xamarin.forms.shellgroupitem.flyoutdisplayoptions?view=xamarin-forms
     -->
 
-    <FlyoutItem Title="Sign In or Out" Icon="icon_about.png">
-        <ShellContent Route="SignInManagementPage" ContentTemplate="{DataTemplate local:SignInManagementPage}" />
-    </FlyoutItem>
 
-    <FlyoutItem Title="Visual Sweep Spacing" Icon="icon_about.png">
-        <ShellContent Route="VisualSweepCalculatorPage" ContentTemplate="{DataTemplate local:VisualSweepCalculatorPage}" />
-    </FlyoutItem>
-    <FlyoutItem Title="Grid Work Estimation" Icon="icon_about.png">
-        <ShellContent Route="GridWorkEstimationPage" ContentTemplate="{DataTemplate local:GridWorkEstimationPage}" />
-    </FlyoutItem>
-    <FlyoutItem Title="Linear Work Estimation" Icon="icon_about.png">
-        <ShellContent Route="LinearWorkEstimationPage" ContentTemplate="{DataTemplate local:LinearWorkEstimationPage}" />
-    </FlyoutItem>
-
-
-    <FlyoutItem Title="About" Icon="icon_about.png">
-        <ShellContent Route="AboutPage" ContentTemplate="{DataTemplate local:AboutPage}" />
-    </FlyoutItem>
 
     <!-- When the Flyout is visible this will be a menu item you can tie a click behavior to  -->
   

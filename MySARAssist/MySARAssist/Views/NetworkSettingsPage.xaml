@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MySARAssist.Views.NetworkSettingsPage" 
+             xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core" 
+             Title="Local Network Settings"
+             ios:Page.UseSafeArea="true">
+    <ContentPage.Content>
+        <StackLayout Style="{DynamicResource backgroundStyle}" Padding="20">
+            <Label Text="Server IP Address" Style="{DynamicResource titleLabelStyle}"></Label>
+            <Editor Keyboard="Numeric" Text="{Binding ServerIP}" FontSize="Large" Placeholder="e.g. 192.168.1.1"  Style="{DynamicResource editorStyle}"></Editor>
+            <Label Text="Port Number" Style="{DynamicResource titleLabelStyle}"></Label>
+            <Editor Keyboard="Numeric" Text="{Binding PortNumber, Mode=TwoWay, Converter={StaticResource intConverter}}" FontSize="Large" Placeholder=""  Style="{DynamicResource editorStyle}"></Editor>
+            <Button x:Name="btnTest" Text="Test Netowrk" Style="{DynamicResource buttonStyle}" Command="{Binding TestNetworkCommand}"></Button>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

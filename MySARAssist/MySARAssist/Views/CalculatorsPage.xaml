@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MySARAssist.Views.CalculatorsPage"
+              xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core" 
+              ios:Page.UseSafeArea="true"
+             Title="SAR Calculators"
+             >
+    <ContentPage.Content>
+        <StackLayout Style="{DynamicResource backgroundStyle}" Padding="20">
+
+            <Label Text="Work Estimations" FontSize="Title" Style="{DynamicResource titleLabelStyle}"></Label>
+            <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+                <Button Text="Grid Search" ImageSource="GridIcon.png"  HorizontalOptions="FillAndExpand" Command="{Binding GridCommand}" Style="{DynamicResource buttonStyle}"></Button>
+                <Button Text="Linear Search" ImageSource="LineIcon.png"  HorizontalOptions="FillAndExpand" Command="{Binding LineCommand}" Style="{DynamicResource buttonStyle}"></Button>
+            </StackLayout>
+
+            <Label Text="Other Calculators" FontSize="Title" Style="{DynamicResource titleLabelStyle}"></Label>
+            <Button Text="Visual Search Spacing" ImageSource="SpacingIcon.png" Command="{Binding VisualSpacingCommand}" Style="{DynamicResource buttonStyle}"></Button>
+            <Button Text="Pacing vs Distance" ImageSource="FootstepIcon.png" Command="{Binding PacingCommand}" Style="{DynamicResource buttonStyle}"></Button>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

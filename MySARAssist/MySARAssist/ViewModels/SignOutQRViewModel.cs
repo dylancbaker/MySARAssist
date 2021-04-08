@@ -48,11 +48,17 @@ namespace MySARAssist.ViewModels
         {
             get
             {
-                string qrString = "^" + App.CurrentTeamMember.StringForQR;
-                qrString += convertTimespanToDate(SignOutTime) + ";";
-                qrString += KMs + ";";
-                qrString += "^";
-                return qrString;
+                try
+                {
+                    string qrString = "^" + App.CurrentTeamMember.StringForQR;
+                    qrString += convertTimespanToDate(SignOutTime) + ";";
+                    qrString += KMs + ";";
+                    qrString += "^";
+                    return qrString;
+                } catch
+                {
+                    return string.Empty;
+                }
             }
         }
 

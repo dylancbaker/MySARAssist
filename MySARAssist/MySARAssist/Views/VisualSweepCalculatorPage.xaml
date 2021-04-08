@@ -41,7 +41,9 @@
 
 
                 <Label Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" FontSize="Large" FontAttributes="Bold" Text="Range of Detection (meters)" Style="{DynamicResource titleLabelStyle}" ></Label>
-                <Button Grid.Row="0" Grid.Column="3" Text="?" Command="{Binding HowToRDCommand}"></Button>
+                
+                <ImageButton Grid.Row="0" Grid.Column="3" Command="{Binding HowToRDCommand}" Padding="10" Aspect="AspectFit"  Source="InfoIcon.png"></ImageButton>
+                
 
                 <Editor Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Keyboard="Numeric" Text="{Binding RangeOfDetection}" FontSize="Large" Placeholder="Range of Detection / AMDR"  Style="{DynamicResource editorStyle}"></Editor>
                 <Button Grid.Row="1" Grid.Column="2"  Grid.ColumnSpan="1" Text="+"  Command="{Binding RDUpCommand}" FontSize="Large"></Button>

@@ -23,7 +23,7 @@ namespace MySARAssist.Views
             this.BindingContext = _viewModel;
 
         }
-        protected async override void OnAppearing()
+        protected override void OnAppearing()
         {
             base.OnAppearing();
             ResourceHelper.setThemeColor();

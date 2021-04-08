@@ -4,7 +4,9 @@
              x:Class="MySARAssist.Views.EditSavedTeamMemberPage"
              Title="Edit Team Member"
               xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core" 
-              ios:Page.UseSafeArea="true">
+              ios:Page.UseSafeArea="true"
+             Shell.PresentationMode="ModalAnimated"
+             >
     <ContentPage.Content>
         <ScrollView Padding="15" Style="{DynamicResource backgroundStyle}">
             <StackLayout>

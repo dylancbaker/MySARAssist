@@ -25,7 +25,7 @@ namespace MySARAssist.ViewModels
             {
                 Guid selected_memberID = new Guid(e.ToString());
 
-                Shell.Current.GoToAsync($"{nameof(Views.EditSavedTeamMemberPage)}?strTeamMemberID={selected_memberID}");
+                Shell.Current.GoToAsync($"{nameof(Views.ListOfSavedTeamMembersPage) + "/" + nameof(Views.EditSavedTeamMemberPage)}?strTeamMemberID={selected_memberID}");
             });
 
             SelectTeamMemberCommand = new Command((e) =>
@@ -53,10 +53,10 @@ namespace MySARAssist.ViewModels
 
         public async void OnAppearing()
         {
-            IsBusy = true;
+           
             SelectedItem = null;
             await ExecuteLoadItemsCommand();
-            IsBusy = false;
+           
         }
 
 
@@ -103,11 +103,11 @@ namespace MySARAssist.ViewModels
                 return;
 
             // This will push the ItemDetailPage onto the navigation stack
-            await Shell.Current.GoToAsync($"{nameof(Views.EditSavedTeamMemberPage)}?strTeamMemberID={item.PersonID}");
+            await Shell.Current.GoToAsync($"{nameof(Views.ListOfSavedTeamMembersPage) + "/" + nameof(Views.EditSavedTeamMemberPage)}?strTeamMemberID={item.PersonID}");
         }
         public async void OnAddMember()
         {
-            await Shell.Current.GoToAsync($"{nameof(Views.EditSavedTeamMemberPage)}");
+            await Shell.Current.GoToAsync($"{nameof(Views.ListOfSavedTeamMembersPage) + "/" + nameof(Views.EditSavedTeamMemberPage)}");
         }
     }
 }
