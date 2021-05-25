@@ -60,6 +60,9 @@
     <PackageReference Include="protobuf-net">
       <Version>3.0.101</Version>
     </PackageReference>
+    <PackageReference Include="protobuf-net.Core">
+      <Version>3.0.101</Version>
+    </PackageReference>
     <PackageReference Include="sqlite-net-pcl">
       <Version>1.8.0-beta</Version>
     </PackageReference>

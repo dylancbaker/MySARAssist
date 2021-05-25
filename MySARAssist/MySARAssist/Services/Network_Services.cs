@@ -6,6 +6,7 @@ using MySARAssist.ResourceClasses;
 using NetworkCommsDotNet;
 using NetworkCommsDotNet.Connections.TCP;
 using NetworkCommsDotNet.Tools;
+using ProtoBuf;
 
 namespace MySARAssist.Services
 {
@@ -77,6 +78,9 @@ namespace MySARAssist.Services
                     //We perform the send within a try catch to ensure the application continues to run if there is a problem.
                     try
                     {
+                        //ProtobufSerializer serializer = new ProtobufSerializer();
+                        SendReceiveOptions sendReceiveOptions = new SendReceiveOptions<ProtobufSerializer>();
+                       
                         TCPConnection connection = TCPConnection.GetConnection(serverConnectionInfo);
                         connection.SendObject("NetworkSendObject", networkSendObject);
                         successful = true;

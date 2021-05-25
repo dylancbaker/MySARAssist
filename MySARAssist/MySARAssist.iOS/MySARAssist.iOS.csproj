@@ -65,6 +65,9 @@
     <CodesignKey>iPhone Developer</CodesignKey>
     <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
   </PropertyGroup>
+  <PropertyGroup Condition=" '$(RunConfiguration)' == 'Default' ">
+    <AppExtensionDebugBundleId />
+  </PropertyGroup>
   <ItemGroup>
     <Compile Include="Main.cs" />
     <Compile Include="AppDelegate.cs" />
@@ -212,6 +215,9 @@
       <Version>3.0.4.1</Version>
     </PackageReference>
     <PackageReference Include="protobuf-net">
+      <Version>3.0.101</Version>
+    </PackageReference>
+    <PackageReference Include="protobuf-net.Core">
       <Version>3.0.101</Version>
     </PackageReference>
     <PackageReference Include="sqlite-net-pcl">

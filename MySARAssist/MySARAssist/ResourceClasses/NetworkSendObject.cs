@@ -1,14 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Net;
 using System.Text;
 using MySARAssist.Models;
+using NetworkCommsDotNet.DPSBase;
 using NetworkCommsDotNet.Tools;
 using ProtoBuf;
 
 namespace MySARAssist.ResourceClasses
 {
     [ProtoContract]
+    [Serializable]
     public class NetworkSendObject
     {
         [ProtoMember(1)]
@@ -37,6 +40,8 @@ namespace MySARAssist.ResourceClasses
         [ProtoMember(24)]
         private List<TeamMember> _memberList;
         public List<TeamMember> memberList { get => _memberList; set => _memberList = value; }
+
+      
 
 
         /*
