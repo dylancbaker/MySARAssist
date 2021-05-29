@@ -64,6 +64,7 @@
     <MtouchArch>ARM64</MtouchArch>
     <CodesignKey>iPhone Developer</CodesignKey>
     <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
+    <MtouchLink>SdkOnly</MtouchLink>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(RunConfiguration)' == 'Default' ">
     <AppExtensionDebugBundleId />
@@ -235,7 +236,7 @@
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <ItemGroup>
     <ProjectReference Include="..\MySARAssist\MySARAssist.csproj">
-      <Project>{FF5A62DC-096C-489F-B084-83A9CEBD6042}</Project>
+      <Project>{1F353AC1-BD1F-4F50-BF57-A99C46EC319D}</Project>
       <Name>MySARAssist</Name>
     </ProjectReference>
   </ItemGroup>
