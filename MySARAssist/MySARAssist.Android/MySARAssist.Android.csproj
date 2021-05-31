@@ -16,7 +16,6 @@
     <AndroidManifest>Properties\AndroidManifest.xml</AndroidManifest>
     <MonoAndroidResourcePrefix>Resources</MonoAndroidResourcePrefix>
     <MonoAndroidAssetsPrefix>Assets</MonoAndroidAssetsPrefix>
-    <AndroidUseLatestPlatformSdk>false</AndroidUseLatestPlatformSdk>
     <TargetFrameworkVersion>v11.0</TargetFrameworkVersion>
     <AndroidEnableSGenConcurrent>true</AndroidEnableSGenConcurrent>
     <AndroidUseAapt2>true</AndroidUseAapt2>
@@ -107,7 +106,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\MySARAssist\MySARAssist.csproj">
-      <Project>{FF5A62DC-096C-489F-B084-83A9CEBD6042}</Project>
+      <Project>{1F353AC1-BD1F-4F50-BF57-A99C46EC319D}</Project>
       <Name>MySARAssist</Name>
     </ProjectReference>
   </ItemGroup>
