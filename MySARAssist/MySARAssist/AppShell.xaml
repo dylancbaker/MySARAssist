@@ -26,7 +26,7 @@
     <FlyoutItem Title="Calculators" Icon="CalculatorIcon.png">
         <ShellContent Route="Calculators" ContentTemplate="{DataTemplate local:CalculatorsPage}" />
     </FlyoutItem>
-    <FlyoutItem Title="Network Settings" Icon="icon_about.png">
+    <FlyoutItem Title="Network Settings" Icon="icon_about.png" IsVisible="False">
         <ShellContent Route="NetworkSettingsPage" ContentTemplate="{DataTemplate local:NetworkSettingsPage}" />
     </FlyoutItem>
 
