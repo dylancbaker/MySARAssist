@@ -18,7 +18,9 @@
         </Grid>
 
     </Shell.FlyoutHeader>
-
+     <FlyoutItem Title="Welcome" Icon="houseicon.png">
+        <ShellContent Route="WelcomePage" ContentTemplate="{DataTemplate local:WelcomeScreenView}" />
+    </FlyoutItem>
 
     <FlyoutItem Title="Sign In or Out" Icon="ClockIcon.png">
         <ShellContent Route="SignInManagementPage" ContentTemplate="{DataTemplate local:SignInManagementPage}" />

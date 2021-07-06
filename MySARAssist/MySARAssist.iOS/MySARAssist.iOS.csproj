@@ -202,6 +202,10 @@
       <Visible>false</Visible>
     </ImageAsset>
     <InterfaceDefinition Include="Resources\LaunchScreen.storyboard" />
+    <ImageAsset Include="Assets.xcassets\HouseIcon.png.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\HouseIcon.png.imageset\glyphicons-basic-21-home%403x.png" />
+    <ImageAsset Include="Assets.xcassets\HouseIcon.png.imageset\glyphicons-basic-21-home%402x.png" />
+    <ImageAsset Include="Assets.xcassets\HouseIcon.png.imageset\glyphicons-basic-21-home.png" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -239,5 +243,8 @@
       <Project>{1F353AC1-BD1F-4F50-BF57-A99C46EC319D}</Project>
       <Name>MySARAssist</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Assets.xcassets\HouseIcon.png.imageset\" />
   </ItemGroup>
 </Project>

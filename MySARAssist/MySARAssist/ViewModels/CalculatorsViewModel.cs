@@ -13,12 +13,14 @@ namespace MySARAssist.ViewModels
             LineCommand = new Command(OnLineCommand);
             VisualSpacingCommand = new Command(OnVisualSpacingCommand);
             PacingCommand = new Command(OnPacingCommand);
+            VisualSearchResourceEstCommand = new Command(OnVisualSearchResourceEstCommand);
         }
 
         public Command GridCommand { get; }
         public Command LineCommand { get; }
         public Command VisualSpacingCommand { get; }
         public Command PacingCommand { get;}
+        public Command VisualSearchResourceEstCommand { get; }
 
         private async void OnGridCommand()
         {
@@ -36,6 +38,11 @@ namespace MySARAssist.ViewModels
         private async void OnPacingCommand()
         {
             await Shell.Current.GoToAsync(nameof(Views.CalculatorsPage) + "/" + nameof(Views.PacingCalculatorPage));
+        }
+
+        private async void OnVisualSearchResourceEstCommand()
+        {
+            await Shell.Current.GoToAsync(nameof(Views.CalculatorsPage) + "/" + nameof(Views.VisualSearchResourceEstimation));
         }
     }
 }

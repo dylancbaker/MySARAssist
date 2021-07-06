@@ -13,6 +13,8 @@ namespace MySARAssist.ViewModels
             SignOutCommand = new Command(OnSignOutCommand);
             EditTeamMembersCommand = new Command(OnEditTeamMembersCommand);
             ChangeSelectedMemberCommand = new Command(OnChangeSelectedMemberCommand);
+            AddMemberCommand = new Command(OnAddMember);
+            EditMemberCommand = new Command(OnEditMember);
 
         }
 
@@ -20,6 +22,8 @@ namespace MySARAssist.ViewModels
         public Command SignOutCommand { get; }
         public Command EditTeamMembersCommand { get; }
         public Command ChangeSelectedMemberCommand { get; }
+        public Command AddMemberCommand { get; set; }
+        public Command EditMemberCommand { get; }
 
         public void OnAppearing()
         {
@@ -44,6 +48,8 @@ namespace MySARAssist.ViewModels
             }
         }
 
+
+
         private async void OnSignInCommand()
         {
             await Shell.Current.GoToAsync(nameof(Views.SignInQRPage));
@@ -62,6 +68,17 @@ namespace MySARAssist.ViewModels
         private async void OnChangeSelectedMemberCommand()
         {
             await Shell.Current.GoToAsync(nameof(Views.ListOfSavedTeamMembersPage));
+        }
+
+        public async void OnAddMember()
+        {
+            await Shell.Current.GoToAsync($"{nameof(Views.SignInManagementPage) + "/" + nameof(Views.EditSavedTeamMemberPage)}");
+        }
+
+        public async void OnEditMember()
+        {
+            await Shell.Current.GoToAsync($"{nameof(Views.SignInManagementPage) + "/" + nameof(Views.EditSavedTeamMemberPage)}?strTeamMemberID={App.CurrentTeamMember.PersonID}");
+            
         }
     }
 }

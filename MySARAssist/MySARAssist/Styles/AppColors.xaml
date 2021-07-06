@@ -14,6 +14,9 @@
     <Color x:Key="ICABlue">#4582EC</Color>
     <Color x:Key="ICAYellow">#F0AD4E</Color>
     <Color x:Key="LightYellow">#ecde45</Color>
+    <Color x:Key="lightInfoWindowBackground">#f8daaf</Color>
+    <Color x:Key="darkInfoWindowBackground">#bc7410</Color>
+
     <Color x:Key="darkBlue">#17294c</Color>
     <Color x:Key="BackgroundColor_Dark">#090909</Color>
     <Color x:Key="BackgroundColor_Light">#FEFEFE</Color>

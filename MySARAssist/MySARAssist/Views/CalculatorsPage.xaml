@@ -14,6 +14,8 @@
                 <Button Text="Grid Search" ImageSource="GridIcon.png"  HorizontalOptions="FillAndExpand" Command="{Binding GridCommand}" Style="{DynamicResource buttonStyle}"></Button>
                 <Button Text="Linear Search" ImageSource="LineIcon.png"  HorizontalOptions="FillAndExpand" Command="{Binding LineCommand}" Style="{DynamicResource buttonStyle}"></Button>
             </StackLayout>
+            <Button Text="Visual Search Resource Est." ImageSource="GridIcon.png"  HorizontalOptions="FillAndExpand" Command="{Binding VisualSearchResourceEstCommand}" Style="{DynamicResource buttonStyle}"></Button>
+
 
             <Label Text="Other Calculators" FontSize="Title" Style="{DynamicResource titleLabelStyle}"></Label>
             <Button Text="Visual Search Spacing" ImageSource="SpacingIcon.png" Command="{Binding VisualSpacingCommand}" Style="{DynamicResource buttonStyle}"></Button>

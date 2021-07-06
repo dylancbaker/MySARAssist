@@ -2,24 +2,37 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="MySARAssist.Views.SignInManagementPage"
+             
               xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core" 
               ios:Page.UseSafeArea="true"
              Title="Sign in and out">
     <ContentPage.Content>
+        
         <ScrollView Style="{DynamicResource backgroundStyle}" Padding="20">
             <StackLayout>
-                <Label Style="{DynamicResource titleLabelStyle}" HorizontalTextAlignment="Center" FontSize="Large" HorizontalOptions="FillAndExpand" Text="Currently Selected Member:"></Label>
-                <StackLayout Orientation="Horizontal" Margin="0,0,0,40"  HorizontalOptions="FillAndExpand">
-                    <Label x:Name="lblCurrentMember" Style="{DynamicResource labelStyle}" HorizontalTextAlignment="Center" HorizontalOptions="FillAndExpand" Text="{Binding CurrentMemberName}"></Label>
-                    <Button Text="Change" x:Name="btnChangeSelectedMember" Style="{DynamicResource smButtonStyle}" Command="{Binding ChangeSelectedMemberCommand}"></Button>
-                </StackLayout>
+                <StackLayout x:Name="slCurrentMemberExists" IsVisible="{Binding AllowSignInAndOut}">
 
-                <Label Style="{DynamicResource titleLabelStyle}" FontSize="Title" Text="Sign in by QR Code"></Label>
-                <StackLayout Orientation="Horizontal" Margin="0,0,0,40"  HorizontalOptions="FillAndExpand">
-                    <Button x:Name="btnSignIn" Text="Sign In"  HorizontalOptions="FillAndExpand" IsEnabled="{Binding AllowSignInAndOut}"  Style="{DynamicResource buttonStyle}" Command="{Binding SignInCommand}"></Button>
-                    <Button x:Name="btnSignOut" Text="Sign Out"  HorizontalOptions="FillAndExpand" IsEnabled="{Binding AllowSignInAndOut}"  Style="{DynamicResource buttonStyle}" Command="{Binding SignOutCommand}"></Button>
+                    <Label Style="{DynamicResource titleLabelStyle}" HorizontalTextAlignment="Center" FontSize="Large" HorizontalOptions="FillAndExpand" Text="Currently Selected Member:"></Label>
+                    <StackLayout Orientation="Horizontal" Margin="0,0,0,40"  HorizontalOptions="FillAndExpand">
+                        <Label x:Name="lblCurrentMember" Style="{DynamicResource labelStyle}" HorizontalTextAlignment="Center" HorizontalOptions="FillAndExpand" Text="{Binding CurrentMemberName}"></Label>
+                         <StackLayout Orientation="Vertical" HorizontalOptions="FillAndExpand">
+                            <Button x:Name="btnEditMember" Command="{Binding EditMemberCommand}" Text="Edit" Style="{DynamicResource buttonStyle}" HorizontalOptions="FillAndExpand"></Button>
+                            <Button Text="Swap" x:Name="btnChangeSelectedMember" Style="{DynamicResource buttonStyle}" Command="{Binding ChangeSelectedMemberCommand}" HorizontalOptions="FillAndExpand"></Button>
+                        </StackLayout>
+                    </StackLayout>
+                   
+                    <Label Style="{DynamicResource titleLabelStyle}" FontSize="Title" Text="Sign in by QR Code"></Label>
+                    <StackLayout Orientation="Horizontal" Margin="0,0,0,40"  HorizontalOptions="FillAndExpand">
+                        <Button x:Name="btnSignIn" Text="Sign In"  HorizontalOptions="FillAndExpand" IsEnabled="{Binding AllowSignInAndOut}"  Style="{DynamicResource buttonStyle}" Command="{Binding SignInCommand}"></Button>
+                        <Button x:Name="btnSignOut" Text="Sign Out"  HorizontalOptions="FillAndExpand" IsEnabled="{Binding AllowSignInAndOut}"  Style="{DynamicResource buttonStyle}" Command="{Binding SignOutCommand}"></Button>
+                    </StackLayout>
+                    
                 </StackLayout>
-                <Button x:Name="btnEditUserList" Text="Edit Saved Members" Style="{DynamicResource buttonStyle}" Command="{Binding EditTeamMembersCommand}"></Button>
+                <StackLayout x:Name="slNoCurrentMemberExists" IsVisible="{Binding AllowSignInAndOut, Converter={StaticResource inverseBoolConverter}}">
+                     <Label Style="{DynamicResource titleLabelStyle}" HorizontalTextAlignment="Center" FontSize="Large" HorizontalOptions="FillAndExpand" Text="In order to sign in or out of a SAR task, you'll need to add some information."></Label>
+                    <Button x:Name="btnAddUser" Style="{DynamicResource buttonStyle}" Text="Add New Member" Command="{Binding AddMemberCommand}"></Button>
+                </StackLayout>
+                
             </StackLayout>
         </ScrollView>
     </ContentPage.Content>

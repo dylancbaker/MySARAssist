@@ -31,6 +31,7 @@ namespace MySARAssist.ResourceClasses
                 SetDynamicResource("backgroundStyle", "backgroundStyleDark");
                 SetDynamicResource("labelStyle", "labelStyleDarkTheme");
                 SetDynamicResource("titleLabelStyle", "titleLabelStyleDarkTheme");
+                SetDynamicResource("infoLabelStyle", "tinfoLabelStyleDarkTheme");
                 SetDynamicResource("subtitleLabelStyle", "subtitleLabelStyleDarkTheme");
                 SetDynamicResource("entryStyle", "entryStyleDarkTheme");
                 SetDynamicResource("editorStyle", "editorStyleDarkTheme");
@@ -45,6 +46,7 @@ namespace MySARAssist.ResourceClasses
                 SetDynamicResource("backgroundStyle", "backgroundStyleLight");
                 SetDynamicResource("labelStyle", "labelStyleLightTheme");
                 SetDynamicResource("titleLabelStyle", "titleLabelStyleLightTheme");
+                SetDynamicResource("infoLabelStyle", "infoLabelStyleDarkTheme");
                 SetDynamicResource("subtitleLabelStyle", "subtitleLabelStyleLightTheme");
                 SetDynamicResource("entryStyle", "entryStyleLightTheme");
                 SetDynamicResource("editorStyle", "editorStyleLightTheme");

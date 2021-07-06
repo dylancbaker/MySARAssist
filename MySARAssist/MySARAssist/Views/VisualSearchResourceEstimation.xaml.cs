@@ -1,24 +1,22 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using MySARAssist.ResourceClasses;
 
+using Xamarin.Forms;
+using MySARAssist.ViewModels;
+
 namespace MySARAssist.Views
 {
-    [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class GridWorkEstimationPage : ContentPage
+    public partial class VisualSearchResourceEstimation : ContentPage
     {
+        VisualSearchResourceEstimationViewModel _viewModel = null;
 
-        ViewModels.GridWorkEstimationViewModel _viewModel;
-        public GridWorkEstimationPage()
+        public VisualSearchResourceEstimation()
         {
             InitializeComponent();
-            _viewModel = new ViewModels.GridWorkEstimationViewModel();
+            _viewModel = new ViewModels.VisualSearchResourceEstimationViewModel();
             this.BindingContext = _viewModel;
         }
 

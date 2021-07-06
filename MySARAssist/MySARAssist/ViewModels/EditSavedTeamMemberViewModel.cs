@@ -62,6 +62,13 @@ namespace MySARAssist.ViewModels
 
             if (await App.TeamMemberManager.UpsertItemAsync(CurrentMember))
             {
+                if(App.TeamMemberManager.GetCurrentTeamMember() == null)
+                {
+                    App.TeamMemberManager.setCurrentTeamMember(CurrentMember.PersonID);
+                    App.CurrentTeamMember = App.TeamMemberManager.GetCurrentTeamMember();
+                    OnPropertyChanged(nameof(App.CurrentTeamMember));
+                }
+
                 DependencyService.Get<Toast>().Show("Team Member Saved");
                 await Shell.Current.GoToAsync("..");
             } else

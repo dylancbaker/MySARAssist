@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="MySARAssist.Views.WelcomeScreenView"
+    ios:Page.UseSafeArea="true"
+    xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+    Title="Welcome to MySARAssist"
+    >
+    <ContentPage.Content>
+         <ScrollView   Style="{DynamicResource backgroundStyle}" Padding="20">
+            <StackLayout>
+                <Label Text="Welcome!" FontSize="Title" Style="{DynamicResource titleLabelStyle}" HorizontalTextAlignment="Center" HorizontalOptions="FillAndExpand"></Label>
+                <Label Text="What do you need a hand with?" FontSize="Title" Style="{DynamicResource subtitleLabelStyle}" HorizontalTextAlignment="Center" HorizontalOptions="FillAndExpand"></Label>
+
+                 <Button x:Name="btnSignInOut" HorizontalOptions="FillAndExpand" ImageSource="ClockIcon.png" Style="{DynamicResource buttonStyle}" Clicked="btnSignInOut_Clicked" Text="Sign in or out of a task"></Button>
+                    <Button x:Name="btnCalculator" HorizontalOptions="FillAndExpand" ImageSource="CalculatorIcon.png" Style="{DynamicResource buttonStyle}" Clicked="btnCalculator_Clicked" Text="Calculators"></Button>
+
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

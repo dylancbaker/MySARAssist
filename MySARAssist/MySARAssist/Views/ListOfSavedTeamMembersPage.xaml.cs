@@ -21,13 +21,23 @@ namespace MySARAssist.Views
             InitializeComponent();
             _viewModel = new ViewModels.ListOfSavedTeamMembersViewModel();
             this.BindingContext = _viewModel;
+            
 
         }
+
+
+      
+
         protected override void OnAppearing()
         {
             base.OnAppearing();
             ResourceHelper.setThemeColor();
-            lbMemberList.BeginRefresh();
+            _viewModel.OnAppearing();
+
+            if (_viewModel.Items.Any())
+            {
+                lbMemberList.BeginRefresh();
+            } 
              //_viewModel.ExecuteLoadItemsCommand();
         }
 

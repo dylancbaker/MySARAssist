@@ -44,6 +44,26 @@
     </Style>
 
 
+    <!-- info labels -->
+    <Style TargetType="Label" x:Key="infoLabelStyleBasic">
+        <Setter Property="FontSize" Value="Large"></Setter>
+        <Setter Property="FontAttributes" Value="Italic"></Setter>
+        <Setter Property="HorizontalOptions" Value="FillAndExpand"></Setter>
+        <Setter Property="Padding" Value="20"></Setter>
+        <Setter Property="Margin" Value="20"></Setter>
+    </Style>
+    <Style TargetType="Label" x:Key="infoLabelStyle" BasedOn="{StaticResource infoLabelStyleBasic}"></Style>
+
+    <Style TargetType="Label" x:Key="infoLabelStyleLightTheme" BasedOn="{StaticResource infoLabelStyleBasic}">
+        <Setter Property="TextColor" Value="{StaticResource darkerGrey}"></Setter>
+        <Setter Property="BackgroundColor" Value="{StaticResource lightInfoWindowBackground}"></Setter>
+    </Style>
+    <Style TargetType="Label" x:Key="infoLabelStyleDarkTheme" BasedOn="{StaticResource infoLabelStyleBasic}">
+        <Setter Property="TextColor" Value="{StaticResource lightGrey}"></Setter>
+        <Setter Property="BackgroundColor" Value="{StaticResource darkInfoWindowBackground}"></Setter>
+    </Style>
+
+
     <!--- these frames are used for some lists to help seperate the items-->
     <Style TargetType="StackLayout" x:Key="listViewCellStyle">
         <Setter Property="Padding" Value="10"></Setter>
@@ -136,6 +156,9 @@
         <Setter Property="BorderColor" Value="{StaticResource white}"></Setter>
 
     </Style>
+
+  
+
 
     <!-- Entry-->
     <Style TargetType="Entry" x:Key="entryStyleBasic">

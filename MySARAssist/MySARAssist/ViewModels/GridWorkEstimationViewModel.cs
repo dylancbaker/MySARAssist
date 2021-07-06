@@ -40,18 +40,18 @@ namespace MySARAssist.ViewModels
             });
             SpeedDownCommand = new Command(() =>
             {
-                SearcherSpeed -= 0.1;
+                if (SearcherSpeed > 0.1) { SearcherSpeed -= 0.1; }
                 OnPropertyChanged(nameof(SearcherSpeed));
             });
 
             MembersUpCommand = new Command(() =>
             {
-                teamMembers += 1;
+                 teamMembers += 1; 
                 OnPropertyChanged(nameof(TeamMembers));
             });
             MembersDownCommand = new Command(() =>
             {
-                teamMembers -= 1;
+                if (teamMembers > 1) { teamMembers -= 1; }
                 OnPropertyChanged(nameof(TeamMembers));
             });
 
@@ -62,7 +62,7 @@ namespace MySARAssist.ViewModels
             });
             AreaDownCommand = new Command(() =>
             {
-                Area -= 0.01;
+                if (Area > 0.01) { Area -= 0.01; }
                 OnPropertyChanged(nameof(Area));
             });
 
@@ -73,7 +73,7 @@ namespace MySARAssist.ViewModels
             });
             SpacingDownCommand = new Command(() =>
             {
-                Spacing -= 1;
+                if (Spacing > 1) { Spacing -= 1; }
                 OnPropertyChanged(nameof(Spacing));
             });
         }
@@ -116,7 +116,7 @@ namespace MySARAssist.ViewModels
             }
         }
 
-        double _area = 0;
+        double _area = 0.01;
         public double Area { get => _area; set => _area = value; }
 
         /* public string Area
@@ -133,7 +133,7 @@ namespace MySARAssist.ViewModels
         */
 
 
-        double _spacing = 0;
+        double _spacing = 1;
         public double Spacing { get => _spacing; set => _spacing = value; }
     }
 }

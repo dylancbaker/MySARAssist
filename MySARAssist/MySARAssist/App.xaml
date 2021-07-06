@@ -11,6 +11,7 @@
             <ResourceDictionary Source="/Styles/DefaultTheme.xaml" />
             <local1:DoubleConverter x:Key="doubleConverter" />
             <local1:IntConverter x:Key="intConverter" />
+            <local1:InverseBoolConverter x:Key="inverseBoolConverter"></local1:InverseBoolConverter>
         </ResourceDictionary>        
     </Application.Resources>
 </Application>

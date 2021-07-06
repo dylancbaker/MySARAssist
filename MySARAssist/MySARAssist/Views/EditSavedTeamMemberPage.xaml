@@ -12,6 +12,8 @@
             <StackLayout>
                 <Label  Style="{DynamicResource titleLabelStyle}">Member Information</Label>
                 <Entry  Style="{DynamicResource entryStyle}" Placeholder="Full Name" x:Name="txtFullName" Text="{Binding CurrentMember.Name, Mode=TwoWay}"></Entry>
+
+                <Label Style="{DynamicResource subtitleLabelStyle}">SAR Group  / Organization</Label>
                 <Picker x:Name="pickOrganization" ItemsSource="{Binding Organizations}" SelectedItem="{Binding CurrentMember.MemberOrganization, Mode=TwoWay}"
                         Title="Select a SAR Team" 
                         Style="{DynamicResource pickerStyle}"
