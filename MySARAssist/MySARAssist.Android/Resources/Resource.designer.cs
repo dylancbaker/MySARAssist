@@ -16872,7 +16872,7 @@ namespace MySARAssist.Droid
 			public const int GridIcon = 2131165295;
 			
 			// aapt resource value: 0x7F070070
-			public const int houseicon = 2131165296;
+			public const int HouseIcon = 2131165296;
 			
 			// aapt resource value: 0x7F070075
 			public const int icon_about = 2131165301;

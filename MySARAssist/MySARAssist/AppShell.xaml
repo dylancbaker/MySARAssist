@@ -18,7 +18,7 @@
         </Grid>
 
     </Shell.FlyoutHeader>
-     <FlyoutItem Title="Welcome" Icon="houseicon.png">
+     <FlyoutItem Title="Welcome" Icon="HouseIcon.png">
         <ShellContent Route="WelcomePage" ContentTemplate="{DataTemplate local:WelcomeScreenView}" />
     </FlyoutItem>
 
