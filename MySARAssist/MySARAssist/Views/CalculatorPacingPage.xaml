@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:vm="clr-namespace:MySARAssist.ViewModels"
+    xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core" 
+              ios:Page.UseSafeArea="true"
+    xmlns:ctrl="clr-namespace:MySARAssist.ResourceClasses"
+    Title="Pacing Calculator"
+    x:Class="MySARAssist.Views.CalculatorPacingPage">
+    <ContentPage.BindingContext>
+        <vm:PacingCalculatorViewModel />
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+        <StackLayout>
+            <ScrollView VerticalOptions="FillAndExpand">
+                <StackLayout Orientation="Vertical" VerticalOptions="FillAndExpand">
+
+                        <Label Style="{DynamicResource titleLabelStyle}">Pacing Calculator</Label>
+
+                        <StackLayout x:Name="slPacesPer100" Style="{DynamicResource PacingPer100Box}" Orientation="Horizontal">
+                            <Entry Keyboard="Numeric" Style="{DynamicResource PacingPer100Entry}" Placeholder="0" Text="{Binding PacesPer100Text, Mode=TwoWay}"></Entry>
+                            <Label Style="{DynamicResource PacingPer100Label}" Text="Enter your paces per 100m"></Label>
+                        </StackLayout>
+
+
+                    <Frame Style="{DynamicResource PacingCalculatorSection}">
+                        <StackLayout>
+                            <Label Style="{DynamicResource titleLabelStyle}">Calculate Distance</Label>
+                            <StackLayout x:Name="slCalculateDistance" Style="{DynamicResource PacingCalcuationValueBox}"  Orientation="Horizontal">
+                                <Entry Keyboard="Numeric" Style="{DynamicResource PacingPer100Entry}" Placeholder="0" Text="{Binding PacesTakenText, Mode=TwoWay}"></Entry>
+                                <Label Style="{DynamicResource PacingCalculationLabel}" Text="Paces"></Label>
+                            </StackLayout>
+                        </StackLayout>
+                    </Frame>
+
+
+                    <Frame Style="{DynamicResource PacingCalculatorSection}">
+                        <StackLayout>
+                            <Label Style="{DynamicResource titleLabelStyle}">Calculate Paces</Label>
+                            <StackLayout x:Name="slCalculatePaces"  Style="{DynamicResource PacingCalcuationValueBox}" Orientation="Horizontal">
+                                <Entry Keyboard="Numeric" Style="{DynamicResource PacingPer100Entry}" Placeholder="0" Text="{Binding DistanceToTravelText, Mode=TwoWay}"></Entry>
+                                <Label Style="{DynamicResource PacingCalculationLabel}" Text="Distance (m)"></Label>
+                            </StackLayout>
+                        </StackLayout>
+                    </Frame>
+                </StackLayout>
+            </ScrollView>
+
+              <StackLayout x:Name="slResults" Style="{DynamicResource PacingResultsBox}">
+                <Label x:Name="lblResultTypeTitle" Style="{DynamicResource PacingResultsLabel}" Text="{Binding CalculationTitle}"></Label>
+                <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
+                    <Label x:Name="lblResultsValue" Style="{DynamicResource PacingResultsText}" Text="{Binding CalculationResult}"></Label>
+                    <Label x:Name="lblUnitOfMeasure" Style="{DynamicResource PacingResultsUOM}" Text="{Binding CalculationUnits}"></Label>
+                </StackLayout>
+                
+            </StackLayout>
+        </StackLayout>
+        
+    </ContentPage.Content>
+</ContentPage>

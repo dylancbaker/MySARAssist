@@ -31,7 +31,8 @@ namespace MySARAssist
             Routing.RegisterRoute(nameof(Views.CalculatorsPage) + "/" + nameof(Views.LinearWorkEstimationPage), typeof(Views.LinearWorkEstimationPage));
             Routing.RegisterRoute(nameof(Views.CalculatorsPage) + "/" + nameof(Views.VisualSweepCalculatorPage), typeof(Views.VisualSweepCalculatorPage));
             Routing.RegisterRoute(nameof(Views.CalculatorsPage) + "/" + nameof(Views.GridWorkEstimationPage), typeof(Views.GridWorkEstimationPage));
-            Routing.RegisterRoute(nameof(Views.CalculatorsPage) + "/" + nameof(Views.PacingCalculatorPage), typeof(Views.PacingCalculatorPage));
+            //Routing.RegisterRoute(nameof(Views.CalculatorsPage) + "/" + nameof(Views.PacingCalculatorPage), typeof(Views.PacingCalculatorPage));
+            Routing.RegisterRoute(nameof(Views.CalculatorsPage) + "/" + nameof(Views.CalculatorPacingPage), typeof(Views.CalculatorPacingPage));
             Routing.RegisterRoute(nameof(Views.CalculatorsPage) + "/" + nameof(Views.VisualSearchResourceEstimation), typeof(Views.VisualSearchResourceEstimation));
         }
 

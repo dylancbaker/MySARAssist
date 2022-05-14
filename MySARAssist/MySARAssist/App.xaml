@@ -7,11 +7,124 @@
     -->
     <Application.Resources>
         <ResourceDictionary>
-            <ResourceDictionary Source="/Styles/AppColors.xaml" />
+               <Color x:Key="Primary">#4582EC</Color>
+                <Color x:Key="darkGrey">#333333</Color>
+                <Color x:Key="darkerGrey">#505050</Color>
+                <Color x:Key="mediumGrey">#AAAAAA</Color>
+                <Color x:Key="lightGrey">#CFCFCF</Color>
+                <Color x:Key="white">#FFFFFF</Color>
+                <Color x:Key="black">#000000</Color>
+                <Color x:Key="red">#ec4564</Color>
+                <Color x:Key="ICABlue">#4582EC</Color>
+                <Color x:Key="ICAYellow">#F0AD4E</Color>
+                <Color x:Key="LightYellow">#ecde45</Color>
+                <Color x:Key="lightInfoWindowBackground">#f8daaf</Color>
+                <Color x:Key="darkInfoWindowBackground">#bc7410</Color>
+
+                <Color x:Key="darkBlue">#17294c</Color>
+                <Color x:Key="BackgroundColor_Dark">#090909</Color>
+                <Color x:Key="BackgroundColor_Light">#FEFEFE</Color>
+
+                <Color x:Key="veryLightRed">#D9A49C</Color>
+                <Color x:Key="veryDarkRed">#66171D</Color>
+                <Color x:Key="darkRedButtonColour">#872c32</Color>
+
+
             <ResourceDictionary Source="/Styles/DefaultTheme.xaml" />
             <local1:DoubleConverter x:Key="doubleConverter" />
             <local1:IntConverter x:Key="intConverter" />
             <local1:InverseBoolConverter x:Key="inverseBoolConverter"></local1:InverseBoolConverter>
-        </ResourceDictionary>        
+
+
+
+
+
+            
+        
+
+
+
+
+             <!-- Pacing Calculator Styles -->
+            <Style x:Key="PacingPer100Box" TargetType="StackLayout">
+                <Setter Property="BackgroundColor" Value="{StaticResource darkGrey}"></Setter>
+                <Setter Property="Padding" Value="20"></Setter>
+                <Setter Property="HorizontalOptions" Value="FillAndExpand"></Setter>
+            </Style>
+            <Style x:Key="PacingCalcuationValueBox" TargetType="StackLayout">
+                <Setter Property="Padding" Value="20"></Setter>
+                <Setter Property="HorizontalOptions" Value="FillAndExpand"></Setter>
+            </Style>
+            <Style x:Key="PacingPer100Label" TargetType="Label">
+                <Setter Property="TextColor" Value="{StaticResource lightGrey}"></Setter>
+                <Setter Property="FontSize" Value="Large"></Setter>
+                <Setter Property="VerticalTextAlignment" Value="Center"></Setter>
+                <Setter Property="HorizontalOptions" Value="StartAndExpand"></Setter>
+                <Setter Property="VerticalOptions" Value="FillAndExpand"></Setter>
+            </Style>
+
+            <Style x:Key="PacingPer100Entry" TargetType="Entry">
+                <Setter Property="FontSize" Value="Large"></Setter>
+                <Setter Property="ClearButtonVisibility" Value="WhileEditing"></Setter>
+                
+                 <Setter Property="VerticalTextAlignment" Value="Center"></Setter>
+                <Setter Property="HorizontalOptions" Value="FillAndExpand"></Setter>
+                <Setter Property="VerticalOptions" Value="FillAndExpand"></Setter>
+                <Setter Property="HeightRequest" Value="50"></Setter>
+                <Setter Property="WidthRequest" Value="100"></Setter>
+                <Setter Property="Margin" Value="0,0,20,0"></Setter>
+                <Setter Property="HorizontalTextAlignment" Value="Center"></Setter>
+            </Style>
+
+
+             <Style x:Key="PacingCalculationLabel" TargetType="Label">
+                <Setter Property="TextColor" Value="{StaticResource darkerGrey}"></Setter>
+                <Setter Property="FontSize" Value="Large"></Setter>
+                <Setter Property="VerticalTextAlignment" Value="Center"></Setter>
+                <Setter Property="HorizontalOptions" Value="StartAndExpand"></Setter>
+                <Setter Property="VerticalOptions" Value="FillAndExpand"></Setter>
+            </Style>
+
+             <Style x:Key="PacingResultsBox" TargetType="StackLayout">
+                <Setter Property="BackgroundColor" Value="{StaticResource darkGrey}"></Setter>
+                <Setter Property="Padding" Value="40"></Setter>
+                <Setter Property="HorizontalOptions" Value="FillAndExpand"></Setter>
+            </Style>
+            <Style x:Key="PacingResultsLabel" TargetType="Label">
+                <Setter Property="TextColor" Value="{StaticResource lightGrey}"></Setter>
+                <Setter Property="FontSize" Value="Large"></Setter>
+                <Setter Property="TextTransform" Value="Uppercase"></Setter>
+                <Setter Property="VerticalTextAlignment" Value="Center"></Setter>
+                <Setter Property="HorizontalOptions" Value="CenterAndExpand"></Setter>
+            </Style>
+            <Style x:Key="PacingResultsText" TargetType="Label">
+                <Setter Property="TextColor" Value="{StaticResource lightGrey}"></Setter>
+                <Setter Property="FontSize" Value="40"></Setter>
+                <Setter Property="TextTransform" Value="Uppercase"></Setter>
+                <Setter Property="HorizontalTextAlignment" Value="Center"></Setter>
+                <Setter Property="VerticalTextAlignment" Value="Center"></Setter>
+                <Setter Property="HorizontalOptions" Value="Center"></Setter>
+                
+            </Style>
+            <Style x:Key="PacingResultsUOM" TargetType="Label">
+                <Setter Property="TextColor" Value="{StaticResource lightGrey}"></Setter>
+                <Setter Property="FontSize" Value="Medium"></Setter>
+                
+                <Setter Property="VerticalTextAlignment" Value="Start"></Setter>
+                <Setter Property="HorizontalOptions" Value="Start"></Setter>
+            </Style>
+
+            <Style x:Key="PacingCalculatorSection" TargetType="Frame">
+                <Setter Property="BorderColor" Value="{StaticResource ICABlue}"></Setter>
+                <Setter Property="Padding" Value="10"></Setter>
+                <Setter Property="Margin" Value="10"></Setter>
+                <Setter Property="CornerRadius" Value="10"></Setter>
+
+            </Style>
+
+        </ResourceDictionary>
+
+
+
     </Application.Resources>
 </Application>

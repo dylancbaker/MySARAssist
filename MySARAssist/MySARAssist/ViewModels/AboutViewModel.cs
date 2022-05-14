@@ -10,7 +10,7 @@ namespace MySARAssist.ViewModels
         public AboutViewModel()
         {
             Title = "About";
-            OpenWebCommand = new Command(async () => await Browser.OpenAsync("https://www.greathat.ca"));
+            OpenWebCommand = new Command(async () => await Browser.OpenAsync("https://github.com/dylancbaker/MySARAssist"));
         }
 
         public ICommand OpenWebCommand { get; }
