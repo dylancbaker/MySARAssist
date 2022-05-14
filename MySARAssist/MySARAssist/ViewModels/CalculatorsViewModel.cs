@@ -37,7 +37,7 @@ namespace MySARAssist.ViewModels
         }
         private async void OnPacingCommand()
         {
-            await Shell.Current.GoToAsync(nameof(Views.CalculatorsPage) + "/" + nameof(Views.PacingCalculatorPage));
+            await Shell.Current.GoToAsync($"{nameof(Views.CalculatorsPage)}\\{nameof(Views.CalculatorPacingPage)}");
         }
 
         private async void OnVisualSearchResourceEstCommand()

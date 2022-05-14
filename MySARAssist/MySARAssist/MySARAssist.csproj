@@ -18,9 +18,11 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Update="Views\PacingCalculatorPage.xaml.cs">
-      <DependentUpon>PacingCalculatorPage.xaml</DependentUpon>
-    </Compile>
+    <Compile Remove="Views\PacingCalculatorPage.xaml.cs" />
+    <Compile Remove="Styles\AppColors.xaml.cs" />
+    <Compile Remove="ResourceClasses\Accordion.cs" />
+  </ItemGroup>
+  <ItemGroup>
     <Compile Update="Views\SignInQRPage.xaml.cs">
       <DependentUpon>SignInQRPage.xaml</DependentUpon>
     </Compile>
@@ -30,9 +32,10 @@
   </ItemGroup>
 
   <ItemGroup>
-    <EmbeddedResource Update="Styles\AppColors.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-    </EmbeddedResource>
+    <EmbeddedResource Remove="Views\PacingCalculatorPage.xaml" />
+    <EmbeddedResource Remove="Styles\AppColors.xaml" />
+  </ItemGroup>
+  <ItemGroup>
     <EmbeddedResource Update="Styles\DefaultTheme.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
@@ -55,9 +58,6 @@
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\NetworkSettingsPage.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-    </EmbeddedResource>
-    <EmbeddedResource Update="Views\PacingCalculatorPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\SignInManagementPage.xaml">

@@ -20,6 +20,7 @@
                         ItemDisplayBinding="{Binding OrganizationName}"
                         >
                 </Picker>
+                <Label Style="{DynamicResource subtitleLabelStyle}">Home Address</Label>
                 <Entry  Style="{DynamicResource entryStyle}" Placeholder="Address"  x:Name="txtAddress" Text="{Binding CurrentMember.Address, Mode=TwoWay}"></Entry>
                 <Entry  Style="{DynamicResource entryStyle}" Placeholder="Phone" Keyboard="Telephone" x:Name="txtPhone" Text="{Binding CurrentMember.Phone, Mode=TwoWay}"></Entry>
                 <Entry  Style="{DynamicResource entryStyle}" Placeholder="Email" Keyboard="Email" x:Name="txtEmail" Text="{Binding CurrentMember.Email, Mode=TwoWay}"></Entry>

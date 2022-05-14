@@ -19,5 +19,18 @@ namespace MySARAssist.Views
             _viewModel = new ViewModels.PacingCalculatorViewModel();
             this.BindingContext = _viewModel;
         }
+
+        public class Todo
+        {
+            private bool _done;
+
+            public bool Done
+            {
+                get { return _done; }
+                set { _done = value; }
+            }
+
+            public string Title { get; set; }
+        }
     }
 }

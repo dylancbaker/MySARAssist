@@ -26,12 +26,13 @@
                 <Label Text="My SAR Assistant" FontSize="Title" Style="{DynamicResource titleLabelStyle}"/>
                 <Label Style="{DynamicResource labelStyle}" Text="Like the desktop version of Incident Command Assistant, this software is developed by Dylan Baker of Great Hat Web Design, and offered free of charge to the SAR community." FontSize="16" Padding="0,0,0,0"/>
                 <Label Style="{DynamicResource labelStyle}" Text="Dylan is a SAR manager, Team Leader, Tracker, and GSAR instructor with Campbell River SAR in British Columbia." FontSize="16" Padding="0,0,0,0"/>
-                <Label Style="{DynamicResource labelStyle}" FontSize="16" Padding="0,24,0,0">
+                <Label Style="{DynamicResource labelStyle}" Text="THE SOFTWARE IS PROVIDED 'AS IS', WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE." FontSize="16" Padding="0,0,0,0" />
+                    <Label Style="{DynamicResource labelStyle}" FontSize="16" Padding="0,24,0,0">
                     <Label.FormattedText>
                         <FormattedString>
                             <FormattedString.Spans>
                                 <Span Text="Learn more at "/>
-                                <Span Text="https://www.greathat.ca" FontAttributes="Bold"/>
+                                <Span Text="https://github.com/dylancbaker/MySARAssist" FontAttributes="Bold"/>
                             </FormattedString.Spans>
                         </FormattedString>
                     </Label.FormattedText>

@@ -27,6 +27,7 @@ namespace MySARAssist.iOS
             string fileName = "mySarAssist.sqlite";
             string personalFolderPath = System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal);
             string folderPath = System.IO.Path.Combine(personalFolderPath, "..", "Library");
+            UINavigationBar.Appearance.Translucent = false;
 
             string fullPath = System.IO.Path.Combine(folderPath, fileName);
             LoadApplication(new App(fullPath));

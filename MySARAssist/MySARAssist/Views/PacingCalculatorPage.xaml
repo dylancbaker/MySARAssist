@@ -4,30 +4,140 @@
              x:Class="MySARAssist.Views.PacingCalculatorPage"
              xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core" 
               ios:Page.UseSafeArea="true"
+             xmlns:local="clr-namespace:MySARAssist.ResourceClasses"
+          
+             
+
              Title="Pacing Calculator">
     <ContentPage.Content>
         <StackLayout Style="{DynamicResource backgroundStyle}" Padding="20">
             <ScrollView>
-                <Grid>
-                    <Label Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" FontSize="Title" Style="{DynamicResource titleLabelStyle}" Text="Paces per 100m"></Label>
-                    <Entry Grid.Row="1" Grid.Column="0" Keyboard="Numeric" Grid.ColumnSpan="2"  Style="{DynamicResource entryStyle}" Placeholder="Paces per 100m" Text="{Binding PacesPer100m, Mode=TwoWay, Converter={StaticResource doubleConverter}}"></Entry>
+                <FlexLayout>
+                    <Label Style="{DynamicResource titleLabelStyle}">Pacing Calculator</Label>
 
-                    <!--Distance from Paces -->
-                    <Label Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" Margin="0,30,0,0" FontSize="Title"  Style="{DynamicResource titleLabelStyle}" Text="Distance from Paces"></Label>
-                    <Label Grid.Row="3" Grid.Column="0"  Style="{DynamicResource titleLabelStyle}" Margin="0,0,5,0" VerticalOptions="Center" Text="Paces" FontSize="Large" HorizontalOptions="End"></Label>
-                    <Entry Grid.Row="3" Grid.Column="1"  Keyboard="Numeric" Style="{DynamicResource entryStyle}" Placeholder="Paces taken" Text="{Binding PacesTaken, Mode=TwoWay, Converter={StaticResource doubleConverter}}"></Entry>
-                    <Label Grid.Row="4" Grid.Column="0"  Style="{DynamicResource titleLabelStyle}" Margin="0,0,5,0"  Text="Distance (m)" FontSize="Large" HorizontalOptions="End" VerticalOptions="Center"></Label>
-                    <Label Grid.Row="4" Grid.Column="1"   Style="{DynamicResource labelStyle}" VerticalOptions="Center"  Text="{Binding DistanceFromPaces}"></Label>
+                    <StackLayout x:Name="slPacesPer100" Orientation="Horizontal">
+                        <Entry Keyboard="Numeric" Style="{DynamicResource entryStyle}" Placeholder="0" Text="{Binding PacesPer100m, Mode=TwoWay, Converter={StaticResource doubleConverter}}"></Entry>
+                    </StackLayout>
 
-                    <!--Paces from Distance -->
-                    <Label Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="2" Margin="0,30,0,0" FontSize="Title"  Style="{DynamicResource titleLabelStyle}" Text="Paces from Distance"></Label>
-                    <Label Grid.Row="6" Grid.Column="0"  Style="{DynamicResource titleLabelStyle}" Margin="0,0,5,0" VerticalOptions="Center" Text="Distance (m)" FontSize="Large" HorizontalOptions="End"></Label>
-                    <Entry Grid.Row="6" Grid.Column="1" Keyboard="Numeric" Style="{DynamicResource entryStyle}" Placeholder="" Text="{Binding DistanceToTravel, Mode=TwoWay, Converter={StaticResource doubleConverter}}"></Entry>
-                    <Label Grid.Row="7" Grid.Column="0"  Style="{DynamicResource titleLabelStyle}" Margin="0,0,5,0" Text="Paces Needed" FontSize="Large"  HorizontalOptions="End" VerticalOptions="Center"></Label>
-                    <Label Grid.Row="7" Grid.Column="1"   Style="{DynamicResource labelStyle}" VerticalOptions="Center" Text="{Binding PacesFromDistance}"></Label>
-                </Grid>
+                       <Grid>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        
+        <local:Accordion  Title="First Accordion">
+
+            <local:Accordion.AccordionContentView>
+                <StackLayout>
+                    <Label Text="Here is a simple content"
+                           TextColor="Black"/>
+                    <Label Text="Today is saturday and we are going to code till it gets dark."
+                           TextColor="Gray"/>
+                    <Button Text="Click Here"/>
+                </StackLayout>
+            </local:Accordion.AccordionContentView>
+
+            <local:Accordion.IndicatorView>
+                <Label Text="&#xf078;" FontSize="Large"
+                       FontFamily="{StaticResource FontAwesome}"/>
+            </local:Accordion.IndicatorView>
+
+        </local:Accordion>
+        
+        <local:Accordion  Title="Second Accordion"
+                          Grid.Row="1">
+
+            <local:Accordion.AccordionContentView>
+                <StackLayout>
+                    <Label Text="Here is a simple content"
+                           TextColor="Black"/>
+                    <Label Text="Today is saturday and we are going to code till it gets dark."
+                           TextColor="Gray"/>
+                    <Button Text="Click Here"/>
+                </StackLayout>
+            </local:Accordion.AccordionContentView>
+
+            <local:Accordion.IndicatorView>
+                <Label Text="&#xf078;" FontSize="Large"
+                       FontFamily="{StaticResource FontAwesome}"/>
+            </local:Accordion.IndicatorView>
+
+        </local:Accordion>
+
+        <StackLayout Grid.Row="2">
+            <Label Text="Collection View with Several Accordions"
+               Margin="5,10,0,0"/>
+            <BoxView BackgroundColor="Gray"
+                 HeightRequest="1"
+                 Margin="5,0,0,0"/>
+        </StackLayout>
+
+
+    </Grid>
+
+
+                    <Grid>
+                        
+                        <Label Grid.Row="0" Grid.Column="1" Style="{DynamicResource titleLabelStyle}" Text="Enter your Paces per 100m"></Label>
+                    </Grid>
+                    <Label Style="{DynamicResource titleLabelStyle}">Calculate Distance</Label>
+                    <StackLayout Orientation="Horizontal">
+                        
+                        <Entry  Keyboard="Numeric" Style="{DynamicResource entryStyle}" Placeholder="Paces taken" Text="{Binding PacesTaken, Mode=TwoWay, Converter={StaticResource doubleConverter}}"></Entry>
+                        <Label  Style="{DynamicResource titleLabelStyle}" Margin="0,0,5,0" VerticalOptions="Center" Text="Paces" FontSize="Large" HorizontalOptions="End"></Label>
+                    </StackLayout>
+
+                    <Label Style="{DynamicResource titleLabelStyle}">Calculate Paces</Label>
+                    <StackLayout Orientation="Horizontal">
+                                                
+                        <Entry  Keyboard="Numeric" Style="{DynamicResource entryStyle}" Placeholder="" Text="{Binding DistanceToTravel, Mode=TwoWay, Converter={StaticResource doubleConverter}}"></Entry>
+                        <Label  Style="{DynamicResource titleLabelStyle}" Margin="0,0,5,0" VerticalOptions="Center" Text="Distance (m)" FontSize="Large" HorizontalOptions="End"></Label>
+                    </StackLayout>
+
+                    <StackLayout Orientation="Horizontal">
+                        <Button x:Name="btnCalculate" Text="Calculate"></Button>
+                        <Button x:Name="btnClear" Text="Clear"></Button>
+                    </StackLayout>
+
+                    <StackLayout>
+                        <Label x:Name="lblResultTitle">DISTANCE</Label>
+                        <StackLayout Orientation="Horizontal">
+                              <Label   Style="{DynamicResource labelStyle}" VerticalOptions="Center"  Text="{Binding DistanceFromPaces}"></Label>
+                              <Label   Style="{DynamicResource labelStyle}" VerticalOptions="Center"  Text="m"></Label>
+                            <Image x:Name="imgSteps" Source="FootstepIcon.png"></Image>
+                        </StackLayout>
+                    </StackLayout>
+
+                    <Grid IsVisible="false">
+                        
+                        <!--Distance from Paces -->
+                        <Label Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" Margin="0,30,0,0" FontSize="Title"  Style="{DynamicResource titleLabelStyle}" Text="Distance from Paces"></Label>
+                         <Label Grid.Row="4" Grid.Column="0"  Style="{DynamicResource titleLabelStyle}" Margin="0,0,5,0"  Text="Distance (m)" FontSize="Large" HorizontalOptions="End" VerticalOptions="Center"></Label>
+                      
+
+                        <!--Paces from Distance -->
+                        <Label Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="2" Margin="0,30,0,0" FontSize="Title"  Style="{DynamicResource titleLabelStyle}" Text="Paces from Distance"></Label>
+                        <Label Grid.Row="7" Grid.Column="0"  Style="{DynamicResource titleLabelStyle}" Margin="0,0,5,0" Text="Paces Needed" FontSize="Large"  HorizontalOptions="End" VerticalOptions="Center"></Label>
+                        <Label Grid.Row="7" Grid.Column="1"   Style="{DynamicResource labelStyle}" VerticalOptions="Center" Text="{Binding PacesFromDistance}"></Label>
+                    </Grid>
+                </FlexLayout>
+
+                
                 
             </ScrollView>
+            <StackLayout x:Name="slResults">
+                <Label x:Name="lblResultTypeTitle" Text="DISTANCE"></Label>
+                <StackLayout Orientation="Horizontal">
+                    <Label x:Name="lblResultsValue" Text="TBD"></Label>
+                    <Label x:Name="lblUnitOfMeasure" Text="m"></Label>
+                </StackLayout>
+                
+            </StackLayout>
+
+
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

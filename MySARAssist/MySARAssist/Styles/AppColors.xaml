@@ -24,4 +24,10 @@
     <Color x:Key="veryLightRed">#D9A49C</Color>
     <Color x:Key="veryDarkRed">#66171D</Color>
     <Color x:Key="darkRedButtonColour">#872c32</Color>
+
+     <Color x:Key="FSYellow">#EFCB17</Color>
+            <Color x:Key="FSGrey">#24272A</Color>
+            <Color x:Key="FSLightYellow">#F7E488</Color>
+            <Color x:Key="FSLightGrey">#3C4145</Color>
+
 </ResourceDictionary>
