@@ -8,15 +8,26 @@ namespace MySARAssist.ViewModels
     {
         public PacingCalculatorViewModel()
         {
-
+            PacesPer100m = CurrentMemberPace;
         }
+
+        public double CurrentMemberPace
+        {
+            get
+            {
+                if (App.CurrentTeamMember != null) { return App.CurrentTeamMember.PacesPer100; }
+                else { return 0; }
+            }
+            set { if(App.CurrentTeamMember != null) { App.CurrentTeamMember.PacesPer100 = value; App.TeamMemberManager.UpsertItemAsync(App.CurrentTeamMember); } }
+        }
+
 
         private string currentMode = null;
        
         double _PacesPer100m = 0;
         public double PacesPer100m
         {
-            get => _PacesPer100m; set { _PacesPer100m = value ; setResults(); OnPropertyChanged(nameof(PacesFromDistance)); OnPropertyChanged(nameof(DistanceFromPaces)); }
+            get => _PacesPer100m; set { _PacesPer100m = value; CurrentMemberPace = value; setResults(); OnPropertyChanged(nameof(PacesFromDistance)); OnPropertyChanged(nameof(DistanceFromPaces)); }
         }
         public string PacesPer100Text
         {

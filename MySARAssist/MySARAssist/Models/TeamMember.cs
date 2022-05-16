@@ -46,6 +46,7 @@ namespace MySARAssist.Models
         private string _D4HStatus;
         private bool _CurrentlySelected;
         private Organization _MemberOrganization;
+        private double _PacesPer100;
 
         [PrimaryKey]
         public Guid PersonID { get => _PersonID; set => _PersonID = value; }
@@ -149,7 +150,7 @@ namespace MySARAssist.Models
         
         [Ignore]
         public Organization MemberOrganization { get => _MemberOrganization; set => _MemberOrganization = value; }
-
+        public double PacesPer100 { get => _PacesPer100; set => _PacesPer100 = value; }
 
         public string StringForQR
         {
