@@ -34,7 +34,7 @@
                         </StackLayout>
                     </Frame>
 
-                    <Label x:Name="lblOr" Style="{DynamicResource titleLabelStyle}" Text="- OR -" HorizontalTextAlignment="Center" HorizontalOptions="FillAndExpand"></Label>
+                    <Label x:Name="lblOr" Style="{DynamicResource subtitleLabelStyle}" Text="- OR -" HorizontalTextAlignment="Center" HorizontalOptions="FillAndExpand"></Label>
 
                     <Frame Style="{DynamicResource PacingCalculatorSection}">
                         <StackLayout>

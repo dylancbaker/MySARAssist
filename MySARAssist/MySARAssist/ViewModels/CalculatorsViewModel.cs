@@ -33,7 +33,7 @@ namespace MySARAssist.ViewModels
         }
         private async void OnVisualSpacingCommand()
         {
-            await Shell.Current.GoToAsync(nameof(Views.CalculatorsPage) + "/" + nameof(Views.VisualSweepCalculatorPage));
+            await Shell.Current.GoToAsync(nameof(Views.CalculatorsPage) + "/" + nameof(Views.CalculatorVisualSearchSpacing));
         }
         private async void OnPacingCommand()
         {

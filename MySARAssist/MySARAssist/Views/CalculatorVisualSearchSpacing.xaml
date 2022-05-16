@@ -1,0 +1,90 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:vm="clr-namespace:MySARAssist.ViewModels"
+    xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core" 
+              ios:Page.UseSafeArea="true"
+    Title="Visual Search Spacing Calculator"
+    x:Class="MySARAssist.Views.CalculatorVisualSearchSpacing">
+     <ContentPage.BindingContext>
+        <vm:VisualSweepCalculatorViewModel />
+    </ContentPage.BindingContext>
+
+    <ContentPage.Content>
+         <StackLayout>
+            <ScrollView VerticalOptions="FillAndExpand">
+                <StackLayout Orientation="Vertical" VerticalOptions="FillAndExpand">
+
+                     <Label Style="{DynamicResource titleLabelStyle}">Spacing Calculator</Label>
+
+                     <Grid Style="{StaticResource CalculatorEntryFieldAreaGrid}">
+                        <Grid.RowDefinitions>
+
+
+                
+                   
+
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="0.8*"></ColumnDefinition>
+                            <ColumnDefinition Width="0.5*"></ColumnDefinition>
+                            <ColumnDefinition Width="0.2*"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+
+
+                        <StackLayout Orientation="Horizontal" Grid.Row="0" Grid.Column="0">
+                             <Label  Text="Range of Detection (m)" Style="{DynamicResource subtitleLabelStyle}"  VerticalOptions="CenterAndExpand" ></Label>
+                            <ImageButton Grid.Row="0" Grid.Column="3" Command="{Binding HowToRDCommand}" Padding="10" Aspect="AspectFit" VerticalOptions="CenterAndExpand"  Source="InfoIcon.png"></ImageButton>
+                        </StackLayout>
+                          <Entry Keyboard="Numeric" Grid.Row="0" Grid.Column="1" Style="{DynamicResource PacingPer100Entry}" Text="{Binding RangeOfDetection, Mode=TwoWay}"  Placeholder="m" ></Entry>
+                           
+                            <StackLayout Grid.Row="0" Grid.Column="2" Orientation="Vertical">
+                                <Button  Text="+"  Command="{Binding RDUpCommand}" Style="{DynamicResource upDownButton}"></Button>
+                                <Button  Text="-" Command="{Binding RDDownCommand}" Style="{DynamicResource upDownButton}"></Button>
+                            </StackLayout>
+
+
+                         <StackLayout Orientation="Horizontal" Grid.Row="1" Grid.Column="0">
+                             <Label  Text="Probability of Detection %" Style="{DynamicResource subtitleLabelStyle}" VerticalOptions="CenterAndExpand" ></Label>
+                        </StackLayout>
+                          <Entry Keyboard="Numeric" Grid.Row="1" Grid.Column="1" Style="{DynamicResource PacingPer100Entry}" Text="{Binding TargetPODAsPercentText, Mode=TwoWay}" Placeholder="%" ></Entry>
+                           
+                            <StackLayout Grid.Row="1" Grid.Column="2" Orientation="Vertical">
+                                <Button  Text="+"  Command="{Binding IdealPODUpCommand}" Style="{DynamicResource upDownButton}"></Button>
+                                <Button  Text="-" Command="{Binding IdealPODDownCommand}" Style="{DynamicResource upDownButton}"></Button>
+                            </StackLayout>
+                     </Grid>
+
+                    <StackLayout Style="{StaticResource CalculatorEntryFieldArea}">
+                        <Label  Text="Target Visibility" Style="{DynamicResource subtitleLabelStyle}"></Label>
+                        <StackLayout Orientation="Horizontal">
+                            <RadioButton x:Name="LowVisibility" HorizontalOptions="FillAndExpand" GroupName="Visibility" Content="Low" IsChecked="{Binding VisibilityIsLow, Mode=TwoWay}"></RadioButton>
+                            <RadioButton x:Name="MidVisibility" HorizontalOptions="FillAndExpand" GroupName="Visibility" Content="Medium" IsChecked="{Binding VisibilityIsMid, Mode=TwoWay}"></RadioButton>
+                            <RadioButton x:Name="HighVisibility" HorizontalOptions="FillAndExpand" GroupName="Visibility" Content="High" IsChecked="{Binding VisibilityIsHigh, Mode=TwoWay}"></RadioButton>
+                        </StackLayout>
+                    </StackLayout>
+                    
+                   
+
+
+
+
+                     
+
+
+
+                </StackLayout>
+            </ScrollView>
+             <StackLayout x:Name="slResults" Style="{DynamicResource PacingResultsBox}">
+                        <Label x:Name="lblResultTypeTitle" Style="{DynamicResource PacingResultsLabel}" Text="Spacing between members"></Label>
+                        <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
+                            <Label x:Name="lblResultsValue" Style="{DynamicResource PacingResultsText}" Text="{Binding TeamSpacing}"></Label>
+                            <Label x:Name="lblUnitOfMeasure" Style="{DynamicResource PacingResultsUOM}" Text="m"></Label>
+                        </StackLayout>
+                
+                    </StackLayout>
+         </StackLayout>
+        
+    </ContentPage.Content>
+</ContentPage>

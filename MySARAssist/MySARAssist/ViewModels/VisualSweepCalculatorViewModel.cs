@@ -12,29 +12,14 @@ namespace MySARAssist.ViewModels
         {
             CalculateCommand = new Command(() =>
             {
-                if (targetPOD <= 0)
-                {
-                    teamSpacing = rangeOfDetection * visibilityModifier;
-                    pod = StatisticalTools.calculatePOD(rangeOfDetection, visibilityModifier, teamSpacing);
-                }
-                else
-                {
-                    //if (targetPOD > 1) { targetPOD = targetPOD / 100; }
-                    teamSpacing = StatisticalTools.calculateSpacing(rangeOfDetection, visibilityModifier, targetPOD);
-                    pod = StatisticalTools.calculatePOD(rangeOfDetection, visibilityModifier, teamSpacing);
-                }
-
-
-
-                OnPropertyChanged(nameof(TeamSpacing));
-                OnPropertyChanged(nameof(POD));
+                CalculateSpacing();
 
             });
 
             EraseCommand = new Command(() =>
             {
                 SelectedVisibilityIndex = 0;
-                RangeOfDetection = "0";
+                RangeOfDetection = "1";
                 TargetPOD = "0.63";
                 POD = "0";
                 TeamSpacing = "0";
@@ -42,31 +27,68 @@ namespace MySARAssist.ViewModels
 
             RDUpCommand = new Command(() =>
             {
-                rangeOfDetection += 1;
-                OnPropertyChanged(nameof(RangeOfDetection));
+                setRangeOfDetection(rangeOfDetection + 1);
 
             });
             RDDownCommand = new Command(() =>
             {
-                rangeOfDetection -= 1;
-                OnPropertyChanged(nameof(RangeOfDetection));
+                setRangeOfDetection(rangeOfDetection - 1);
 
             });
 
             IdealPODUpCommand = new Command(() =>
             {
-                targetPOD += 0.01;
-                OnPropertyChanged(nameof(TargetPODAsPercent));
+                
+                setTargetPOD(targetPOD + 0.01);
 
             });
             IdealPODDownCommand = new Command(() =>
             {
-                targetPOD -= 0.01;
-                OnPropertyChanged(nameof(TargetPODAsPercent));
+                setTargetPOD(targetPOD - 0.01);
 
             });
 
             HowToRDCommand = new Command(OnHowToRD);
+        }
+
+        private void setTargetPOD(double newPOD)
+        {
+            double maxPOD = 0.864665;
+            double minPOD = 0.048;
+            if (newPOD > maxPOD) { targetPOD = maxPOD; }
+            else if (newPOD < minPOD) { targetPOD = minPOD; }
+            else { targetPOD = newPOD; }
+            OnPropertyChanged(nameof(TargetPODAsPercentText));
+            CalculateSpacing();
+
+        }
+
+        private void setRangeOfDetection(double newRD)
+        {
+            double minRD = 0;
+            if(newRD > minRD) { rangeOfDetection = newRD; }
+            else { rangeOfDetection = minRD; }
+            CalculateSpacing();
+            OnPropertyChanged(nameof(RangeOfDetection));
+        }
+
+        private void CalculateSpacing()
+        {
+            if (targetPOD <= 0)
+            {
+                teamSpacing = rangeOfDetection * visibilityModifier;
+                pod = StatisticalTools.calculatePOD(rangeOfDetection, visibilityModifier, teamSpacing);
+            }
+            else
+            {
+                teamSpacing = StatisticalTools.calculateSpacing(rangeOfDetection, visibilityModifier, targetPOD);
+                pod = StatisticalTools.calculatePOD(rangeOfDetection, visibilityModifier, teamSpacing);
+            }
+
+
+
+            OnPropertyChanged(nameof(TeamSpacing));
+            OnPropertyChanged(nameof(POD));
         }
 
         private async void OnHowToRD()
@@ -87,16 +109,65 @@ namespace MySARAssist.ViewModels
         double rangeOfDetection;
         public string RangeOfDetection
         {
-            get => string.Format("{0:#,##0}", rangeOfDetection); set
+            get
             {
+                if (rangeOfDetection > 0) { return string.Format("{0:#,##0}", rangeOfDetection); }
+                else { return null; }
+            }
+            set
+            {
+                double temp;
+                double.TryParse(value, out temp);
+                setRangeOfDetection(temp);
+                /*
                 double.TryParse(value, out rangeOfDetection);
+                CalculateSpacing();
                 OnPropertyChanged(nameof(RangeOfDetection));
+                */
+            }
+           
+        }
 
+
+        public bool VisibilityIsLow
+        {
+            get => selectedVisibilityIndex == 0;
+            set
+            {
+                if (value) { selectedVisibilityIndex = 0; }
+                CalculateSpacing();
+                OnPropertyChanged(nameof(VisibilityIsLow));
+                OnPropertyChanged(nameof(VisibilityIsMid));
+                OnPropertyChanged(nameof(VisibilityIsHigh));
+            }
+        }
+        public bool VisibilityIsMid
+        {
+            get => selectedVisibilityIndex == 1;
+            set
+            {
+                if (value) { selectedVisibilityIndex = 1; }
+                CalculateSpacing();
+                OnPropertyChanged(nameof(VisibilityIsLow));
+                OnPropertyChanged(nameof(VisibilityIsMid));
+                OnPropertyChanged(nameof(VisibilityIsHigh));
+            }
+        }
+        public bool VisibilityIsHigh
+        {
+            get => selectedVisibilityIndex == 2;
+            set
+            {
+                if (value) { selectedVisibilityIndex = 2; }
+                CalculateSpacing();
+                OnPropertyChanged(nameof(VisibilityIsLow));
+                OnPropertyChanged(nameof(VisibilityIsMid));
+                OnPropertyChanged(nameof(VisibilityIsHigh));
             }
         }
 
 
-        int selectedVisibilityIndex;
+        int selectedVisibilityIndex = 1;
         public int SelectedVisibilityIndex
         {
             get => selectedVisibilityIndex; set
@@ -123,6 +194,11 @@ namespace MySARAssist.ViewModels
                 }
             }
         }
+
+
+
+
+
         double targetPOD = 0.63;
         public string TargetPOD
         {
@@ -136,6 +212,21 @@ namespace MySARAssist.ViewModels
             }
         }
 
+
+        public string TargetPODAsPercentText
+        {
+            get { return (targetPOD * 100).ToString("##0"); }
+            set
+            {
+                if (!string.IsNullOrEmpty(value))
+                {
+                    double newPOD = 0;
+
+                   if( double.TryParse(value, out newPOD)) { newPOD = newPOD / 100; }
+                    setTargetPOD(newPOD);
+                }
+            }
+        }
         public double TargetPODAsPercent
         {
             get { return targetPOD * 100; }
