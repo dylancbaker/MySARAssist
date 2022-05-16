@@ -40,6 +40,10 @@ namespace MySARAssist.ResourceClasses
                 SetDynamicResource("listFrameStyle", "listFrameStyleDarkTheme");
                 SetDynamicResource("listViewStyle", "listViewStyleDark");
                 SetDynamicResource("buttonStyle", "buttonStyleDarkTheme");
+                SetDynamicResource("lgButtonStyle", "lgButtonStyleDarkTheme");
+                SetDynamicResource("xlgButtonStyle", "xlgButtonStyleDarkTheme");
+                SetDynamicResource("upDownButton", "upDownButtonDarkTheme");
+
             }
             else
             {
@@ -55,6 +59,9 @@ namespace MySARAssist.ResourceClasses
                 SetDynamicResource("listFrameStyle", "listFrameStyleLightTheme");
                 SetDynamicResource("listViewStyle", "listViewStyleLight");
                 SetDynamicResource("buttonStyle", "buttonStyleLightTheme");
+                SetDynamicResource("lgButtonStyle", "lgButtonStyleLightTheme");
+                SetDynamicResource("xlgButtonStyle", "xlgButtonStyleLightTheme");
+                SetDynamicResource("upDownButton", "upDownButtonLightTheme");
             }
 
         }

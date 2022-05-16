@@ -150,6 +150,54 @@
     </Style>
 
 
+
+    <!-- LG Buttons-->
+    <Style x:Key="lgButtonStyleBasic" TargetType="Button">
+        <Setter Property="BorderWidth" Value="1"></Setter>
+        <Setter Property="CornerRadius" Value="10"></Setter>
+        <Setter Property="FontSize" Value="Large"></Setter>
+        <Setter Property="Padding" Value="10, 15, 10, 15"></Setter>
+    </Style>
+    <Style x:Key="lgButtonStyle" TargetType="Button" BasedOn="{StaticResource lgButtonStyleBasic}">
+        <Setter Property="BorderColor" Value="{StaticResource mediumGrey}"></Setter>
+    </Style>
+    <Style x:Key="lgButtonStyleLightTheme" TargetType="Button" BasedOn="{StaticResource lgButtonStyleBasic}">
+        <Setter Property="BackgroundColor" Value="{StaticResource ICAYellow}"></Setter>
+        <Setter Property="TextColor" Value="{StaticResource black}"></Setter>
+        <Setter Property="BorderColor" Value="{StaticResource ICAYellow}"></Setter>
+    </Style>
+    <Style x:Key="lgButtonStyleDarkTheme" TargetType="Button" BasedOn="{StaticResource lgButtonStyleBasic}">
+        <Setter Property="BackgroundColor" Value="{StaticResource DarkYellow}"></Setter>
+        <Setter Property="TextColor" Value="{StaticResource black}"></Setter>
+        <Setter Property="BorderColor" Value="{StaticResource DarkYellow}"></Setter>
+    </Style>
+
+
+    <!-- XLG Buttons-->
+    <Style x:Key="xlgButtonStyleBasic" TargetType="Button">
+        <Setter Property="BorderWidth" Value="2"></Setter>
+        <Setter Property="CornerRadius" Value="10"></Setter>
+        <Setter Property="FontSize" Value="Title"></Setter>
+        <Setter Property="Margin" Value="0, 10, 0, 10"></Setter>
+    
+        <Setter Property="Padding" Value="10, 15, 10, 15"></Setter>
+    </Style>
+    <Style x:Key="xlgButtonStyle" TargetType="Button" BasedOn="{StaticResource xlgButtonStyleBasic}">
+        <Setter Property="BorderColor" Value="{StaticResource mediumGrey}"></Setter>
+    </Style>
+    <Style x:Key="xlgButtonStyleLightTheme" TargetType="Button" BasedOn="{StaticResource xlgButtonStyleBasic}">
+        <Setter Property="BackgroundColor" Value="{StaticResource ICAYellow}"></Setter>
+        <Setter Property="TextColor" Value="{StaticResource black}"></Setter>
+        <Setter Property="BorderColor" Value="{StaticResource ICAYellow}"></Setter>
+    </Style>
+    <Style x:Key="xlgButtonStyleDarkTheme" TargetType="Button" BasedOn="{StaticResource xlgButtonStyleBasic}">
+        <Setter Property="BackgroundColor" Value="{StaticResource DarkYellow}"></Setter>
+        <Setter Property="TextColor" Value="{StaticResource black}"></Setter>
+        <Setter Property="BorderColor" Value="{StaticResource DarkYellow}"></Setter>
+    </Style>
+
+
+
     <Style x:Key="buttonStyleRed" TargetType="Button" BasedOn="{StaticResource buttonStyleBasic}">
         <Setter Property="BackgroundColor" Value="{StaticResource darkRedButtonColour}"></Setter>
         <Setter Property="TextColor" Value="{StaticResource white}"></Setter>
@@ -157,7 +205,29 @@
 
     </Style>
 
-  
+
+
+    
+    <!-- Buttons-->
+    <Style x:Key="upDownButtonBasic" TargetType="Button">
+        <Setter Property="BorderWidth" Value="1"></Setter>
+        <Setter Property="CornerRadius" Value="0"></Setter>
+        <Setter Property="FontSize" Value="Large"></Setter>
+        <Setter Property="MinimumWidthRequest" Value="40"></Setter>
+    </Style>
+    <Style x:Key="upDownButton" TargetType="Button" BasedOn="{StaticResource upDownButtonBasic}">
+        <Setter Property="BorderColor" Value="{StaticResource mediumGrey}"></Setter>
+    </Style>
+    <Style x:Key="upDownButtonLightTheme" TargetType="Button" BasedOn="{StaticResource upDownButtonBasic}">
+        <Setter Property="BackgroundColor" Value="{StaticResource darkerGrey}"></Setter>
+        <Setter Property="TextColor" Value="{StaticResource white}"></Setter>
+        <Setter Property="BorderColor" Value="{StaticResource white}"></Setter>
+    </Style>
+    <Style x:Key="upDownButtonDarkTheme" TargetType="Button" BasedOn="{StaticResource upDownButtonBasic}">
+        <Setter Property="BackgroundColor" Value="{StaticResource darkGrey}"></Setter>
+        <Setter Property="TextColor" Value="{StaticResource lightGrey}"></Setter>
+        <Setter Property="BorderColor" Value="{StaticResource lightGrey}"></Setter>
+    </Style>
 
 
     <!-- Entry-->
