@@ -7,21 +7,23 @@ namespace MySARAssist.ViewModels
 {
     public class GridWorkEstimationViewModel : BaseViewModel
     {
+        private void CalculateTimeEstimate()
+        {
+            if (Area > 0 && Spacing > 0 && teamMembers > 0 && SearcherSpeed > 0)
+            {
+                double tracklengtheffort = (Area * 1000) / Spacing;
+
+                estimatedDuration = tracklengtheffort / SearcherSpeed / teamMembers;
+            }
+            else { estimatedDuration = 0; }
+            OnPropertyChanged(nameof(EstimatedDuration));
+        }
+
         public GridWorkEstimationViewModel()
         {
             CalculateCommand = new Command(() =>
             {
-                if (Area > 0 && Spacing > 0 && teamMembers > 0 && SearcherSpeed > 0)
-                {
-                    double tracklengtheffort = (Area * 1000) / Spacing;
-
-                    estimatedDuration = tracklengtheffort / SearcherSpeed / teamMembers;
-                }
-                else { estimatedDuration = 0; }
-                OnPropertyChanged(nameof(EstimatedDuration));
-                //var argsts = new PropertyChangedEventArgs(nameof(EstimatedDuration));
-                // PropertyChanged?.Invoke(this, argsts);
-
+                CalculateTimeEstimate();   
             });
 
             EraseCommand = new Command(() =>
@@ -36,44 +38,52 @@ namespace MySARAssist.ViewModels
             SpeedUpCommand = new Command(() =>
             {
                 SearcherSpeed += 0.1;
+               
                 OnPropertyChanged(nameof(SearcherSpeed));
             });
             SpeedDownCommand = new Command(() =>
             {
-                if (SearcherSpeed > 0.1) { SearcherSpeed -= 0.1; }
+                if (SearcherSpeed > 0.0) { SearcherSpeed -= 0.1; }
+              
                 OnPropertyChanged(nameof(SearcherSpeed));
             });
 
             MembersUpCommand = new Command(() =>
             {
-                 teamMembers += 1; 
+                 teamMembers += 1;
+               
                 OnPropertyChanged(nameof(TeamMembers));
             });
             MembersDownCommand = new Command(() =>
             {
-                if (teamMembers > 1) { teamMembers -= 1; }
+                if (teamMembers > 0) { teamMembers -= 1; }
+               
                 OnPropertyChanged(nameof(TeamMembers));
             });
 
             AreaUpCommand = new Command(() =>
             {
                 Area += 0.01;
+                OnPropertyChanged(nameof(AreaStr));
                 OnPropertyChanged(nameof(Area));
             });
             AreaDownCommand = new Command(() =>
             {
-                if (Area > 0.01) { Area -= 0.01; }
+                if (Area > 0) { Area -= 0.01; }
+                OnPropertyChanged(nameof(AreaStr));
                 OnPropertyChanged(nameof(Area));
             });
 
             SpacingUpCommand = new Command(() =>
             {
                 Spacing += 1;
+               
                 OnPropertyChanged(nameof(Spacing));
             });
             SpacingDownCommand = new Command(() =>
             {
-                if (Spacing > 1) { Spacing -= 1; }
+                if (Spacing > 0) { Spacing -= 1; }
+               
                 OnPropertyChanged(nameof(Spacing));
             });
         }
@@ -94,31 +104,43 @@ namespace MySARAssist.ViewModels
         double estimatedDuration = 0;
         public string EstimatedDuration
         {
-            get => string.Format("{0:#,##0.0}", estimatedDuration); set
+            get
+            {
+                if (estimatedDuration > 0) { return string.Format("{0:#,##0.0}", estimatedDuration); }
+                return null;
+            }
+            set
             {
                 double.TryParse(value, out estimatedDuration);
+                CalculateTimeEstimate();
                 OnPropertyChanged(nameof(EstimatedDuration));
-
             }
         }
 
         double _searcherSpeed = 1.6;
-        public double SearcherSpeed { get => _searcherSpeed; set => _searcherSpeed = value; }
+        public double SearcherSpeed { get => _searcherSpeed; set { _searcherSpeed = value; CalculateTimeEstimate(); OnPropertyChanged(nameof(SearcherSpeedStr)); } }
+        public string SearcherSpeedStr
+        {
+            get { if (_searcherSpeed > 0) { return _searcherSpeed.ToString(); } return null; }
+            set { double.TryParse(value, out _searcherSpeed); CalculateTimeEstimate(); OnPropertyChanged(nameof(SearcherSpeedStr)); }
+        }
 
         int teamMembers = 2;
         public string TeamMembers
         {
-            get => string.Format("{0:#,##0}", teamMembers);
-            set
-            {
-                int.TryParse(value, out teamMembers);
-                OnPropertyChanged(nameof(TeamMembers));
-            }
+            get { if (teamMembers > 0) { return teamMembers.ToString(); } return null; }
+            set { int.TryParse(value, out teamMembers); CalculateTimeEstimate(); OnPropertyChanged(nameof(TeamMembers)); }
         }
 
         double _area = 0.01;
-        public double Area { get => _area; set => _area = value; }
+        public double Area { get => _area; set { _area = value; CalculateTimeEstimate(); OnPropertyChanged(nameof(Area)); } }
+        public string AreaStr
+        {
+            get { if(Area > 0) { return Area.ToString(); } return null; }
+            set { if (!string.IsNullOrEmpty(value)) { double.TryParse(value, out double temp); Area = temp; } else { Area = 0; } }
+        }
 
+       
         /* public string Area
          {
              get => string.Format("{0:#,##0.00}", area);
@@ -134,6 +156,11 @@ namespace MySARAssist.ViewModels
 
 
         double _spacing = 1;
-        public double Spacing { get => _spacing; set => _spacing = value; }
+        public double Spacing { get => _spacing; set { _spacing = value; CalculateTimeEstimate(); OnPropertyChanged(nameof(SpacingStr)); } }
+        public string SpacingStr
+        {
+            get { if (_spacing > 0) { return _spacing.ToString(); } return null; }
+            set { double.TryParse(value, out _spacing); CalculateTimeEstimate(); OnPropertyChanged(nameof(SpacingStr)); }
+        }
     }
 }

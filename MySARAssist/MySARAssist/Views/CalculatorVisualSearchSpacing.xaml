@@ -76,14 +76,14 @@
 
                 </StackLayout>
             </ScrollView>
-             <StackLayout x:Name="slResults" Style="{DynamicResource PacingResultsBox}">
-                        <Label x:Name="lblResultTypeTitle" Style="{DynamicResource PacingResultsLabel}" Text="Spacing between members"></Label>
-                        <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
-                            <Label x:Name="lblResultsValue" Style="{DynamicResource PacingResultsText}" Text="{Binding TeamSpacing}"></Label>
-                            <Label x:Name="lblUnitOfMeasure" Style="{DynamicResource PacingResultsUOM}" Text="m"></Label>
-                        </StackLayout>
+            <StackLayout x:Name="slResults" Style="{DynamicResource PacingResultsBox}">
+                <Label x:Name="lblResultTypeTitle" Style="{DynamicResource PacingResultsLabel}" Text="Spacing between members"></Label>
+                <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
+                    <Label x:Name="lblResultsValue" Style="{DynamicResource PacingResultsText}" Text="{Binding TeamSpacing}"></Label>
+                    <Label x:Name="lblUnitOfMeasure" Style="{DynamicResource PacingResultsUOM}" Text="m"></Label>
+                </StackLayout>
                 
-                    </StackLayout>
+            </StackLayout>
          </StackLayout>
         
     </ContentPage.Content>

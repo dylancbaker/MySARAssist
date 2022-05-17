@@ -56,7 +56,8 @@ namespace MySARAssist.ViewModels
         double _DistanceToTravel = 0;
         public double DistanceToTravel
         {
-            get => _DistanceToTravel; set
+            get => _DistanceToTravel;
+            set
             {
                 _DistanceToTravel = value;
                 currentMode = "Paces";
