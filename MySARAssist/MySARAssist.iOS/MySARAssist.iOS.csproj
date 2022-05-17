@@ -203,10 +203,18 @@
       <Visible>false</Visible>
     </ImageAsset>
     <InterfaceDefinition Include="Resources\LaunchScreen.storyboard" />
-    <ImageAsset Include="Assets.xcassets\HouseIcon.png.imageset\Contents.json" />
-    <ImageAsset Include="Assets.xcassets\HouseIcon.png.imageset\glyphicons-basic-21-home%403x.png" />
-    <ImageAsset Include="Assets.xcassets\HouseIcon.png.imageset\glyphicons-basic-21-home%402x.png" />
-    <ImageAsset Include="Assets.xcassets\HouseIcon.png.imageset\glyphicons-basic-21-home.png" />
+    <ImageAsset Include="Assets.xcassets\HouseIcon.png.imageset\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\HouseIcon.png.imageset\glyphicons-basic-21-home%403x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\HouseIcon.png.imageset\glyphicons-basic-21-home%402x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\HouseIcon.png.imageset\glyphicons-basic-21-home.png">
+      <Visible>false</Visible>
+    </ImageAsset>
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />
