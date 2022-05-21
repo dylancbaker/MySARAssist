@@ -11,8 +11,25 @@
                 <StackLayout Orientation="Vertical" VerticalOptions="FillAndExpand">
                     <Label Style="{DynamicResource titleLabelStyle}">Grid Search Time Estimation</Label>
 
-                    <Grid>
-                       
+                     <Grid Style="{StaticResource CalculatorEntryFieldAreaGrid}">
+                        <Grid.RowDefinitions>
+
+
+                            <!-- RD -->
+                            <RowDefinition Height="*"></RowDefinition>
+                            <RowDefinition Height="10"></RowDefinition>
+                            <!-- Visibility -->
+                            <RowDefinition Height="*"></RowDefinition>
+                            <RowDefinition Height="10"></RowDefinition>
+                            <!-- Target POD -->
+                            <RowDefinition Height="*"></RowDefinition>
+                            <RowDefinition Height="10"></RowDefinition>
+
+                            <!-- buttons -->
+                            <RowDefinition Height="*"></RowDefinition>
+                            <RowDefinition Height="10"></RowDefinition>
+
+                        </Grid.RowDefinitions>
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="0.8*"></ColumnDefinition>
                             <ColumnDefinition Width="0.5*"></ColumnDefinition>
@@ -21,31 +38,31 @@
 
 
 
-                        <Label Grid.Row="0" Grid.Column="0"  Text="Searcher Speed (in KM/h)" Style="{DynamicResource titleLabelStyle}"></Label>
-                        <Entry Grid.Row="0" Grid.Column="1"   Keyboard="Numeric" Text="{Binding SearcherSpeedStr, Mode=TwoWay}"  Placeholder="KM/h"   Style="{DynamicResource PacingPer100Entry}"></Entry>
+                        <Label Grid.Row="0" Grid.Column="0"  VerticalOptions="Center"   Text="Searcher Speed (in KM/h)" Style="{DynamicResource subtitleLabelStyle}"></Label>
+                        <Entry Grid.Row="0" Grid.Column="1"   Keyboard="Numeric" Text="{Binding SearcherSpeedStr, Mode=TwoWay}"  Placeholder="KM/h"  Style="{DynamicResource PacingPer100Entry}"></Entry>
                           <StackLayout Grid.Row="0" Grid.Column="2" Orientation="Vertical">
                                 <Button  Text="+"  Command="{Binding SpeedUpCommand}" Style="{DynamicResource upDownButton}"></Button>
                                 <Button  Text="-" Command="{Binding SpeedDownCommand}" Style="{DynamicResource upDownButton}"></Button>
                             </StackLayout>
 
 
-                        <Label Grid.Row="1" Grid.Column="0"  Text="Number of Team Members" Style="{DynamicResource titleLabelStyle}"></Label>
-                        <Entry Grid.Row="1" Grid.Column="1"   Keyboard="Numeric" Text="{Binding TeamMembers, Mode=TwoWay}"  Placeholder="KM/h"   Style="{DynamicResource PacingPer100Entry}"></Entry>
-                          <StackLayout Grid.Row="1" Grid.Column="2" Orientation="Vertical">
+                        <Label Grid.Row="2" Grid.Column="0"  VerticalOptions="Center"  Text="Number of Team Members" Style="{DynamicResource subtitleLabelStyle}"></Label>
+                        <Entry Grid.Row="2" Grid.Column="1"   Keyboard="Numeric" Text="{Binding TeamMembers, Mode=TwoWay}"  Placeholder="KM/h"   Style="{DynamicResource PacingPer100Entry}"></Entry>
+                          <StackLayout Grid.Row="2" Grid.Column="2" Orientation="Vertical">
                                 <Button  Text="+"  Command="{Binding MembersUpCommand}" Style="{DynamicResource upDownButton}"></Button>
                                 <Button  Text="-" Command="{Binding MembersDownCommand}" Style="{DynamicResource upDownButton}"></Button>
                             </StackLayout>
 
-                        <Label Grid.Row="2" Grid.Column="0"  Text="Area Size (in KM2)" Style="{DynamicResource titleLabelStyle}"></Label>
-                        <Entry Grid.Row="2" Grid.Column="1"   Keyboard="Numeric" Text="{Binding AreaStr, Mode=TwoWay}"  Placeholder="KM/h"   Style="{DynamicResource PacingPer100Entry}"></Entry>
-                          <StackLayout Grid.Row="2" Grid.Column="2" Orientation="Vertical">
+                        <Label Grid.Row="4" Grid.Column="0"  VerticalOptions="Center"  Text="Area Size (in KM2)" Style="{DynamicResource subtitleLabelStyle}"></Label>
+                        <Entry Grid.Row="4" Grid.Column="1"   Keyboard="Numeric" Text="{Binding AreaStr, Mode=TwoWay}"  Placeholder="KM/h"   Style="{DynamicResource PacingPer100Entry}"></Entry>
+                          <StackLayout Grid.Row="4" Grid.Column="2" Orientation="Vertical">
                                 <Button  Text="+"  Command="{Binding AreaUpCommand}" Style="{DynamicResource upDownButton}"></Button>
                                 <Button  Text="-" Command="{Binding AreaDownCommand}" Style="{DynamicResource upDownButton}"></Button>
                             </StackLayout>
 
-                        <Label Grid.Row="3" Grid.Column="0"  Text="Spacing Between Members (in m)" Style="{DynamicResource titleLabelStyle}"></Label>
-                        <Entry Grid.Row="3" Grid.Column="1"   Keyboard="Numeric" Text="{Binding SpacingStr, Mode=TwoWay}"  Placeholder="KM/h"   Style="{DynamicResource PacingPer100Entry}"></Entry>
-                          <StackLayout Grid.Row="3" Grid.Column="2" Orientation="Vertical">
+                        <Label Grid.Row="6" Grid.Column="0"  VerticalOptions="Center"  Text="Spacing Between Members (in m)" Style="{DynamicResource subtitleLabelStyle}"></Label>
+                        <Entry Grid.Row="6" Grid.Column="1"   Keyboard="Numeric" Text="{Binding SpacingStr, Mode=TwoWay}"  Placeholder="KM/h"   Style="{DynamicResource PacingPer100Entry}"></Entry>
+                          <StackLayout Grid.Row="6" Grid.Column="2" Orientation="Vertical">
                                 <Button  Text="+"  Command="{Binding SpacingUpCommand}" Style="{DynamicResource upDownButton}"></Button>
                                 <Button  Text="-" Command="{Binding SpacingDownCommand}" Style="{DynamicResource upDownButton}"></Button>
                             </StackLayout>

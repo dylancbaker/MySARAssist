@@ -3,7 +3,7 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
     <ProduceReferenceAssembly>true</ProduceReferenceAssembly>
-    <ReleaseVersion>1.4</ReleaseVersion>
+    <ReleaseVersion>1.5</ReleaseVersion>
   </PropertyGroup>
 
   <ItemGroup>
