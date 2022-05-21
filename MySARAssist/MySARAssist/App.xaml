@@ -131,13 +131,28 @@
                 <Setter Property="HorizontalOptions" Value="Start"></Setter>
             </Style>
 
-            <Style x:Key="PacingCalculatorSection" TargetType="Frame">
+
+            <Style x:Key="PacingCalculatorSectionBasic" TargetType="Frame">
                 <Setter Property="BorderColor" Value="{StaticResource ICABlue}"></Setter>
                 <Setter Property="Padding" Value="10"></Setter>
                 <Setter Property="Margin" Value="10"></Setter>
                 <Setter Property="CornerRadius" Value="10"></Setter>
-
             </Style>
+            <Style x:Key="PacingCalculatorSection" TargetType="Frame" BasedOn="{StaticResource PacingCalculatorSectionBasic}">
+                <Setter Property="BorderColor" Value="{StaticResource ICABlue}"></Setter>
+                <Setter Property="Padding" Value="10"></Setter>
+                <Setter Property="Margin" Value="10"></Setter>
+                <Setter Property="CornerRadius" Value="10"></Setter>
+            </Style>
+
+            <Style x:Key="PacingCalculatorSectionLightTheme" TargetType="Frame" BasedOn="{StaticResource PacingCalculatorSectionBasic}">
+                <Setter Property="BackgroundColor" Value="{StaticResource BackgroundColor_Light}"></Setter>
+            </Style>
+
+            <Style x:Key="PacingCalculatorSectionDarkTheme" TargetType="Frame" BasedOn="{StaticResource PacingCalculatorSectionBasic}">
+               <Setter Property="BackgroundColor" Value="{StaticResource BackgroundColor_Dark}"></Setter>
+            </Style>
+
 
             <Style x:Key="CalculatorEntryFieldArea" TargetType="StackLayout">
                 <Setter Property="Margin" Value="10, 20, 10, 20"></Setter>

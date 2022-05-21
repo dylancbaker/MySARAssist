@@ -12,8 +12,8 @@
         <vm:PacingCalculatorViewModel />
     </ContentPage.BindingContext>
     <ContentPage.Content>
-        <StackLayout>
-            <ScrollView VerticalOptions="FillAndExpand">
+        <StackLayout Style="{DynamicResource backgroundStyle}">
+            <ScrollView VerticalOptions="FillAndExpand" >
                 <StackLayout Orientation="Vertical" VerticalOptions="FillAndExpand">
 
                         <Label Style="{DynamicResource titleLabelStyle}">Pacing Calculator</Label>

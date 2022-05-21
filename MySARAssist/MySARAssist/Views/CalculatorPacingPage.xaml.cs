@@ -15,5 +15,11 @@ namespace MySARAssist.Views
 			
 		}
 
-	}
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+            ResourceHelper.setThemeColor();
+        }
+
+    }
 }

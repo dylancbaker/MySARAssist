@@ -213,7 +213,7 @@
         <Setter Property="BorderWidth" Value="1"></Setter>
         <Setter Property="CornerRadius" Value="0"></Setter>
         <Setter Property="FontSize" Value="Large"></Setter>
-        <Setter Property="MinimumWidthRequest" Value="40"></Setter>
+        <Setter Property="MinimumWidthRequest" Value="30"></Setter>
     </Style>
     <Style x:Key="upDownButton" TargetType="Button" BasedOn="{StaticResource upDownButtonBasic}">
         <Setter Property="BorderColor" Value="{StaticResource mediumGrey}"></Setter>

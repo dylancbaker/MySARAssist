@@ -6,7 +6,7 @@
               ios:Page.UseSafeArea="true"
              Title="Grid Search Work Estimation">
     <ContentPage.Content>
-         <StackLayout>
+         <StackLayout Style="{DynamicResource backgroundStyle}">
             <ScrollView VerticalOptions="FillAndExpand">
                 <StackLayout Orientation="Vertical" VerticalOptions="FillAndExpand">
                     <Label Style="{DynamicResource titleLabelStyle}">Grid Search Time Estimation</Label>

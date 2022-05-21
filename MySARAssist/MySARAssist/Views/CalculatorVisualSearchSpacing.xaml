@@ -12,7 +12,7 @@
     </ContentPage.BindingContext>
 
     <ContentPage.Content>
-         <StackLayout>
+         <StackLayout Style="{DynamicResource backgroundStyle}">
             <ScrollView VerticalOptions="FillAndExpand">
                 <StackLayout Orientation="Vertical" VerticalOptions="FillAndExpand">
 
@@ -36,7 +36,7 @@
 
                         <StackLayout Orientation="Horizontal" Grid.Row="0" Grid.Column="0">
                              <Label  Text="Range of Detection (m)" Style="{DynamicResource subtitleLabelStyle}"  VerticalOptions="CenterAndExpand" ></Label>
-                            <ImageButton Grid.Row="0" Grid.Column="3" Command="{Binding HowToRDCommand}" Padding="10" Aspect="AspectFit" VerticalOptions="CenterAndExpand"  Source="InfoIcon.png"></ImageButton>
+                            <ImageButton  HeightRequest="45" Command="{Binding HowToRDCommand}" Aspect="AspectFit" VerticalOptions="CenterAndExpand"  Source="InfoIcon.png"></ImageButton>
                         </StackLayout>
                           <Entry Keyboard="Numeric" Grid.Row="0" Grid.Column="1" Style="{DynamicResource PacingPer100Entry}" Text="{Binding RangeOfDetection, Mode=TwoWay}"  Placeholder="m" ></Entry>
                            

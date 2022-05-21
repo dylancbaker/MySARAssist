@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-
+using MySARAssist.ResourceClasses;
 using Xamarin.Forms;
 
 namespace MySARAssist.Views
@@ -10,6 +10,12 @@ namespace MySARAssist.Views
         public CalculatorVisualSearchSpacing()
         {
             InitializeComponent();
+        }
+
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+            ResourceHelper.setThemeColor();
         }
     }
 }
