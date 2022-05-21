@@ -20,12 +20,13 @@
 
                      <Grid Style="{StaticResource CalculatorEntryFieldAreaGrid}">
                         <Grid.RowDefinitions>
-
-
-                
-                   
-
-                        </Grid.RowDefinitions>
+                            <!-- RD -->
+                            <RowDefinition Height="*"></RowDefinition>
+                            <RowDefinition Height="10"></RowDefinition>
+                            <!-- POD -->
+                            <RowDefinition Height="*"></RowDefinition>
+                            <RowDefinition Height="10"></RowDefinition>
+                         </Grid.RowDefinitions>
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="0.8*"></ColumnDefinition>
                             <ColumnDefinition Width="0.5*"></ColumnDefinition>
@@ -45,12 +46,12 @@
                             </StackLayout>
 
 
-                         <StackLayout Orientation="Horizontal" Grid.Row="1" Grid.Column="0">
+                         <StackLayout Orientation="Horizontal" Grid.Row="2" Grid.Column="0">
                              <Label  Text="Probability of Detection %" Style="{DynamicResource subtitleLabelStyle}" VerticalOptions="CenterAndExpand" ></Label>
                         </StackLayout>
-                          <Entry Keyboard="Numeric" Grid.Row="1" Grid.Column="1" Style="{DynamicResource PacingPer100Entry}" Text="{Binding TargetPODAsPercentText, Mode=TwoWay}" Placeholder="%" ></Entry>
+                          <Entry Keyboard="Numeric" Grid.Row="2" Grid.Column="1" Style="{DynamicResource PacingPer100Entry}" Text="{Binding TargetPODAsPercentText, Mode=TwoWay}" Placeholder="%" ></Entry>
                            
-                            <StackLayout Grid.Row="1" Grid.Column="2" Orientation="Vertical">
+                            <StackLayout Grid.Row="2" Grid.Column="2" Orientation="Vertical">
                                 <Button  Text="+"  Command="{Binding IdealPODUpCommand}" Style="{DynamicResource upDownButton}"></Button>
                                 <Button  Text="-" Command="{Binding IdealPODDownCommand}" Style="{DynamicResource upDownButton}"></Button>
                             </StackLayout>

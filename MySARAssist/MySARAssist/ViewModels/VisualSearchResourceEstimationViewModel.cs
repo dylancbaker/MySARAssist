@@ -34,13 +34,13 @@ namespace MySARAssist.ViewModels
 
             AreaUpCommand = new Command(() =>
             {
-                Area += 0.01;
+                Area += 0.1;
                 OnPropertyChanged(nameof(Area));
             });
             AreaDownCommand = new Command(() =>
             {
 
-                if (Area > 0.01) { Area -= 0.01; }
+                if (Area > 0.1) { Area -= 0.1; }
                 OnPropertyChanged(nameof(Area));
             });
 

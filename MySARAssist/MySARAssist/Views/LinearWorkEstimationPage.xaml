@@ -6,60 +6,71 @@
               ios:Page.UseSafeArea="true"
              Title="Linear Search Work Estimation">
     <ContentPage.Content>
-        <ScrollView  Style="{DynamicResource backgroundStyle}" Padding="20">
-            <Grid>
-                <Grid.RowDefinitions>
-
-                    <!-- Speed -->
-                    <RowDefinition Height="50"></RowDefinition>
-                    <RowDefinition Height="60"></RowDefinition>
-                    <!-- Length -->
-                    <RowDefinition Height="50"></RowDefinition>
-                    <RowDefinition Height="60"></RowDefinition>
-
-
-                    <!-- buttons -->
-                    <RowDefinition Height="70"></RowDefinition>
-
-                    <!-- results-->
-                    <RowDefinition Height="50"></RowDefinition>
-                    <RowDefinition Height="60"></RowDefinition>
-
-                </Grid.RowDefinitions>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="0.5*"></ColumnDefinition>
-                    <ColumnDefinition Width="0.5*"></ColumnDefinition>
-                    <ColumnDefinition Width="0.5*"></ColumnDefinition>
-                    <ColumnDefinition Width="0.5*"></ColumnDefinition>
-                </Grid.ColumnDefinitions>
+         <StackLayout>
+            <ScrollView VerticalOptions="FillAndExpand">
+                <StackLayout Orientation="Vertical" VerticalOptions="FillAndExpand">
+                       <Label Style="{DynamicResource titleLabelStyle}">Linear Assignment Estimation</Label>
+                     <Grid Style="{StaticResource CalculatorEntryFieldAreaGrid}">
+                          <Grid.RowDefinitions>
+                            <!-- RD -->
+                            <RowDefinition Height="*"></RowDefinition>
+                            <RowDefinition Height="10"></RowDefinition>
+                            <!-- POD -->
+                            <RowDefinition Height="*"></RowDefinition>
+                            <RowDefinition Height="10"></RowDefinition>
+                         </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="0.8*"></ColumnDefinition>
+                            <ColumnDefinition Width="0.5*"></ColumnDefinition>
+                            <ColumnDefinition Width="0.2*"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
 
 
 
-                <Label Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="4"  FontSize="Large" FontAttributes="Bold" Text="Searcher Speed (in KM/h)" Style="{DynamicResource titleLabelStyle}"></Label>
-                <Editor Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"  Keyboard="Numeric" Text="{Binding SearcherSpeed, Mode=TwoWay, Converter={StaticResource doubleConverter}}" FontSize="Large" Placeholder="Speed in KM/h"   Style="{DynamicResource editorStyle}"></Editor>
-                <Button Grid.Row="1" Grid.Column="2"  Grid.ColumnSpan="1" Text="+"  Command="{Binding SpeedUpCommand}" FontSize="Large"></Button>
-                <Button Grid.Row="1" Grid.Column="3"  Grid.ColumnSpan="1" Text="-" Command="{Binding SpeedDownCommand}" FontSize="Large"></Button>
+                        <Label Grid.Row="0" Grid.Column="0" VerticalOptions="Center" Text="Searcher Speed (in KM/h)" Style="{DynamicResource subtitleLabelStyle}"></Label>
+                        <Entry Grid.Row="0" Grid.Column="1" Keyboard="Numeric" Text="{Binding SearcherSpeedStr, Mode=TwoWay}" Placeholder="KM/h"   Style="{DynamicResource PacingPer100Entry}"></Entry>
+                         <StackLayout Grid.Row="0" Grid.Column="2" Orientation="Vertical">
+                                <Button  Text="+"  Command="{Binding SpeedUpCommand}" Style="{DynamicResource upDownButton}"></Button>
+                                <Button  Text="-" Command="{Binding SpeedDownCommand}" Style="{DynamicResource upDownButton}"></Button>
+                            </StackLayout>
+
+                        <Label Grid.Row="2" Grid.Column="0"  VerticalOptions="Center" FontSize="Large" FontAttributes="Bold" Text="Length (in KM)" Style="{DynamicResource subtitleLabelStyle}"></Label>
+                        <Entry Grid.Row="2" Grid.Column="1"  Keyboard="Numeric" Text="{Binding LengthStr, Mode=TwoWay}" Placeholder="KM"  Style="{DynamicResource PacingPer100Entry}"></Entry>
+                         <StackLayout Grid.Row="2" Grid.Column="2" Orientation="Vertical">
+                                <Button  Text="+"  Command="{Binding LengthUpCommand}" Style="{DynamicResource upDownButton}"></Button>
+                                <Button  Text="-" Command="{Binding LengthDownCommand}" Style="{DynamicResource upDownButton}"></Button>
+                            </StackLayout>
 
 
-                <Label Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="4"  FontSize="Large" FontAttributes="Bold" Text="Length (in KM)" Style="{DynamicResource titleLabelStyle}"></Label>
-                <Editor Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2"  Keyboard="Numeric" Text="{Binding Length, Mode=TwoWay, Converter={StaticResource doubleConverter}}" FontSize="Large" Placeholder="Length in KM"  Style="{DynamicResource editorStyle}"></Editor>
-                <Button Grid.Row="3" Grid.Column="2"  Grid.ColumnSpan="1" Text="+"  Command="{Binding LengthUpCommand}" FontSize="Large"></Button>
-                <Button Grid.Row="3" Grid.Column="3"  Grid.ColumnSpan="1" Text="-" Command="{Binding LengthDownCommand}" FontSize="Large"></Button>
 
 
-                <Button Grid.Row="4" Grid.Column="0"  Grid.ColumnSpan="2" Text="Calculate" BackgroundColor="{DynamicResource ICABlue}" TextColor="White" Command="{Binding CalculateCommand}" FontSize="Large"></Button>
-                <Button Grid.Row="4" Grid.Column="2" Grid.ColumnSpan="2" Text="Clear" BackgroundColor="{DynamicResource darkRedButtonColour}" TextColor="White" Command="{Binding EraseCommand}" FontSize="Large"></Button>
-
-                <Label Grid.Column="0" Grid.Row="5" Grid.ColumnSpan="4" FontSize="Large" FontAttributes="Bold"  Text="Estimated Hours to Complete" Style="{DynamicResource titleLabelStyle}"></Label>
-
-                <Label Grid.Column="0" Grid.Row="6" Grid.ColumnSpan="2" FontSize="Large"  Text="One-Way"  Style="{DynamicResource labelStyle}"></Label>
-                <Label Grid.Column="2" Grid.Row="6" Grid.ColumnSpan="2" FontSize="Large"  Text="{Binding EstimatedDuration}"  Style="{DynamicResource labelStyle}"></Label>
-
-                <Label Grid.Column="0" Grid.Row="7" Grid.ColumnSpan="2" FontSize="Large"  Text="Round-Trip"  Style="{DynamicResource labelStyle}"></Label>
-                <Label Grid.Column="2" Grid.Row="7" Grid.ColumnSpan="2" FontSize="Large"  Text="{Binding EstimatedDurationWithRoundTrip}"  Style="{DynamicResource labelStyle}"></Label>
 
 
-            </Grid>
-        </ScrollView>
+                    </Grid>
+                </StackLayout>
+            </ScrollView>
+              <StackLayout x:Name="slResults" Style="{DynamicResource PacingResultsBox}">
+                  <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+                      <StackLayout Orientation="Vertical" HorizontalOptions="FillAndExpand">
+                           <Label x:Name="lblResultTypeTitle" Style="{DynamicResource PacingResultsLabel}" Text="One-Way"></Label>
+                            <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
+                                <Label x:Name="lblResultsValue" Style="{DynamicResource PacingResultsText}" Text="{Binding EstimatedDuration}"></Label>
+                                <Label x:Name="lblUnitOfMeasure" Style="{DynamicResource PacingResultsUOM}" Text="hrs"></Label>
+                            </StackLayout>
+                      </StackLayout>
+
+                      <StackLayout Orientation="Vertical" HorizontalOptions="FillAndExpand">
+
+                        <Label x:Name="lblRoundTripResultTitle" Style="{DynamicResource PacingResultsLabel}" Text="Round Trip"></Label>
+                        <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
+                            <Label x:Name="lblRoundTripValue" Style="{DynamicResource PacingResultsText}" Text="{Binding EstimatedDurationWithRoundTrip}"></Label>
+                            <Label x:Name="lblRoundTripUOM" Style="{DynamicResource PacingResultsUOM}" Text="hrs"></Label>
+                        </StackLayout>
+                      </StackLayout>
+                       
+                  </StackLayout>
+
+            </StackLayout>
+        </StackLayout>
     </ContentPage.Content>
 </ContentPage>

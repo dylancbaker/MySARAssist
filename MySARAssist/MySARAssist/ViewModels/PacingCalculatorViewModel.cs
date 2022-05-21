@@ -76,14 +76,12 @@ namespace MySARAssist.ViewModels
         {
             if (PacesPer100m != 0)
             {
-
-
                 switch (currentMode)
                 {
                     case "Paces":
                         CalculationResult = PacesFromDistance.ToString();
-                        CalculationUnits = "";
-                        CalculationTitle = "PACES";
+                        CalculationUnits = "paces";
+                        CalculationTitle = "PACES REQUIRED";
 
                         break;
                     case "Distance":
