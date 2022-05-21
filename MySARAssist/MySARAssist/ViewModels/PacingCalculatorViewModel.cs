@@ -18,9 +18,13 @@ namespace MySARAssist.ViewModels
                 if (App.CurrentTeamMember != null) { return App.CurrentTeamMember.PacesPer100; }
                 else { return 0; }
             }
-            set { if(App.CurrentTeamMember != null) { App.CurrentTeamMember.PacesPer100 = value; App.TeamMemberManager.UpsertItemAsync(App.CurrentTeamMember); } }
+            set { if(App.CurrentTeamMember != null) { App.CurrentTeamMember.PacesPer100 = value; updatePacing(); } }
         }
 
+        private async void updatePacing()
+        {
+            await App.TeamMemberManager.UpsertItemAsync(App.CurrentTeamMember);
+        }
 
         private string currentMode = null;
        

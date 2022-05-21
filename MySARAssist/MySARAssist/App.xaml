@@ -78,6 +78,21 @@
                 <Setter Property="HorizontalTextAlignment" Value="Center"></Setter>
             </Style>
 
+             <Style x:Key="PacingPer100EntryLight" TargetType="Entry">
+                <Setter Property="FontSize" Value="Large"></Setter>
+                <Setter Property="ClearButtonVisibility" Value="WhileEditing"></Setter>
+                <Setter Property="TextColor" Value="White"></Setter>
+                <Setter Property="PlaceholderColor" Value="LightGray"></Setter>
+                 
+                 <Setter Property="VerticalTextAlignment" Value="Center"></Setter>
+                <Setter Property="HorizontalOptions" Value="FillAndExpand"></Setter>
+                <Setter Property="VerticalOptions" Value="FillAndExpand"></Setter>
+                <Setter Property="HeightRequest" Value="50"></Setter>
+                <Setter Property="WidthRequest" Value="100"></Setter>
+                <Setter Property="Margin" Value="0,0,20,0"></Setter>
+                <Setter Property="HorizontalTextAlignment" Value="Center"></Setter>
+            </Style>
+
 
              <Style x:Key="PacingCalculationLabel" TargetType="Label">
                 <Setter Property="TextColor" Value="{StaticResource darkerGrey}"></Setter>

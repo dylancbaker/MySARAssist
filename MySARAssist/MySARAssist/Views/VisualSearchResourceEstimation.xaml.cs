@@ -3,8 +3,6 @@ using System.Collections.Generic;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using MySARAssist.ResourceClasses;
-
-using Xamarin.Forms;
 using MySARAssist.ViewModels;
 
 namespace MySARAssist.Views
