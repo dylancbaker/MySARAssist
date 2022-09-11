@@ -11,7 +11,7 @@ namespace MySARAssist.ViewModels
         public NetworkSettingsViewModel()
         {
             TestNetworkCommand = new Command(OnTestNetworkCommand);
-            ServerIP = "192.168.1.126";
+            ServerIP = "10.0.0.107";
             PortNumber = 42999;
         }
 
@@ -39,8 +39,8 @@ namespace MySARAssist.ViewModels
         {
             NetworkTestGuidValue = Guid.NewGuid();
             silentNetworkTest = false;
+            
             Services.Network_Services.SendNetworkObject(NetworkTestGuidValue, "test", ServerIP, PortNumber.ToString());
-            //SendNetworkObject(NetworkTestGuidValue, "test", ServerIP, PortNumber);
         }
     }
 }

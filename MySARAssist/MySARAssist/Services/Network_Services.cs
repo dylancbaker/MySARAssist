@@ -1,17 +1,18 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using MySARAssist.Models;
 using MySARAssist.ResourceClasses;
 using NetworkCommsDotNet;
 using NetworkCommsDotNet.Connections.TCP;
 using NetworkCommsDotNet.Tools;
-using ProtoBuf;
 
 namespace MySARAssist.Services
 {
     public static class Network_Services
     {
+        
         //Dictionary<ShortGuid, NetworkSendObject> lastPeerSendObjectDict = new Dictionary<ShortGuid, NetworkSendObject>();
         public static bool SendNetworkObject(object objToSend, string comment = null, string ip = null, string port = null)
         {
@@ -68,9 +69,62 @@ namespace MySARAssist.Services
                         return false;
                     }
                 }
-               // ShortGuid networkIdentifier = ShortGuid.NewGuid();
+                // ShortGuid networkIdentifier = ShortGuid.NewGuid();
 
                 //lock (lastPeerSendObjectDict) lastPeerSendObjectDict[networkIdentifier] = networkSendObject;
+
+
+
+
+                if (serverConnectionInfo != null)
+                {
+                    //We perform the send within a try catch to ensure the application continues to run if there is a problem.
+                    try
+                    {
+
+
+                        using (TCPConnection connection = TCPConnection.GetConnection(serverConnectionInfo))
+                        {
+                            connection.SendObject("NetworkSendObject", networkSendObject);
+                        }
+                        //errors.Add(string.Format(Globals.cultureInfo, "{0:HH:mm:ss}", today) + " - sent " + networkSendObject.objectType + " - " + networkSendObject.comment + "\r\n");
+                    }
+                    catch (CommsException ce)
+                    {
+
+                        //errors.Add(string.Format(Globals.cultureInfo, "{0:HH:mm:ss}", today) + " Error - " + ce.ToString() + "\r\n\r\n");
+                        //MessageBox.Show("A CommsException occurred while trying to send a " + networkSendObject.GetType() + " to " + serverConnectionInfo + "\r\n\r\n" + ce.ToString(), "Network Comms Exception", MessageBoxButtons.OK);
+                        //MessageBox.Show("A CommsException occurred while trying to send message to " + serverConnectionInfo, "CommsException", MessageBoxButtons.OK);
+                    }
+                    catch (Exception ex)
+                    {
+                        //errors.Add(string.Format(Globals.cultureInfo, "{0:HH:mm:ss}", today) + " Error - " + ex.ToString() + "\r\n\r\n");
+                        // MessageBox.Show("A CommsException occurred while trying to send a " + networkSendObject.GetType() + " to " + ex.ToString(), "CommsException", MessageBoxButtons.OK);
+                    }
+
+                }
+
+
+                //If we have any other connections we now send the message to those as well
+                //This ensures that if we are the server everyone who is connected to us gets our message
+                var otherConnectionInfos = (from current in NetworkComms.AllConnectionInfo() where current != serverConnectionInfo select current).ToArray();
+                foreach (ConnectionInfo info in otherConnectionInfos)
+                {
+                    //We perform the send within a try catch to ensure the application continues to run if there is a problem.
+                    try { TCPConnection.GetConnection(info).SendObject("NetworkSendObject", networkSendObject); }
+                    catch (CommsException ce)
+                    {
+                       
+                    }
+                    catch (Exception ex)
+                    {
+                        //MessageBox.Show("A CommsException occurred while trying to send message to " + ex.ToString(), "CommsException", MessageBoxButtons.OK);
+
+                    }
+                }
+
+
+                /*
 
                 //If we provided server information we send to the server first
                 if (serverConnectionInfo != null)
@@ -79,10 +133,17 @@ namespace MySARAssist.Services
                     try
                     {
                         //ProtobufSerializer serializer = new ProtobufSerializer();
-                        SendReceiveOptions sendReceiveOptions = new SendReceiveOptions<ProtobufSerializer>();
-                       
-                        TCPConnection connection = TCPConnection.GetConnection(serverConnectionInfo);
-                        connection.SendObject("NetworkSendObject", networkSendObject);
+                        //SendReceiveOptions sendReceiveOptions = new SendReceiveOptions();
+
+                        //NetworkComms.SendObject("Message", iptouse, porttouse, networkSendObject);
+
+                        using (TCPConnection connection = TCPConnection.GetConnection(serverConnectionInfo))
+                        {
+
+
+
+                            connection.SendObject("NetworkSendObject", networkSendObject);
+                        }
                         successful = true;
                        // addToNetworkLog(string.Format(Globals.cultureInfo, "{0:HH:mm:ss}", today) + " - sent " + networkSendObject.objectType + " - " + networkSendObject.comment + "\r\n");
                     }
@@ -94,7 +155,7 @@ namespace MySARAssist.Services
                         // MessageBox.Show("A CommsException occurred while trying to send a " + networkSendObject.GetType() + " to " + ex.ToString(), "CommsException", MessageBoxButtons.OK);
                     }
 
-                }
+                }*/
 
                 return successful;
             } else { return false; }

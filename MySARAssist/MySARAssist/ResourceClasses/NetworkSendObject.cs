@@ -12,7 +12,7 @@ namespace MySARAssist.ResourceClasses
 {
     [ProtoContract]
     [Serializable]
-    public class NetworkSendObject
+    public class NetworkSendObject : IExplicitlySerialize
     {
         [ProtoMember(1)]
         public Guid RequestID { get; set; }
@@ -41,7 +41,21 @@ namespace MySARAssist.ResourceClasses
         private List<TeamMember> _memberList;
         public List<TeamMember> memberList { get => _memberList; set => _memberList = value; }
 
-      
+        public void Serialize(Stream outputStream)
+        {
+            using (var stream = new MemoryStream())
+            {
+                Serializer.Serialize(stream, this);
+            }
+        }
+
+        public void Deserialize(Stream inputStream)
+        {
+            var obj = ProtoBuf.Serializer.Deserialize<NetworkSendObject>(inputStream);
+            
+        }
+
+
 
 
         /*

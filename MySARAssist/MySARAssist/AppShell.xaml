@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <Shell xmlns="http://xamarin.com/schemas/2014/forms" 
        xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
        xmlns:local="clr-namespace:MySARAssist.Views"
@@ -28,7 +28,7 @@
     <FlyoutItem Title="Calculators" Icon="CalculatorIcon.png">
         <ShellContent Route="Calculators" ContentTemplate="{DataTemplate local:CalculatorsPage}" />
     </FlyoutItem>
-    <FlyoutItem Title="Network Settings" Icon="icon_about.png" IsVisible="False">
+    <FlyoutItem Title="Network Settings" Icon="icon_about.png">
         <ShellContent Route="NetworkSettingsPage" ContentTemplate="{DataTemplate local:NetworkSettingsPage}" />
     </FlyoutItem>
 

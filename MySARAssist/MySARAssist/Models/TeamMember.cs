@@ -1,10 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using ProtoBuf;
 using SQLite;
 
 namespace MySARAssist.Models
 {
+    [Serializable]
+    [ProtoContract]
     public class TeamMember
     {
         public TeamMember()
@@ -14,43 +17,81 @@ namespace MySARAssist.Models
             MemberOrganization = new Organization(new Guid("96BA69A4-436C-4DA1-85B1-992E84C36019"), "Unassigned");
         }
 
+        [ProtoMember(1)]
         private Guid _PersonID;
+        [ProtoMember(2)]
         private string _Name;
-        //private string _Group;
+        [ProtoMember(3)]
+        private string _Group;
+        [ProtoMember(4)]
         private string _Callsign;
+        [ProtoMember(5)]
         private string _Phone;
+        [ProtoMember(6)]
         private bool _RopeRescue;
+        [ProtoMember(7)]
         private bool _Tracker;
+        [ProtoMember(8)]
         private bool _FirstAid;
+        [ProtoMember(9)]
         private bool _GSAR;
-        private bool _Swiftwater;
-        private bool _MountainRescue;
-
+        [ProtoMember(10)]
         private string _SpecialSkills;
+        [ProtoMember(11)]
         private bool _isAssignmentTeamLeader;
+        [ProtoMember(12)]
         private string _Reference;
+        [ProtoMember(13)]
         private bool _GSTL = false;
+        [ProtoMember(14)]
         private bool _SARM;
+        [ProtoMember(15)]
         private string _barcode;
+        [ProtoMember(16)]
         private bool _signedIn;
-      //  private Guid _organizationID;
+        [ProtoMember(17)]
+        private Guid _organizationID;
+        [ProtoMember(18)]
         private Guid _userID;
+        [ProtoMember(19)]
         private bool _memberActive;
+        [ProtoMember(20)]
         private DateTime _lastUpdatedUTC;
+        [ProtoMember(21)]
         private string _Email;
+        [ProtoMember(22)]
         private Guid _CreatedByOrgID;
+        [ProtoMember(23)]
         private string _Address;
+        [ProtoMember(24)]
         private string _NOKName;
+        [ProtoMember(25)]
         private string _NOKRelation;
+        [ProtoMember(26)]
         private string _NOKPhone;
+        [ProtoMember(27)]
         private string _D4HStatus;
+        
+        [ProtoMember(29)]
+        private bool _Swiftwater;
+        [ProtoMember(30)]
+        private bool _MountainRescue;
+        [ProtoMember(31)]
+        private int _D4HID;
+
+
+
+
+        [ProtoIgnore]
         private bool _CurrentlySelected;
+        [ProtoIgnore]
         private Organization _MemberOrganization;
+        [ProtoIgnore]
         private double _PacesPer100;
 
         [PrimaryKey]
         public Guid PersonID { get => _PersonID; set => _PersonID = value; }
-
+        public int D4HID { get => _D4HID; set => _D4HID = value; }
         public string Name { get => _Name; set => _Name = value; }
 
         public string Group { get => _MemberOrganization.OrganizationName; set => _MemberOrganization.OrganizationName = value; } //Use OrganizationName for this value
