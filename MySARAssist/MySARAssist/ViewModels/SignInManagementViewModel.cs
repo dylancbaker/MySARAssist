@@ -35,8 +35,23 @@ namespace MySARAssist.ViewModels
         {
             get
             {
-                if (App.CurrentTeamMember != null) { return App.CurrentTeamMember.NameWithGroup; }
+                if (App.CurrentTeamMember != null) { return App.CurrentTeamMember.Name; }
                 else { return "-No member selected-"; }
+            }
+        }
+        public string CurrentMemberDetails
+        {
+            get
+            {
+                if (App.CurrentTeamMember != null) {
+                    StringBuilder details = new StringBuilder();
+                    if (App.CurrentTeamMember.SARM) { details.Append("SARM"); }
+                    else if (App.CurrentTeamMember.GSTL) { details.Append("GSTL"); }
+                    if(details.Length > 0) { details.Append(" | "); }
+                    details.Append(App.CurrentTeamMember.Group);
+                    return details.ToString();
+                }
+                else { return string.Empty; }
             }
         }
 

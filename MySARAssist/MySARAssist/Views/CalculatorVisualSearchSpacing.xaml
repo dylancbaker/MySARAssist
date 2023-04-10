@@ -58,7 +58,7 @@
                      </Grid>
 
                     <StackLayout Style="{StaticResource CalculatorEntryFieldArea}">
-                        <Label  Text="Target Visibility" Style="{DynamicResource subtitleLabelStyle}"></Label>
+                        <Label  Text="Subject Visibility" Style="{DynamicResource subtitleLabelStyle}"></Label>
                         <StackLayout Orientation="Horizontal">
                             <RadioButton x:Name="LowVisibility" HorizontalOptions="FillAndExpand" GroupName="Visibility" Content="Low" IsChecked="{Binding VisibilityIsLow, Mode=TwoWay}"></RadioButton>
                             <RadioButton x:Name="MidVisibility" HorizontalOptions="FillAndExpand" GroupName="Visibility" Content="Medium" IsChecked="{Binding VisibilityIsMid, Mode=TwoWay}"></RadioButton>

@@ -1,4 +1,5 @@
-﻿using MySARAssist.ResourceClasses;
+﻿using MySARAssist.Interfaces;
+using MySARAssist.ResourceClasses;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,6 +16,7 @@ namespace MySARAssist.Views
     public partial class SignInQRPage : ContentPage
     {
         ViewModels.SignInQRViewModel _viewModel;
+        float _lastBrightness = 0.5f;
 
         public SignInQRPage()
         {
@@ -30,7 +32,13 @@ namespace MySARAssist.Views
             _viewModel = new ViewModels.SignInQRViewModel();
             this.BindingContext = _viewModel;
 
+
+            var brightnessService = DependencyService.Get<IBrightnessService>();
+            _lastBrightness = brightnessService.GetBrightness();
+            brightnessService.SetBrightness((float)1.0);
         }
+
+
 
         protected override void OnAppearing()
         {
@@ -38,7 +46,15 @@ namespace MySARAssist.Views
             ResourceHelper.setThemeColor();
         }
 
-        private void chkMustBeOut_CheckedChanged(object sender, CheckedChangedEventArgs e)
+        protected override void OnDisappearing()
+        {
+            base.OnDisappearing();
+            var brightnessService = DependencyService.Get<IBrightnessService>();
+            
+            brightnessService.SetBrightness(_lastBrightness);
+        }
+
+            private void chkMustBeOut_CheckedChanged(object sender, CheckedChangedEventArgs e)
         {
             tpMustBeOut.IsEnabled = chkMustBeOut.IsChecked;
             if (!chkMustBeOut.IsChecked) { tpMustBeOut.Time = DateTime.MinValue.TimeOfDay; }

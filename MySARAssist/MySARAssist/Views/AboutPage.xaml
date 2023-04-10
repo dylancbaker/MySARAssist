@@ -41,6 +41,8 @@
                         Command="{Binding OpenWebCommand}"
                         BackgroundColor="{StaticResource Primary}"
                         TextColor="White" />
+
+                 <Label x:Name="lblVersionNumber" HorizontalOptions="Center"  Style="{DynamicResource labelNoteStyle}">version</Label>
             </StackLayout>
         </ScrollView>
     </StackLayout>

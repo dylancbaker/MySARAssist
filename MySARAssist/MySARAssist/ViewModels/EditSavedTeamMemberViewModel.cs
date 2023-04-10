@@ -12,7 +12,7 @@ namespace MySARAssist.ViewModels
     {
         public EditSavedTeamMemberViewModel()
         {
-            Organizations = new Organization().getStaticOrganizationList();
+            Organizations = OrganizationTools.GetOrganizations(Guid.Empty);
             CancelCommand = new Command(OnCancelCommand);
             SaveCommand = new Command(OnSaveCommand);
             DeleteCommand = new Command(OnDeleteCommand);

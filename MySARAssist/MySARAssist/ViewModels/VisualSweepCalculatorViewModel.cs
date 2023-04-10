@@ -184,13 +184,13 @@ namespace MySARAssist.ViewModels
                 switch (selectedVisibilityIndex)
                 {
                     case 0:
-                        return 1.8;
+                        return 1.1;
                     case 1:
                         return 1.6;
                     case 2:
-                        return 1.1;
-                    default:
                         return 1.8;
+                    default:
+                        return 1.6;
                 }
             }
         }

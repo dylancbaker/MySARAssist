@@ -29,40 +29,40 @@
 
                 <Label Style="{DynamicResource subtitleLabelStyle}" >Qualifications</Label>
                 <StackLayout Orientation="Horizontal">
-                    <CheckBox x:Name="chkGSAR" IsChecked="{Binding CurrentMember.GSAR}"></CheckBox>
+                    <Switch x:Name="chkGSAR" IsToggled="{Binding CurrentMember.GSAR}"></Switch>
                     <Label Style="{DynamicResource labelStyle}" Text="Ground SAR" VerticalOptions="Center"></Label>
 
                 </StackLayout>
                 <StackLayout Orientation="Horizontal">
-                    <CheckBox x:Name="chkGSTL" IsChecked="{Binding CurrentMember.GSTL}"></CheckBox>
+                    <Switch x:Name="chkGSTL" IsToggled="{Binding CurrentMember.GSTL}"></Switch>
                     <Label Style="{DynamicResource labelStyle}" Text="Ground SAR Team Leader" VerticalOptions="Center"></Label>
 
                 </StackLayout>
                 <StackLayout Orientation="Horizontal">
-                    <CheckBox x:Name="chkSARM" IsChecked="{Binding CurrentMember.SARM}"></CheckBox>
+                    <Switch x:Name="chkSARM" IsToggled="{Binding CurrentMember.SARM}"></Switch>
                     <Label Style="{DynamicResource labelStyle}" Text="SAR Manager" VerticalOptions="Center"></Label>
 
                 </StackLayout>
                 <StackLayout Orientation="Horizontal">
-                    <CheckBox x:Name="chkTracker" IsChecked="{Binding CurrentMember.Tracker}"></CheckBox>
+                    <Switch x:Name="chkTracker" IsToggled="{Binding CurrentMember.Tracker}"></Switch>
                     <Label Style="{DynamicResource labelStyle}" Text="Tracker" VerticalOptions="Center"></Label>
 
                 </StackLayout>
                 <StackLayout Orientation="Horizontal">
-                    <CheckBox x:Name="chkRopeRescue" IsChecked="{Binding CurrentMember.RopeRescue}"></CheckBox>
+                    <Switch x:Name="chkRopeRescue" IsToggled="{Binding CurrentMember.RopeRescue}"></Switch>
                     <Label Style="{DynamicResource labelStyle}" Text="Rope Rescue" VerticalOptions="Center"></Label>
 
                 </StackLayout>
                 <StackLayout Orientation="Horizontal">
-                    <CheckBox x:Name="chkFirstAid" IsChecked="{Binding CurrentMember.FirstAid}"></CheckBox>
+                    <Switch x:Name="chkFirstAid" IsToggled="{Binding CurrentMember.FirstAid}"></Switch>
                     <Label Style="{DynamicResource labelStyle}" Text="First Aid" VerticalOptions="Center"></Label>
                 </StackLayout>
                 <StackLayout Orientation="Horizontal">
-                    <CheckBox x:Name="chkSwiftwater" IsChecked="{Binding CurrentMember.Swiftwater}"></CheckBox>
+                    <Switch x:Name="chkSwiftwater" IsToggled="{Binding CurrentMember.Swiftwater}"></Switch>
                     <Label Style="{DynamicResource labelStyle}" Text="Swiftwater" VerticalOptions="Center"></Label>
                 </StackLayout>
                 <StackLayout Orientation="Horizontal">
-                    <CheckBox x:Name="chkMountainRescue" IsChecked="{Binding CurrentMember.MountainRescue}"></CheckBox>
+                    <Switch x:Name="chkMountainRescue" IsToggled="{Binding CurrentMember.MountainRescue}"></Switch>
                     <Label Style="{DynamicResource labelStyle}" Text="Mountain Rescue" VerticalOptions="Center"></Label>
                 </StackLayout>
 
@@ -71,7 +71,7 @@
                 <Entry  Style="{DynamicResource entryStyle}" Placeholder="Relationship" x:Name="txtNOKRelationship" Text="{Binding CurrentMember.NOKRelation, Mode=TwoWay}"></Entry>
                 <Entry  Style="{DynamicResource entryStyle}" Placeholder="Phone Number" Keyboard="Telephone" x:Name="txtNOKPhone" Text="{Binding CurrentMember.NOKPhone, Mode=TwoWay}"></Entry>
 
-                <StackLayout Orientation="Horizontal">
+                <StackLayout Orientation="Horizontal" Padding="10">
                     <Button x:Name="btnCancel" Style="{DynamicResource buttonStyle}" Text="Cancel" HorizontalOptions="FillAndExpand" Command="{Binding CancelCommand}"></Button>
                     <Button x:Name="btnDelete" Style="{DynamicResource buttonStyleRed}" Text="Delete" HorizontalOptions="FillAndExpand" Clicked="btnDelete_Clicked"></Button>
                     <Button x:Name="btnSave" Style="{DynamicResource lgButtonStyle}" Text="Save" HorizontalOptions="FillAndExpand" Command="{Binding SaveCommand}"></Button>

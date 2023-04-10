@@ -55,7 +55,7 @@ namespace MySARAssist.Services
                 _AllTeamMembers = GetTeamMembers();
             }*/
             List<TeamMember> members = GetTeamMembers();
-            List<Organization> allOrgs = new Organization().getStaticOrganizationList();
+            List<Organization> allOrgs = OrganizationTools.GetOrganizations(Guid.Empty);
             foreach(TeamMember member in members)
             {
                 if(member.OrganizationID != Guid.Empty && allOrgs.Where(o=>o.OrganizationID == member.OrganizationID).Any()) { member.MemberOrganization = allOrgs.Where(o => o.OrganizationID == member.OrganizationID).First(); }
@@ -169,7 +169,7 @@ namespace MySARAssist.Services
         {
             Organization mostPopularOrg = null;
 
-            List<Organization> allOrgs = new Organization().getStaticOrganizationList();
+            List<Organization> allOrgs = OrganizationTools.GetOrganizations(Guid.Empty);
             foreach(Organization org in allOrgs)
             {
                 org.UserCount = _AllTeamMembers.Where(o => o.OrganizationID == org.OrganizationID).Count();
