@@ -198,7 +198,8 @@ namespace MySARAssist.Models
             organizations = organizations.OrderBy(o => o.OrganizationName).ToList();
             organizations.Add(new Organization(new Guid("008bdd33-28a1-46b6-818d-59225f2e97df"), BCSARA, "BC Tracking Association", "BCTALogoSeal@1x.png"));
             organizations.Add(new Organization(new Guid("489f9815-808d-4f55-a17f-214d352e7661"), BCSARA, "BC Search Dog Association", "BCSDA-2016-logo_512.png"));
-            organizations.Add(new Organization(new Guid("6b7e460d-2490-4a8c-b828-5c1d7d707c83"), OtherOrgs, "OPP ERT", "OPPERT.png"));
+            organizations.Add(new Organization(new Guid("88A344BD-BEED-4727-A353-3E75B028507D"), BCSARA, "Critical Incident Stress Management", "BCSARA-Logo-960.png"));
+            
 
 
             if (ParentID != Guid.Empty)
@@ -206,6 +207,9 @@ namespace MySARAssist.Models
                 organizations = organizations.Where(o => o.ParentOrganizationID == ParentID).ToList();
             }
 
+            organizations.Add(new Organization(new Guid("1C8C2043-4A7A-43D9-B035-21C5444816F8"), OtherOrgs, "SARVAC", "crest@2x.png"));
+            organizations.Add(new Organization(new Guid("EA620563-7DBF-4D20-88F9-BDB0A80C2C94"), OtherOrgs, "SAR Nova Scotia", "crest@2x.png"));
+            organizations.Add(new Organization(new Guid("6b7e460d-2490-4a8c-b828-5c1d7d707c83"), OtherOrgs, "OPP ERT", "OPPERT.png"));
             organizations.Add(new Organization(new Guid("8CBE0C6D-78B1-4600-96C0-21E3C16A444D"), OtherOrgs, "Great Hat Web Design", "GreatHatCircle.png"));
             organizations.Add(new Organization(new Guid("96BA69A4-436C-4DA1-85B1-992E84C36019"), OtherOrgs, "Unassigned", "SAR Assistant_lq.png"));
             organizations.Add(new Organization(new Guid("02035C34-CD9C-4B3D-9C22-5AF29068A0D9"), OtherOrgs, "Non-SAR", "SAR Assistant_lq.png"));

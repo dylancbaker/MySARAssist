@@ -232,6 +232,7 @@
 
     <!-- Entry-->
     <Style TargetType="Entry" x:Key="entryStyleBasic">
+        <Setter Property="FontSize" Value="Large"></Setter>
     </Style>
     <Style TargetType="Entry" x:Key="entryStyle" BasedOn="{StaticResource entryStyleBasic}">
 
@@ -244,7 +245,19 @@
         <Setter Property="BackgroundColor" Value="{StaticResource darkerGrey}"></Setter>
         <Setter Property="PlaceholderColor" Value="{StaticResource lightGrey}"></Setter>
     </Style>
+    <Style TargetType="Entry" x:Key="invalidEntryStyle" BasedOn="{StaticResource entryStyleBasic}">
 
+
+    </Style>
+    <Style TargetType="Entry" x:Key="invalidEntryStyleLightTheme" BasedOn="{StaticResource entryStyleBasic}">
+        <Setter Property="TextColor" Value="{StaticResource darkGrey}"></Setter>
+        <Setter Property="BackgroundColor" Value="{StaticResource invalidBackgroundLight}"></Setter>
+    </Style>
+    <Style TargetType="Entry" x:Key="invalidEntryStyleDarkTheme" BasedOn="{StaticResource entryStyleBasic}">
+        <Setter Property="TextColor" Value="{StaticResource white}"></Setter>
+        <Setter Property="BackgroundColor" Value="{StaticResource darkRedButtonColour}"></Setter>
+        <Setter Property="PlaceholderColor" Value="{StaticResource lightGrey}"></Setter>
+    </Style>
 
     <!-- Entry-->
     <Style TargetType="Editor" x:Key="editorStyleBasic">
@@ -310,7 +323,21 @@
         <Setter Property="TextColor" Value="{StaticResource lightGrey}"></Setter>
     </Style>
 
+    <!-- subtitle label-->
+    <Style TargetType="Label" x:Key="fieldLabelStyleBasic">
+        <Setter Property="FontSize" Value="Medium"></Setter>
+        <Setter Property="Margin" Value="0, 10, 0, 0"></Setter>
+       
+    </Style>
+    <Style TargetType="Label" x:Key="fieldLabelStyle" BasedOn="{StaticResource fieldLabelStyleBasic}">
 
+    </Style>
+    <Style TargetType="Label" x:Key="fieldLabelStyleLightTheme" BasedOn="{StaticResource fieldLabelStyleBasic}">
+        <Setter Property="TextColor" Value="{StaticResource darkGrey}"></Setter>
+    </Style>
+    <Style TargetType="Label" x:Key="fieldLabelStyleDarkTheme" BasedOn="{StaticResource fieldLabelStyleBasic}">
+        <Setter Property="TextColor" Value="{StaticResource lightGrey}"></Setter>
+    </Style>
 
 
     <!--- Flyout menu stuff-->

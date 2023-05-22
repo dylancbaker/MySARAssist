@@ -27,5 +27,20 @@ namespace MySARAssist.Views
             ResourceHelper.setThemeColor();
             _viewModel.OnAppearing();
         }
+
+        protected override void OnSizeAllocated(double width, double height)
+        {
+            base.OnSizeAllocated(width, height);
+
+            if (width > height)
+            {
+                slCurrentMemberExists.Orientation = StackOrientation.Horizontal;
+            }
+            else
+            {
+                slCurrentMemberExists.Orientation = StackOrientation.Vertical;
+            }
+
+        }
     }
 }

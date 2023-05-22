@@ -32,5 +32,14 @@ namespace MySARAssist.ResourceClasses
             }
             else { return null; }
         }
+
+        public static bool isValidEmailAddress(this string str) {
+            try
+            {
+                System.Net.Mail.MailAddress addr = new System.Net.Mail.MailAddress(str);
+                return true;
+            }
+            catch { return false; }
+        }
     }
 }

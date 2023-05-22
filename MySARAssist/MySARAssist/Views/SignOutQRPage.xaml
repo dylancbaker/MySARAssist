@@ -8,22 +8,25 @@
              ios:Page.UseSafeArea="true"
             >
     <ContentPage.Content>
-        <ScrollView Padding="20"  Style="{DynamicResource backgroundStyle}">
-            <StackLayout>
-                <Label x:Name="lblUserName" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Center" Style="{DynamicResource titleLabelStyle}" Text="{Binding CurrentMemberName}"></Label>
+        <StackLayout x:Name="slPageContent">
+            <ScrollView Padding="20"  Style="{DynamicResource backgroundStyle}">
+                <StackLayout>
+                    <Label x:Name="lblUserName" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Center" Style="{DynamicResource titleLabelStyle}" Text="{Binding CurrentMemberName}"></Label>
 
-                <StackLayout Orientation="Horizontal">
-                    <Label Style="{DynamicResource labelStyle}" VerticalOptions="Center" Text="Sign Out Time"></Label>
-                    <TimePicker Style="{DynamicResource timePickerStyle}" x:Name="tpSignOutTime"  Time="{Binding SignOutTime, Mode=TwoWay}"></TimePicker>
-                </StackLayout>
-                <StackLayout Orientation="Horizontal">
-                    <Label Style="{DynamicResource labelStyle}" VerticalOptions="Center" Text="KMs"></Label>
-                    <Entry Style="{DynamicResource entryStyle}" Placeholder="KMs" Keyboard="Numeric" x:Name="txtKMs" Text="{Binding KMs, Mode=TwoWay, Converter={StaticResource intConverter}}" ></Entry>
-                </StackLayout>
-                <!--<Button x:Name="btnUpdateQR" Text="Update QR Code" HorizontalOptions="FillAndExpand" Clicked="btnUpdateQR_Clicked"></Button>-->
+                    <StackLayout Orientation="Horizontal">
+                        <Label Style="{DynamicResource labelStyle}" VerticalOptions="Center" Text="Sign Out Time"></Label>
+                        <TimePicker Style="{DynamicResource timePickerStyle}" x:Name="tpSignOutTime"  Time="{Binding SignOutTime, Mode=TwoWay}"></TimePicker>
+                    </StackLayout>
+                    <StackLayout Orientation="Horizontal">
+                        <Label Style="{DynamicResource labelStyle}" VerticalOptions="Center" Text="KMs"></Label>
+                        <Entry Style="{DynamicResource entryStyle}" Placeholder="KMs" Keyboard="Numeric" x:Name="txtKMs" Text="{Binding KMs, Mode=TwoWay, Converter={StaticResource intConverter}}" ></Entry>
+                    </StackLayout>
+                    <!--<Button x:Name="btnUpdateQR" Text="Update QR Code" HorizontalOptions="FillAndExpand" Clicked="btnUpdateQR_Clicked"></Button>-->
 
-                <zxing:ZXingBarcodeImageView HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" BarcodeFormat="QR_CODE" x:Name="BarcodeImageView" HeightRequest="350" WidthRequest="350" BarcodeValue="{Binding FullQRString}" />
-            </StackLayout>
-        </ScrollView>
+                   
+                </StackLayout>
+            </ScrollView>
+             <zxing:ZXingBarcodeImageView HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" BarcodeFormat="QR_CODE" x:Name="BarcodeImageView" HeightRequest="350" WidthRequest="350" BarcodeValue="{Binding FullQRString}" />
+        </StackLayout>
     </ContentPage.Content>
 </ContentPage>

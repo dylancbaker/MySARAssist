@@ -38,7 +38,20 @@ namespace MySARAssist.Views
             brightnessService.SetBrightness((float)1.0);
         }
 
+        protected override void OnSizeAllocated(double width, double height)
+        {
+            base.OnSizeAllocated(width, height);
 
+            if (width > height)
+            {
+                slPageContent.Orientation = StackOrientation.Horizontal;
+            }
+            else
+            {
+                slPageContent.Orientation = StackOrientation.Vertical;
+            }
+
+        }
 
         protected override void OnAppearing()
         {

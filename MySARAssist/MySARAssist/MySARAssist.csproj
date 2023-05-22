@@ -4,6 +4,7 @@
     <TargetFramework>netstandard2.0</TargetFramework>
     <ProduceReferenceAssembly>true</ProduceReferenceAssembly>
     <ReleaseVersion>1.6</ReleaseVersion>
+    <BuildWithMSBuildOnMono>true</BuildWithMSBuildOnMono>
   </PropertyGroup>
 
   <ItemGroup>
@@ -14,6 +15,7 @@
     <PackageReference Include="ZXing.Net.Mobile.Forms" Version="3.1.0-beta2" />
     <PackageReference Include="NetworkCommsDotNetStandard" Version="3.0.4.1" />
     <PackageReference Include="protobuf-net" Version="3.2.16" />
+    <PackageReference Include="Xamarin.CommunityToolkit" Version="2.0.6" />
   </ItemGroup>
 
   <ItemGroup>

@@ -33,7 +33,9 @@ namespace MySARAssist.ResourceClasses
                 SetDynamicResource("titleLabelStyle", "titleLabelStyleDarkTheme");
                 SetDynamicResource("infoLabelStyle", "infoLabelStyleDarkTheme");
                 SetDynamicResource("subtitleLabelStyle", "subtitleLabelStyleDarkTheme");
+                SetDynamicResource("fieldLabelStyle", "fieldLabelStyleDarkTheme");
                 SetDynamicResource("entryStyle", "entryStyleDarkTheme");
+                SetDynamicResource("invalidEntryStyle", "invalidEntryStyleDarkTheme");
                 SetDynamicResource("editorStyle", "editorStyleDarkTheme");
                 SetDynamicResource("pickerStyle", "pickerStyleDarkTheme");
                 SetDynamicResource("flyoutItemLayoutStyle", "flyoutItemLayoutStyleDark");
@@ -53,7 +55,9 @@ namespace MySARAssist.ResourceClasses
                 SetDynamicResource("titleLabelStyle", "titleLabelStyleLightTheme");
                 SetDynamicResource("infoLabelStyle", "infoLabelStyleDarkTheme");
                 SetDynamicResource("subtitleLabelStyle", "subtitleLabelStyleLightTheme");
+                SetDynamicResource("fieldLabelStyle", "fieldLabelStyleLightTheme");
                 SetDynamicResource("entryStyle", "entryStyleLightTheme");
+                SetDynamicResource("invalidEntryStyle", "invalidEntryStyleLightTheme");
                 SetDynamicResource("editorStyle", "editorStyleLightTheme");
                 SetDynamicResource("pickerStyle", "pickerStyleLightTheme");
                 SetDynamicResource("flyoutItemLayoutStyle", "flyoutItemLayoutStyleLight");

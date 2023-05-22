@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using Xamarin.Forms;
 using MySARAssist.ResourceClasses;
+using Xamarin.CommunityToolkit.Extensions;
 
 namespace MySARAssist
 {
@@ -48,5 +49,7 @@ namespace MySARAssist
         {
             //await Shell.Current.GoToAsync("//LoginPage");
         }
+
+   
     }
 }

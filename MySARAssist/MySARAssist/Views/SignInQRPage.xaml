@@ -8,23 +8,27 @@
              ios:Page.UseSafeArea="true"
             >
     <ContentPage.Content>
-        <ScrollView Padding="20" Style="{DynamicResource backgroundStyle}">
-            <StackLayout>
-                <Label x:Name="lblUserName" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Center" Style="{DynamicResource titleLabelStyle}" Text="{Binding CurrentMemberName}"></Label>
+        
+            <StackLayout x:Name="slPageContent">
+                <ScrollView Padding="20" Style="{DynamicResource backgroundStyle}">
+                    <StackLayout>
+                        <Label x:Name="lblUserName" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Center" Style="{DynamicResource titleLabelStyle}" Text="{Binding CurrentMemberName}"></Label>
 
-                <StackLayout Orientation="Horizontal">
-                    <Label Style="{DynamicResource labelStyle}" VerticalOptions="Center" Text="Sign In Time"></Label>
-                    <TimePicker x:Name="tpSignInTime" Style="{DynamicResource timePickerStyle}" Time="{Binding SignInTime, Mode=TwoWay}"></TimePicker>
-                </StackLayout>
-                <StackLayout Orientation="Horizontal">
-                    <CheckBox x:Name="chkMustBeOut" IsChecked="{Binding UseMustBeOutTime, Mode=TwoWay}"></CheckBox>
-                    <Label Style="{DynamicResource labelStyle}" VerticalOptions="Center" Text="Must be Out Time"></Label>
-                    <TimePicker x:Name="tpMustBeOut" Style="{DynamicResource timePickerStyle}"  IsEnabled="{Binding UseMustBeOutTime}" Time="{Binding MustBeOutTime, Mode=TwoWay}"></TimePicker>
-                </StackLayout>
-                <!--<Button x:Name="btnUpdateQR" Text="Update QR Code" HorizontalOptions="FillAndExpand" Clicked="btnUpdateQR_Clicked"></Button>-->
-
+                        <StackLayout Orientation="Horizontal">
+                            <Label Style="{DynamicResource labelStyle}" VerticalOptions="Center" Text="Sign In Time"></Label>
+                            <TimePicker x:Name="tpSignInTime" Style="{DynamicResource timePickerStyle}" Time="{Binding SignInTime, Mode=TwoWay}"></TimePicker>
+                        </StackLayout>
+                        <StackLayout Orientation="Horizontal">
+                            <CheckBox x:Name="chkMustBeOut" IsChecked="{Binding UseMustBeOutTime, Mode=TwoWay}"></CheckBox>
+                            <Label Style="{DynamicResource labelStyle}" VerticalOptions="Center" Text="Must be Out Time"></Label>
+                            <TimePicker x:Name="tpMustBeOut" Style="{DynamicResource timePickerStyle}"  IsEnabled="{Binding UseMustBeOutTime}" Time="{Binding MustBeOutTime, Mode=TwoWay}"></TimePicker>
+                        </StackLayout>
+                <!--<Button x:Name="btnUpdateQR" Text="Update QR Code" HorizontalOptions="FillAndExpand" Clicked="btnUpdateQR_Clicked"></Button>
+                        -->
+                    </StackLayout>
+                </ScrollView>
                 <zxing:ZXingBarcodeImageView HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" BarcodeFormat="QR_CODE" x:Name="BarcodeImageView" HeightRequest="350" WidthRequest="350" BarcodeValue="{Binding FullQRString}" />
             </StackLayout>
-        </ScrollView>
+       
     </ContentPage.Content>
 </ContentPage>

@@ -6,6 +6,7 @@ using Xamarin.Forms;
 using MySARAssist.Models;
 using System.Threading.Tasks;
 using MySARAssist.Interfaces;
+using Xamarin.CommunityToolkit.Extensions;
 
 namespace MySARAssist.ViewModels
 {
@@ -28,18 +29,18 @@ namespace MySARAssist.ViewModels
                 Shell.Current.GoToAsync($"{nameof(Views.ListOfSavedTeamMembersPage) + "/" + nameof(Views.EditSavedTeamMemberPage)}?strTeamMemberID={selected_memberID}");
             });
 
-            SelectTeamMemberCommand = new Command((e) =>
+            SelectTeamMemberCommand = new Command(async (e) =>
             {
                 Guid selected_memberID = new Guid(e.ToString());
 
                 App.TeamMemberManager.setCurrentTeamMember(selected_memberID);
                 App.CurrentTeamMember = App.TeamMemberManager.GetCurrentTeamMember();
                 OnPropertyChanged(nameof(App.CurrentTeamMember));
-
-                DependencyService.Get<Toast>().Show("Selected Member Updated");
+                await Application.Current.MainPage.DisplaySnackBarAsync("Selected Member Updated\"", null, null, TimeSpan.FromSeconds(3));
+                //DependencyService.Get<Toast>().Show("Selected Member Updated");
                 try
                 {
-                    ExecuteLoadItemsCommand();
+                    await ExecuteLoadItemsCommand();
                 } catch (Exception)
                 {
 

@@ -3,7 +3,8 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="MySARAssist.Views.EditSavedTeamMemberPage"
              Title="Edit Team Member"
-              xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core" 
+              xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+             xmlns:local="clr-namespace:MySARAssist.ResourceClasses"
               ios:Page.UseSafeArea="true"
              Shell.PresentationMode="ModalAnimated"
              >
@@ -11,23 +12,47 @@
         <ScrollView Padding="15" Style="{DynamicResource backgroundStyle}">
             <StackLayout>
                 <Label  Style="{DynamicResource titleLabelStyle}">Member Information</Label>
-                <Entry  Style="{DynamicResource entryStyle}" Placeholder="Full Name" x:Name="txtFullName" Text="{Binding CurrentMember.Name, Mode=TwoWay}"></Entry>
 
-                <Label Style="{DynamicResource subtitleLabelStyle}">SAR Group  / Organization</Label>
+                <Label Style="{DynamicResource fieldLabelStyle}">Name*</Label>
+                <Entry  Style="{DynamicResource entryStyle}" Placeholder="Full Name" x:Name="txtFullName" Text="{Binding CurrentMember.Name, Mode=TwoWay}">
+                    <Entry.Behaviors>
+                        <local:NonBlankValidationBehavior ValidStyle="{DynamicResource entryStyle}" InvalidStyle="{DynamicResource invalidEntryStyle}"></local:NonBlankValidationBehavior>
+                    </Entry.Behaviors>
+
+                </Entry>
+                <Label Style="{DynamicResource fieldLabelStyle}">Email*</Label>
+                <Entry  Style="{DynamicResource entryStyle}" Placeholder="Email" Keyboard="Email" x:Name="txtEmail" Text="{Binding CurrentMember.Email, Mode=TwoWay}">
+                    <Entry.Behaviors>
+                        <local:NonBlankValidationBehavior  ValidStyle="{DynamicResource entryStyle}" InvalidStyle="{DynamicResource invalidEntryStyle}"/>
+                        <local:EmailValidatorBehavior ValidStyle="{DynamicResource entryStyle}" InvalidStyle="{DynamicResource invalidEntryStyle}" />
+                    </Entry.Behaviors>
+
+
+                </Entry>
+
+
+                <Label Style="{DynamicResource fieldLabelStyle}">SAR Group / Organization</Label>
                 <Picker x:Name="pickOrganization" ItemsSource="{Binding Organizations}" SelectedItem="{Binding CurrentMember.MemberOrganization, Mode=TwoWay}"
                         Title="Select a SAR Team" 
                         Style="{DynamicResource pickerStyle}"
                         ItemDisplayBinding="{Binding OrganizationName}"
                         >
                 </Picker>
-                <Label Style="{DynamicResource subtitleLabelStyle}">Home Address</Label>
+                <Label Style="{DynamicResource fieldLabelStyle}">Home Address</Label>
                 <Entry  Style="{DynamicResource entryStyle}" Placeholder="Address"  x:Name="txtAddress" Text="{Binding CurrentMember.Address, Mode=TwoWay}"></Entry>
-                <Entry  Style="{DynamicResource entryStyle}" Placeholder="Phone" Keyboard="Telephone" x:Name="txtPhone" Text="{Binding CurrentMember.Phone, Mode=TwoWay}"></Entry>
-                <Entry  Style="{DynamicResource entryStyle}" Placeholder="Email" Keyboard="Email" x:Name="txtEmail" Text="{Binding CurrentMember.Email, Mode=TwoWay}"></Entry>
-                <Entry  Style="{DynamicResource entryStyle}" Placeholder="EMBC ID#" Keyboard="Numeric" x:Name="txtRef" Text="{Binding CurrentMember.Reference, Mode=TwoWay}"></Entry>
-                <Entry  Style="{DynamicResource entryStyle}" Placeholder="Callsign" x:Name="txtCallsign" Text="{Binding CurrentMember.Callsign, Mode=TwoWay}"></Entry>
 
-                <Label Style="{DynamicResource subtitleLabelStyle}" >Qualifications</Label>
+                <Label Style="{DynamicResource fieldLabelStyle}">Phone #</Label>
+                <Entry  Style="{DynamicResource entryStyle}" Placeholder="Phone" Keyboard="Telephone" x:Name="txtPhone" Text="{Binding CurrentMember.Phone, Mode=TwoWay}"></Entry>
+
+                
+
+                <Label Style="{DynamicResource fieldLabelStyle}">Agency/EMCR ID#</Label>
+                <Entry  Style="{DynamicResource entryStyle}" Placeholder="Agency/EMCR ID#" Keyboard="Numeric" x:Name="txtRef" Text="{Binding CurrentMember.Reference, Mode=TwoWay}"></Entry>
+
+                <Label Style="{DynamicResource fieldLabelStyle}">Call sign</Label>
+                <Entry  Style="{DynamicResource entryStyle}" Placeholder="Call sign" x:Name="txtCallsign" Text="{Binding CurrentMember.Callsign, Mode=TwoWay}"></Entry>
+
+                <Label Style="{DynamicResource fieldLabelStyle}" >Qualifications</Label>
                 <StackLayout Orientation="Horizontal">
                     <Switch x:Name="chkGSAR" IsToggled="{Binding CurrentMember.GSAR}"></Switch>
                     <Label Style="{DynamicResource labelStyle}" Text="Ground SAR" VerticalOptions="Center"></Label>
@@ -66,7 +91,7 @@
                     <Label Style="{DynamicResource labelStyle}" Text="Mountain Rescue" VerticalOptions="Center"></Label>
                 </StackLayout>
 
-                <Label Style="{DynamicResource subtitleLabelStyle}">Emergency Contact</Label>
+                <Label Style="{DynamicResource fieldLabelStyle}">Emergency Contact</Label>
                 <Entry  Style="{DynamicResource entryStyle}" Placeholder="Emergency Contact Name" x:Name="txtNOKName" Text="{Binding CurrentMember.NOKName, Mode=TwoWay}"></Entry>
                 <Entry  Style="{DynamicResource entryStyle}" Placeholder="Relationship" x:Name="txtNOKRelationship" Text="{Binding CurrentMember.NOKRelation, Mode=TwoWay}"></Entry>
                 <Entry  Style="{DynamicResource entryStyle}" Placeholder="Phone Number" Keyboard="Telephone" x:Name="txtNOKPhone" Text="{Binding CurrentMember.NOKPhone, Mode=TwoWay}"></Entry>

@@ -30,7 +30,7 @@
             <Color x:Key="veryLightRed">#D9A49C</Color>
             <Color x:Key="veryDarkRed">#66171D</Color>
             <Color x:Key="darkRedButtonColour">#872c32</Color>
-
+            <Color x:Key="invalidBackgroundLight">#f08080</Color>
 
             <ResourceDictionary Source="/Styles/DefaultTheme.xaml" />
             <local1:DoubleConverter x:Key="doubleConverter" />
