@@ -23,7 +23,7 @@ namespace MySARAssist.ViewModels
 
         private async void updatePacing()
         {
-            await App.TeamMemberManager.UpsertItemAsync(App.CurrentTeamMember);
+            await App.PersonnelManager.UpsertItemAsync(App.CurrentTeamMember);
         }
 
         private string currentMode = null;

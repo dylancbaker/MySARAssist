@@ -11,14 +11,14 @@ namespace MySARAssist.ViewModels
 {
     class ListOfSavedTeamMembersViewModel :BaseViewModel
     {
-        public ObservableCollection<Models.TeamMember> Items { get; private set; }
-        TeamMember SelectedItem;
+        public ObservableCollection<Models.Personnel> Items { get; private set; }
+        Personnel SelectedItem;
 
         public ListOfSavedTeamMembersViewModel()
         {
-            Items = new ObservableCollection<TeamMember>();
+            Items = new ObservableCollection<Personnel>();
 
-            LoadItemsCommand = new Command(async () => await ExecuteLoadItemsCommand());
+            LoadItemsCommand = new Command(async () => ExecuteLoadItemsCommand());
 
             //ItemTapped = new Command<TeamMember>(OnItemSelected);
             EditTeamMemberCommand = new Command((e) =>
@@ -32,8 +32,8 @@ namespace MySARAssist.ViewModels
             {
                 Guid selected_memberID = new Guid(e.ToString());
 
-                App.TeamMemberManager.setCurrentTeamMember(selected_memberID);
-                App.CurrentTeamMember = App.TeamMemberManager.GetCurrentTeamMember();
+                App.PersonnelManager.setCurrentTeamMember(selected_memberID);
+                App.CurrentTeamMember = App.PersonnelManager.GetCurrentTeamMember();
                 OnPropertyChanged(nameof(App.CurrentTeamMember));
 
                 DependencyService.Get<Toast>().Show("Selected Member Updated");
@@ -55,7 +55,7 @@ namespace MySARAssist.ViewModels
         {
            
             SelectedItem = null;
-            await ExecuteLoadItemsCommand();
+            ExecuteLoadItemsCommand();
            
         }
 
@@ -63,11 +63,11 @@ namespace MySARAssist.ViewModels
         public Command EditTeamMemberCommand { get; }
         public Command SelectTeamMemberCommand { get; }
         public Command LoadItemsCommand { get; }
-        public Command<TeamMember> ItemTapped { get; }
+        public Command<Personnel> ItemTapped { get; }
         public bool IsRefreshing { get; set; }
         public Command AddMemberCommand { get; set; }
 
-        async public Task ExecuteLoadItemsCommand()
+        public void ExecuteLoadItemsCommand()
         {
             IsBusy = true;
             IsRefreshing = true;
@@ -77,9 +77,9 @@ namespace MySARAssist.ViewModels
 
                 Items.Clear();
                 //new Mitigation_Assessment().deleteBlankAssessments(); //for debug reasons
-                var allItems = await App.TeamMemberManager.GetItemsAsync();
+                var allItems = App.PersonnelManager.GetItems();
 
-                foreach (TeamMember m in allItems)
+                foreach (Personnel m in allItems)
                 {
                     Items.Add(m);
                 }
@@ -97,7 +97,7 @@ namespace MySARAssist.ViewModels
             }
         }
 
-        public async void OnItemSelected(TeamMember item)
+        public async void OnItemSelected(Personnel item)
         {
             if (item == null)
                 return;

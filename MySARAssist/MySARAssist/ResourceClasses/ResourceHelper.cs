@@ -44,7 +44,8 @@ namespace MySARAssist.ResourceClasses
                 SetDynamicResource("xlgButtonStyle", "xlgButtonStyleDarkTheme");
                 SetDynamicResource("upDownButton", "upDownButtonDarkTheme");
                 SetDynamicResource("PacingCalculatorSection", "PacingCalculatorSectionDarkTheme");
-
+                SetDynamicResource("PacingPer100Entry", "PacingPer100EntryDarkTheme");
+                
             }
             else
             {
@@ -64,6 +65,8 @@ namespace MySARAssist.ResourceClasses
                 SetDynamicResource("xlgButtonStyle", "xlgButtonStyleLightTheme");
                 SetDynamicResource("upDownButton", "upDownButtonLightTheme");
                 SetDynamicResource("PacingCalculatorSection", "PacingCalculatorSectionLightTheme");
+                SetDynamicResource("PacingPer100Entry", "PacingPer100EntryLightTheme");
+
             }
 
         }

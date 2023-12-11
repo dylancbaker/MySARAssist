@@ -19,7 +19,7 @@
                         <Label Style="{DynamicResource titleLabelStyle}">Pacing Calculator</Label>
 
                         <StackLayout x:Name="slPacesPer100" Style="{DynamicResource PacingPer100Box}" Orientation="Horizontal">
-                            <Entry Keyboard="Numeric" Style="{DynamicResource PacingPer100EntryLight}" Placeholder="0" Text="{Binding PacesPer100Text, Mode=TwoWay}"></Entry>
+                        <Entry Keyboard="Numeric" Style="{DynamicResource PacingPer100Entry}" Placeholder="0" Text="{Binding PacesPer100Text, Mode=TwoWay}"></Entry>
                             <Label Style="{DynamicResource PacingPer100Label}" Text="Enter your paces per 100m"></Label>
                         </StackLayout>
 

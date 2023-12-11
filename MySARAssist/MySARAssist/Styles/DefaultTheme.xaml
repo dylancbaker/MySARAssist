@@ -204,10 +204,15 @@
         <Setter Property="BorderColor" Value="{StaticResource white}"></Setter>
 
     </Style>
-
-
-
     
+    <Style x:Key="buttonStyleTextRed" TargetType="Button">
+        <Setter Property="TextColor" Value="{StaticResource darkRedButtonColour}"></Setter>
+
+    </Style>
+
+
+
+
     <!-- Buttons-->
     <Style x:Key="upDownButtonBasic" TargetType="Button">
         <Setter Property="BorderWidth" Value="1"></Setter>

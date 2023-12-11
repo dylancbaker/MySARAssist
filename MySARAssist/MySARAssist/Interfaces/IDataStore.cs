@@ -13,6 +13,6 @@ namespace MySARAssist.Interfaces
         Task<bool> DeleteItemAsync(Guid id);
         Task<T> GetItemAsync(Guid id);
 
-        Task<IEnumerable<T>> GetItemsAsync(bool forceRefresh = false);
+        Task<IEnumerable<T>> GetItems(bool forceRefresh = false);
     }
 }

@@ -3,4 +3,8 @@
 	<uses-sdk android:minSdkVersion="21" android:targetSdkVersion="30" />
 	<application android:label="My SAR Assist" android:theme="@style/MainTheme" android:icon="@mipmap/icon"></application>
 	<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+	<uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+	<uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+	<uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION" />
+	<uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
 </manifest>

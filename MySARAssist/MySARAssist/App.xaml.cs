@@ -1,5 +1,5 @@
 ﻿using MySARAssist.Models;
-
+using MySARAssist.Services;
 using MySARAssist.Views;
 using System;
 using Xamarin.Forms;
@@ -9,8 +9,9 @@ namespace MySARAssist
 {
     public partial class App : Application
     {
-        public static TeamMember CurrentTeamMember { get; set; }
+        public static Personnel CurrentTeamMember { get; set; }
         public static Services.TeamMember_ManagerService TeamMemberManager { get; private set; }
+        public static Services.Personnel_ManagerService PersonnelManager { get; private set; }
 
 
         public static string DatabaseLocation = string.Empty;
@@ -25,9 +26,20 @@ namespace MySARAssist
         {
             DatabaseLocation = databaseLocation;
             TeamMemberManager = new Services.TeamMember_ManagerService();
+            PersonnelManager = new Personnel_ManagerService();
             InitializeComponent();
             MainPage = new AppShell();
-            CurrentTeamMember = TeamMemberManager.GetCurrentTeamMember();
+
+            CurrentTeamMember = PersonnelManager.GetCurrentTeamMember();
+            if(CurrentTeamMember != null && CurrentTeamMember.PersonID == Guid.Empty)
+            {
+                PersonnelManager.DeleteAllItemsAsync();
+            }
+            if (CurrentTeamMember == null && TeamMemberManager.GetCurrentTeamMember() != null)
+            {
+                CurrentTeamMember = (TeamMemberManager.GetCurrentTeamMember()).PersonnelFromTeamMember();
+                PersonnelManager.UpsertItemAsync(CurrentTeamMember);
+            }
         }
 
         protected override void OnStart()

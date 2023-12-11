@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MySARAssist.Models;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -50,7 +51,7 @@ namespace MySARAssist.ViewModels
             {
                 try
                 {
-                    string qrString = "^" + App.CurrentTeamMember.StringForQR;
+                    string qrString = "^" + App.CurrentTeamMember.StringForQR();
                     qrString += convertTimespanToDate(SignOutTime).ToString("HH:mm:ss") + ";";
                     qrString += KMs + ";";
                     qrString += "^";
