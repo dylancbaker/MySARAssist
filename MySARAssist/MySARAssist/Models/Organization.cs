@@ -87,11 +87,16 @@ namespace MySARAssist.Models
             Guid ABSAR = new Guid("14CC75FE-75D3-44EE-B622-0C0727160675");
             Guid BCSARA = new Guid("CC3A9DC9-01A3-4D39-B806-2128B51120BC");
             Guid SARVAC = new Guid("2c7b4d1b-151e-4315-b4c9-f7c810568b2f");
+            Guid Euro = new Guid("62d294f8-73cc-4957-b43a-a03d886d3bbe");
+            Guid Portugal = new Guid("0948300a-bca0-4338-a5fc-f08402120498");
+
             Guid OtherOrgs = new Guid("D2BB4ADB-13FE-4941-AB4A-1A5020C3DC8C");
 
             organizations.Add(new Organization(ABSAR, Guid.Empty, "AB Search and Rescue", "saralberta-logo.png"));
             organizations.Add(new Organization(BCSARA, Guid.Empty, "BC Search and Rescue", "BCSARA -Logo-960.png"));
             organizations.Add(new Organization(SARVAC, Guid.Empty, "SAR Volunteer Assoc. of Canada", "crest@2x.png"));
+            organizations.Add(new Organization(Euro, Guid.Empty, "European Association Civil Protection Volunteer Teams", "European Civil Protection.png"));
+            organizations.Add(new Organization(Portugal, Guid.Empty, "Portuguese Teams", "protecao_civil_portugal_1_1024_2500.png"));
 
             organizations.Add(new Organization(OtherOrgs, Guid.Empty, "Other Organizations", "BCSARA -Logo-960.png"));
 
@@ -106,6 +111,8 @@ namespace MySARAssist.Models
             Guid ABSAR = new Guid("14CC75FE-75D3-44EE-B622-0C0727160675");
             Guid OtherOrgs = new Guid("D2BB4ADB-13FE-4941-AB4A-1A5020C3DC8C");
             Guid SARVAC = new Guid("2c7b4d1b-151e-4315-b4c9-f7c810568b2f");
+            Guid Euro = new Guid("62d294f8-73cc-4957-b43a-a03d886d3bbe");
+            Guid Portugal = new Guid("0948300a-bca0-4338-a5fc-f08402120498");
 
 
 
@@ -229,6 +236,65 @@ namespace MySARAssist.Models
             organizations.Add(new Organization(new Guid("19703F2D-4479-4D64-81E4-FA04B6144D87"), ABSAR, "Wetaskiwin Search and Rescue"));
             organizations.Add(new Organization(new Guid("E0E78144-CD98-4623-AB20-6020CBB68772"), ABSAR, "Whitecourt SAR"));
 
+            //Europe
+            organizations.Add(new Organization(new Guid("8a0165b4-71f2-4dc8-ac6f-09b9ea6678c3"), Euro, "SAR Team – Associação de Voluntários de Proteção Civil, EVOLSAR"));
+            organizations.Add(new Organization(new Guid("f01f53e3-fed4-4931-9c31-ebc1533a3f31"), Euro, "EFRU – Emergency Fire & Rescue Unit, EVOLSAR"));
+            organizations.Add(new Organization(new Guid("9fda8fc9-6de5-4228-8129-b17145735535"), Euro, "SARAID – Search and Rescue Assistance in Disasters, EVOLSAR"));
+            organizations.Add(new Organization(new Guid("07a93b03-9eba-48cb-8062-80a5e25be7a6"), Euro, "PUI – Pompiers de l’Urgence Internationale, EVOLSAR"));
+            organizations.Add(new Organization(new Guid("7e5fedef-91e5-48a7-ae54-425a679c4c40"), Euro, "UCRS Madrid – Unidad Canina de Rescagte y Salvamento de Madrid, EVOLSAR"));
+            organizations.Add(new Organization(new Guid("efab4677-59d7-4e97-ad60-1a0a06e79fe2"), Euro, "CCPVC – Cyprus Civil Protection Volunteer Corps, EVOLSAR"));
+            organizations.Add(new Organization(new Guid("c5246a2f-3b44-4dfb-b8fa-f5b939ab368e"), Euro, "Serve ON, EVOLSAR"));
+            organizations.Add(new Organization(new Guid("c15b622f-6d61-4060-9e87-160c0e50a8fb"), Euro, "SRT – Serbian Rescue Team, EVOLSAR"));
+            organizations.Add(new Organization(new Guid("1a8d91de-c4bb-428b-bdf7-a340066d1e29"), Euro, "OPVE – Central Buda Volunteer Civil Protection Association, EVOLSAR"));
+            organizations.Add(new Organization(new Guid("d2e8440a-c01a-4972-a7e5-02a99d56a079"), Euro, "EPOMEA – Elite Team Special Mission of Greece, EVOLSAR"));
+            organizations.Add(new Organization(new Guid("d6511edf-e552-4afc-a608-94d72e3815d5"), Euro, "Edelweiss, EVOLSAR"));
+            organizations.Add(new Organization(new Guid("63f28253-d774-43c7-8164-90111895173c"), Euro, "AHBVP – Bombeiros Voluntários de Peniche, EVOLSAR"));
+            organizations.Add(new Organization(new Guid("70bf8a7e-2d7a-4fd7-bf6a-eca938c2a29e"), Euro, "Rescue GR, EVOLSAR"));
+            organizations.Add(new Organization(new Guid("9c31d966-89d8-4ed8-b23c-7b38e0b745e8"), Euro, "Angeli Della Sila, EVOLSAR"));
+            organizations.Add(new Organization(new Guid("f0273de9-f7e5-4a95-9ca8-f20a75e5777f"), Euro, "Protezione Civile Antelao, EVOLSAR"));
+            organizations.Add(new Organization(new Guid("8ebe34f2-09c2-45f5-abd7-2bed92409a4b"), Euro, "GIANNINO CARIA, EVOLSAR"));
+
+            organizations.Add(new Organization(new Guid("4beb346f-abad-40f2-8f16-8a558e2a169c"), Portugal, "APMC – Associação Portuguesa de Mantrailing e Canicross"));
+            organizations.Add(new Organization(new Guid("de306c0e-f4d4-4b8c-a1f7-00c7b91687bb"), Portugal, "K9H CIOPS – Corpo de Intervenção em Operações Proteção e Socorro"));
+            organizations.Add(new Organization(new Guid("f00487f3-6369-461b-b2b2-5a010084b291"), Portugal, "IRA – Intervenção e Resgate Animal"));
+            organizations.Add(new Organization(new Guid("375479b3-d36d-4983-be4d-0921dffa5c84"), Portugal, "UPIR – Unidade Portuguesa Intervenção e Resgate"));
+            organizations.Add(new Organization(new Guid("7d11a174-bba3-46d6-8e4e-b34c73a0500d"), Portugal, "ARC – Associação de Resgate Cinotécnico"));
+            organizations.Add(new Organization(new Guid("f344c49c-945e-4cea-9518-8f3e2b0915ca"), Portugal, "APBS – Associação Portuguesa de Busca e Salvamento"));
+            organizations.Add(new Organization(new Guid("0c65dc19-3cc1-47b0-afac-9b48fa59ed3a"), Portugal, "GNR – Guarda Nacional Republicana"));
+            organizations.Add(new Organization(new Guid("b6ee6f2b-7c85-4c7d-b7b0-72fb3ace0389"), Portugal, "UEPS – Unidade Emergência Proteção e Socorro"));
+            organizations.Add(new Organization(new Guid("3df714ce-ccc5-426f-af57-fd987e1daafb"), Portugal, "UEPS PIPS – Pelotão de Intervenção Proteção e Socorro"));
+            organizations.Add(new Organization(new Guid("77aa7eb5-fb34-4527-b274-fb105edb1854"), Portugal, "UEPS Montanha – Busca e Resgate em Montanha"));
+            organizations.Add(new Organization(new Guid("43ca4c7d-2922-4aed-95be-b4a0b3472100"), Portugal, "GIC GNR – Grupo Intervenção Cinotécnico"));
+            organizations.Add(new Organization(new Guid("736cce7f-abf7-43da-919f-caa272db7a99"), Portugal, "PSP – Policia Segurança Pública"));
+            organizations.Add(new Organization(new Guid("0723314b-9eca-4c36-82a2-4040ac8bc53b"), Portugal, "PJ – Policia Judiciária"));
+            organizations.Add(new Organization(new Guid("698200df-5294-4592-b367-58084d1c408f"), Portugal, "FOE – Força de Operações Especiais"));
+            organizations.Add(new Organization(new Guid("6c1a79ea-60f7-4c19-895d-65d966cb63fd"), Portugal, "CVP – Cruz Vermelha Portuguesa"));
+            organizations.Add(new Organization(new Guid("294c6071-b790-45f0-bb48-46c0be473022"), Portugal, "ANEPC – Autoridade Nacional Emergência Proteção Civil"));
+            organizations.Add(new Organization(new Guid("008d5f52-f165-4228-bac9-ce7575585e7f"), Portugal, "FEPC – Força Especial de Proteção Civil"));
+            organizations.Add(new Organization(new Guid("e5e24919-a592-481b-b8a8-0183aae32912"), Portugal, "Bombeiros Municipais de Loulé"));
+            organizations.Add(new Organization(new Guid("4ac46014-643a-4fb8-90ad-d518646b07e5"), Portugal, "Bombeiros Voluntários de Portimão"));
+            organizations.Add(new Organization(new Guid("22eaa153-cf3e-49f8-ae5e-0b484edf6b3a"), Portugal, "Bombeiros Voluntários de Albufeira"));
+            organizations.Add(new Organization(new Guid("0c0de226-2a95-4fb1-a85a-840df88b4c78"), Portugal, "Bombeiros Voluntários de Lagos"));
+            organizations.Add(new Organization(new Guid("03eee73b-bb46-4a81-a11b-8dd7dc72e461"), Portugal, "Bombeiros Voluntários de Vila do Bispo"));
+            organizations.Add(new Organization(new Guid("2c0b8f40-8a08-4e25-b5fd-6a6e96b3bd50"), Portugal, "Bombeiros Voluntários de Aljezur"));
+            organizations.Add(new Organization(new Guid("48ea93ef-a533-4290-9b10-e38a5693e1d8"), Portugal, "GSE – Grupo de Salvamentos Especiais"));
+            organizations.Add(new Organization(new Guid("bae439fa-da7f-4774-bcb0-2d5739a0239e"), Portugal, "Bombeiros Mistos de Amora"));
+            organizations.Add(new Organization(new Guid("9a567b9b-4f5f-490f-b3da-9bbb1e8c6bfc"), Portugal, "Bombeiros Voluntários de Cacilhas"));
+            organizations.Add(new Organization(new Guid("cb5fb786-5b89-4eed-b276-8d7d453d6ead"), Portugal, "Bombeiros Voluntários de Mora"));
+            organizations.Add(new Organization(new Guid("fa7775e9-8bdd-4a30-a875-39024a90396d"), Portugal, "Bombeiros Voluntários de Minde"));
+            organizations.Add(new Organization(new Guid("a2555425-b67b-458c-8e6d-2ed7419cef8a"), Portugal, "Bombeiros Voluntários de Aveiro Velhos"));
+            organizations.Add(new Organization(new Guid("4a0614fb-798f-4081-ab32-28ff7297987a"), Portugal, "Bombeiros Voluntários de Oliveira do Bairro"));
+            organizations.Add(new Organization(new Guid("1020c293-5b90-4759-bb46-4aa93bb38c30"), Portugal, "Bombeiros Voluntários de Póvoa de Lanhoso"));
+            organizations.Add(new Organization(new Guid("eedaa4a4-6f41-4cec-b0ab-4c91aa3c2912"), Portugal, "Bombeiros Voluntários de Baião"));
+            organizations.Add(new Organization(new Guid("0c5876c6-5844-4555-8476-4086836bfd1c"), Portugal, "Bombeiros Voluntários de Santa Marinha do Zêzere"));
+            organizations.Add(new Organization(new Guid("6601abe5-0d98-4bca-bb25-2f6a85effd6e"), Portugal, "Bombeiros Voluntários de Viseu"));
+            organizations.Add(new Organization(new Guid("b7e94356-f43b-4adc-95aa-7d429a341879"), Portugal, "Bombeiros Sapadores do Porto"));
+            organizations.Add(new Organization(new Guid("86482a7f-0ffb-4e60-ad90-77b875157400"), Portugal, "Bombeiros Sapadores de Lisboa"));
+            organizations.Add(new Organization(new Guid("ce87c046-34cc-4812-9e51-58bc2332393c"), Portugal, "Bombeiros Sapadores do Cartaxo"));
+            organizations.Add(new Organization(new Guid("a0d61ba8-1d0d-4dbd-a7fd-1a4ecb91a5ea"), Portugal, "Bombeiros do Concelho de Espinho"));
+
+
+
 
             organizations = organizations.OrderBy(o => o.OrganizationName).ToList();
 
@@ -266,6 +332,7 @@ namespace MySARAssist.Models
             organizations.Add(new Organization(new Guid("02035C34-CD9C-4B3D-9C22-5AF29068A0D9"), OtherOrgs, "Non-SAR", "SAR Assistant_lq.png"));
             organizations.Add(new Organization(new Guid("8CBE0C6D-78B1-4600-96C0-21E3C16A444D"), OtherOrgs, "Great Hat Web Design", "GreatHatCircle.png"));
             organizations.Add(new Organization(new Guid("96BA69A4-436C-4DA1-85B1-992E84C36019"), OtherOrgs, "Unassigned", "SAR Assistant_lq.png"));
+
 
             if (addBlankRecord)
             {
