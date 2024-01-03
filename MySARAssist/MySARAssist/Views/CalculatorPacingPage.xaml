@@ -26,7 +26,7 @@
 
                     <Frame Style="{DynamicResource PacingCalculatorSection}">
                         <StackLayout>
-                            <Label Style="{DynamicResource titleLabelStyle}">Calculate Distance</Label>
+                            <Label Style="{DynamicResource titleLabelStyle}">Distance from Paces</Label>
                             <StackLayout x:Name="slCalculateDistance" Style="{DynamicResource PacingCalcuationValueBox}"  Orientation="Horizontal">
                                 <Entry Keyboard="Numeric" Style="{DynamicResource PacingPer100Entry}" Placeholder="0" Text="{Binding PacesTakenText, Mode=TwoWay}"></Entry>
                                 <Label Style="{DynamicResource PacingCalculationLabel}" Text="Paces"></Label>
@@ -38,7 +38,7 @@
 
                     <Frame Style="{DynamicResource PacingCalculatorSection}">
                         <StackLayout>
-                            <Label Style="{DynamicResource titleLabelStyle}">Calculate Paces</Label>
+                            <Label Style="{DynamicResource titleLabelStyle}">Paces from Distance</Label>
                             <StackLayout x:Name="slCalculatePaces"  Style="{DynamicResource PacingCalcuationValueBox}" Orientation="Horizontal">
                                 <Entry Keyboard="Numeric" Style="{DynamicResource PacingPer100Entry}" Placeholder="0" Text="{Binding DistanceToTravelText, Mode=TwoWay}"></Entry>
                                 <Label Style="{DynamicResource PacingCalculationLabel}" Text="Distance (m)"></Label>
