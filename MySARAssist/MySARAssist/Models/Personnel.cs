@@ -1,5 +1,4 @@
 ﻿using MySARAssist.ResourceClasses;
-using ProtoBuf;
 using SQLite;
 using System;
 using System.Collections.Generic;
@@ -10,7 +9,6 @@ using System.Text;
 namespace MySARAssist.Models
 {
     [Serializable]
-    [ProtoContract]
     public class Personnel : IncidentResource, IEquatable<Personnel>, ICloneable
     {
         public Personnel()
@@ -20,32 +18,32 @@ namespace MySARAssist.Models
             QualificationList = new bool[28];
         }
 
-        [ProtoMember(2)] private string _Name;
-        [ProtoMember(3)] private string _Group;
-        [ProtoMember(4)] private string _Callsign;
-        [ProtoMember(5)] private string _Phone;
-        [ProtoMember(10)] private string _SpecialSkills;
-        [ProtoMember(11)] private bool _isAssignmentTeamLeader;
-        [ProtoMember(12)] private string _Reference;
-        [ProtoMember(15)] private string _barcode;
-        [ProtoMember(16)] private bool _signedIn;
-        [ProtoMember(17)] private Guid _organizationID;
-        [ProtoMember(18)] private Guid _userID;
-        [ProtoMember(21)] private string _Email;
-        [ProtoMember(22)] private Guid _CreatedByOrgID;
-        [ProtoMember(23)] private string _Address;
-        [ProtoMember(24)] private string _NOKName;
-        [ProtoMember(25)] private string _NOKRelation;
-        [ProtoMember(26)] private string _NOKPhone;
-        [ProtoMember(27)] private string _D4HStatus;
-        [ProtoMember(31)] private int _D4HID;
-        [ProtoMember(32)] private string _Dietary;
-        [ProtoMember(33)] private bool _Vegetarian;
-        [ProtoMember(34)] private bool _NoGluten;
-        [ProtoMember(35)] private string _Pronouns;
-        [ProtoMember(36)] private bool[] _QualificationList = new bool[28];
-        [ProtoIgnore] private double _PacesPer100;
-        [ProtoIgnore] private bool _CurrentlySelected;
+       private string _Name;
+       private string _Group;
+        private string _Callsign;
+   private string _Phone;
+      private string _SpecialSkills;
+        private bool _isAssignmentTeamLeader;
+      private string _Reference;
+        private string _barcode;
+      private bool _signedIn;
+       private Guid _organizationID;
+     private Guid _userID;
+        private string _Email;
+      private Guid _CreatedByOrgID;
+   private string _Address;
+    private string _NOKName;
+   private string _NOKRelation;
+        private string _NOKPhone;
+        private string _D4HStatus;
+     private int _D4HID;
+     private string _Dietary;
+       private bool _Vegetarian;
+  private bool _NoGluten;
+       private string _Pronouns;
+    private bool[] _QualificationList = new bool[28];
+      private double _PacesPer100;
+        private bool _CurrentlySelected;
 
         [PrimaryKey]        public Guid PersonID { get => ID; set => ID = value; }
         public int D4HID { get => _D4HID; set => _D4HID = value; }
@@ -145,7 +143,6 @@ namespace MySARAssist.Models
         public bool CurrentlySelected { get => _CurrentlySelected; set => _CurrentlySelected = value; }
         [Ignore]
         public Organization MemberOrganization { get => _MemberOrganization; set => _MemberOrganization = value; }
-        [ProtoIgnore]
         private Organization _MemberOrganization;
 
 
@@ -205,13 +202,13 @@ namespace MySARAssist.Models
 
     public class Qualification
     {
-        [ProtoMember(1)] private string _Code;
-        [ProtoMember(2)] private string _FullName;
-        [ProtoMember(3)] private int _QualificationListIndex;
-        [ProtoMember(4)] private int _QRIndex;
-        [ProtoMember(5)] private int _D4HDefaultColumn;
-        [ProtoMember(6)] private string _PDFFieldName;
-        [ProtoMember(7)] private bool _PersonHas;
+       private string _Code;
+private string _FullName;
+     private int _QualificationListIndex;
+  private int _QRIndex;
+      private int _D4HDefaultColumn;
+       private string _PDFFieldName;
+      private bool _PersonHas;
 
         public string Code { get => _Code; set => _Code = value; }
         public string FullName { get => _FullName; set => _FullName = value; }
@@ -228,23 +225,21 @@ namespace MySARAssist.Models
     }
 
 
-    [ProtoContract]
     [Serializable]
-    [ProtoInclude(201, typeof(Personnel))]
 
     public class IncidentResource : SyncableItem, ICloneable
     {
-        [ProtoMember(5)] private string _ResourceName;
-        [ProtoMember(6)] private string _Kind;
-        [ProtoMember(7)] private string _Type;
-        [ProtoMember(8)] private string _ResourceIdentifier;
-        [ProtoMember(9)] private int _NumberOfPeople;
-        [ProtoMember(10)] private int _NumberOfVehicles;
-        [ProtoMember(11)] private string _LeaderName;
-        [ProtoMember(12)] private string _Contact;
-        [ProtoMember(13)] private int _UniqueIDNum;
-        [ProtoMember(14)] private string _ResourceType;
-        [ProtoMember(15)] private Guid _ParentResourceID;
+       private string _ResourceName;
+       private string _Kind;
+        private string _Type;
+      private string _ResourceIdentifier;
+        private int _NumberOfPeople;
+        private int _NumberOfVehicles;
+        private string _LeaderName;
+      private string _Contact;
+      private int _UniqueIDNum;
+       private string _ResourceType;
+        private Guid _ParentResourceID;
 
         public string ResourceName { get => _ResourceName; set => _ResourceName = value; }
         public string Kind { get => _Kind; set => _Kind = value; }

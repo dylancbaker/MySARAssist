@@ -1,21 +1,18 @@
-﻿using ProtoBuf;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace MySARAssist.Models
 {
-    [ProtoContract]
     [Serializable]
-    [ProtoInclude(217, typeof(IncidentResource))]
 
 
     public class SyncableItem
     {
-        [ProtoMember(1)] private Guid _ID;
-        [ProtoMember(2)] private bool _Active;
-        [ProtoMember(3)] private int _OpPeriod;
-        [ProtoMember(4)] private DateTime _LastUpdatedUTC;
+       private Guid _ID;
+        private bool _Active;
+        private int _OpPeriod;
+      private DateTime _LastUpdatedUTC;
 
         public Guid ID { get { return _ID; } set => _ID = value; }
         public bool Active { get => _Active; set => _Active = value; }

@@ -2,11 +2,10 @@
 using System.Collections.Generic;
 using System.Text;
 using System.Linq;
-using ProtoBuf;
 
 namespace MySARAssist.Models
 {
-    public class Organization
+    public class Organization : IEquatable<Organization>
     {
         public Organization() { }
         public Organization(Guid id, string name, string logo = null)
@@ -31,13 +30,13 @@ namespace MySARAssist.Models
             else { LogoFileName = "BCSARA -Logo-960.png"; }
         }
 
-        [ProtoMember(1)] private Guid _organizationID;
-        [ProtoMember(2)] private string _organizationName;
-        [ProtoMember(3)] private string _primaryEmail;
-        [ProtoMember(4)] private string _primaryPassword;
-        [ProtoMember(5)] private int _userCount = 0;
-        [ProtoMember(6)] private string _logoFlieName;
-        [ProtoMember(7)] private Guid _ParentOrganizationID;
+        private Guid _organizationID;
+       private string _organizationName;
+         private string _primaryEmail;
+       private string _primaryPassword;
+         private int _userCount = 0;
+        private string _logoFlieName;
+         private Guid _ParentOrganizationID;
 
 
 
@@ -68,6 +67,10 @@ namespace MySARAssist.Models
 
         public string LogoFileName { get => _logoFlieName; set => _logoFlieName = value; }
 
+        public bool Equals(Organization other)
+        {
+            return other.OrganizationID == OrganizationID;
+        }
     }
 
 
