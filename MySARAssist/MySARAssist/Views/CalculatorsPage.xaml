@@ -20,6 +20,7 @@
             <Label Text="Other Calculators" FontSize="Title" Style="{DynamicResource titleLabelStyle}"></Label>
             <Button Text="Pacing and Distance" ImageSource="FootstepIcon.png" Command="{Binding PacingCommand}" Style="{DynamicResource lgButtonStyle}"></Button>
             <Button Text="Visual Search Spacing" ImageSource="SpacingIcon.png" Command="{Binding VisualSpacingCommand}" Style="{DynamicResource lgButtonStyle}"></Button>
+            <Button Text="Coordinate Converter" ImageSource="MapMarkIcon.png" Command="{Binding CoordinateConverterCommand}" Style="{DynamicResource lgButtonStyle}"></Button>
             
         </StackLayout>
     </ContentPage.Content>

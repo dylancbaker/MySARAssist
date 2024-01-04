@@ -1,0 +1,77 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                 xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core" 
+              ios:Page.UseSafeArea="true"
+                 xmlns:vm="clr-namespace:MySARAssist.ViewModels"
+
+                Title="Coordinate Conversion"
+             x:Class="MySARAssist.Views.CoordinateConversionPage">
+    <ContentPage.BindingContext>
+        <vm:CoordinateConverterViewModel />
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+        <StackLayout Style="{DynamicResource backgroundStyle}" x:Name="slPageContent">
+            <StackLayout Orientation="Vertical" VerticalOptions="FillAndExpand">
+
+                <Label Style="{DynamicResource titleLabelStyle}">Coordinate Conversion</Label>
+
+                <StackLayout x:Name="slPacesPer100" Orientation="Vertical">
+                    <Label Style="{DynamicResource PacingPer100Label}" HorizontalOptions="FillAndExpand" Text="Enter the coordinates"></Label>
+
+
+                    <Entry Keyboard="Default" x:Name="txtCoordinates" Style="{DynamicResource PacingPer100Entry}" Placeholder="UTM, MGRS, or Lat/Long" Text="{Binding CoordinateInputText, Mode=TwoWay}"></Entry>
+                    <StackLayout Orientation="Horizontal">
+                        <Label x:Name="lblCoordinateOK" VerticalOptions="CenterAndExpand" FontAttributes="Italic" HorizontalOptions="FillAndExpand" Text="{Binding CoordinateParseResult}"></Label>
+                        <Button x:Name="btnGetCurrent" ImageSource="MapMarkIcon.png"  Style="{DynamicResource lgButtonStyle}" Clicked="btnGetCurrent_Clicked" Text="Get Current"></Button>
+                    </StackLayout>
+                </StackLayout>
+            </StackLayout>
+
+            
+            <StackLayout x:Name="slResults" Style="{DynamicResource CoordinateResultsBox}">
+                <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+                    <Label  Text="UTM:" FontAttributes="Bold"></Label>
+                    <Label   Text="{Binding UTM}">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding CopyUTMCommand}" />
+                        </Label.GestureRecognizers>
+                    </Label>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+                    <Label  Text="Short UTM:" FontAttributes="Bold"></Label>
+                    <Label   Text="{Binding ShortUTM}">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding CopyShortUTMCommand}" />
+                        </Label.GestureRecognizers>
+                    </Label>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+                    <Label  Text="DD:" FontAttributes="Bold"></Label>
+                    <Label   Text="{Binding DecimalDegrees}">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding CopyDDCommand}" />
+                        </Label.GestureRecognizers>
+                    </Label>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+                    <Label  Text="DMS:" FontAttributes="Bold"></Label>
+                    <Label  Text="{Binding DMS}">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding CopyDMSCommand}" />
+                        </Label.GestureRecognizers>
+                    </Label>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+                    <Label   Text="MGRS:" FontAttributes="Bold"></Label>
+                    <Label  Text="{Binding MGRS}">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding CopyMGRSCommand}" />
+                        </Label.GestureRecognizers>
+                    </Label>
+                </StackLayout>
+                <Label FontSize="Small" FontAttributes="Italic">*Tap on a coordinate to copy it</Label>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

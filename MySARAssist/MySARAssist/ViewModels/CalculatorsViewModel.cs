@@ -14,6 +14,7 @@ namespace MySARAssist.ViewModels
             VisualSpacingCommand = new Command(OnVisualSpacingCommand);
             PacingCommand = new Command(OnPacingCommand);
             VisualSearchResourceEstCommand = new Command(OnVisualSearchResourceEstCommand);
+            CoordinateConverterCommand = new Command(OnCoordinateConverterCommand);
         }
 
         public Command GridCommand { get; }
@@ -21,6 +22,7 @@ namespace MySARAssist.ViewModels
         public Command VisualSpacingCommand { get; }
         public Command PacingCommand { get;}
         public Command VisualSearchResourceEstCommand { get; }
+        public Command CoordinateConverterCommand { get; }
 
         private async void OnGridCommand()
         {
@@ -43,6 +45,10 @@ namespace MySARAssist.ViewModels
         private async void OnVisualSearchResourceEstCommand()
         {
             await Shell.Current.GoToAsync(nameof(Views.CalculatorsPage) + "/" + nameof(Views.VisualSearchResourceEstimation));
+        }
+        private async void OnCoordinateConverterCommand()
+        {
+            await Shell.Current.GoToAsync(nameof(Views.CalculatorsPage) + "/" + nameof(Views.CoordinateConversionPage));
         }
     }
 }
