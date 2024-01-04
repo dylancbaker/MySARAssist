@@ -347,7 +347,7 @@
             <Style x:Key="flyoutItemLayoutStyle"  Class="FlyoutItemLayoutStyle" TargetType="Layout" ApplyToDerivedTypes="True">
             </Style>
             <Style x:Key="flyoutItemLayoutStyleLight" Class="FlyoutItemLayoutStyle" TargetType="Layout" ApplyToDerivedTypes="True" BasedOn="{StaticResource flyoutItemLayoutStyle}">
-                <Setter Property="BackgroundColor" Value="LightBlue"></Setter>
+        <Setter Property="BackgroundColor" Value="{StaticResource darkGrey}"></Setter>
                 <Setter Property="Shell.FlyoutBackgroundColor" Value="{StaticResource BackgroundColor_Light}"></Setter>
                 <Setter Property="VisualStateManager.VisualStateGroups">
                     <VisualStateGroupList>

@@ -49,5 +49,12 @@ namespace MySARAssist.Views
                 _viewModel.DeleteCommand.Execute(null);
             }
         }
+
+        private void pickParentOrganization_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            pickOrganization.ItemsSource = null;
+            pickOrganization.ItemsSource = _viewModel.Organizations;
+            
+        }
     }
 }

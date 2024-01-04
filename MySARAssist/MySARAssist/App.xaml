@@ -103,6 +103,14 @@
                 <Setter Property="Padding" Value="40"></Setter>
                 <Setter Property="HorizontalOptions" Value="FillAndExpand"></Setter>
             </Style>
+
+            <Style x:Key="CoordinateResultsBox" TargetType="StackLayout">
+                <Setter Property="BackgroundColor" Value="{StaticResource darkGrey}"></Setter>
+                <Setter Property="Padding" Value="10, 40, 10,40"></Setter>
+                <Setter Property="HorizontalOptions" Value="FillAndExpand"></Setter>
+            </Style>
+            
+            
             <Style x:Key="PacingResultsLabel" TargetType="Label">
                 <Setter Property="TextColor" Value="{StaticResource lightGrey}"></Setter>
                 <Setter Property="FontSize" Value="Large"></Setter>

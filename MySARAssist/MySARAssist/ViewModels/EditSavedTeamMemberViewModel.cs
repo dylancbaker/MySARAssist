@@ -23,9 +23,15 @@ namespace MySARAssist.ViewModels
             CurrentMember = new Personnel();
             Organization mostPopularOrg = App.PersonnelManager.GetMostCommonOrganization();
             if (mostPopularOrg != null) { CurrentMember.MemberOrganization = mostPopularOrg; }
+            DisplayMember();
         }
 
         public List<Organization> Organizations { get; private set; }
+        public List<Organization> ParentOrganizations { get => OrganizationTools.GetParentOrganizations(); }
+
+
+
+
         public Personnel CurrentMember { get; private set; }
 
         public Command CancelCommand { get; }
@@ -49,6 +55,7 @@ namespace MySARAssist.ViewModels
                     
 
                 }
+                DisplayMember();
                 OnPropertyChanged(nameof(CurrentMember));
             }
         }
@@ -56,47 +63,70 @@ namespace MySARAssist.ViewModels
         private async  void SetTeamMember(Guid ID)
         {
             CurrentMember  = await App.PersonnelManager.GetItemAsync(ID);
-            if(CurrentMember.MemberOrganization == null && CurrentMember.OrganizationID != Guid.Empty)
+        }
+
+        private void DisplayMember()
+        {
+            if (CurrentMember.MemberOrganization == null && CurrentMember.OrganizationID != Guid.Empty)
             {
                 CurrentMember.MemberOrganization = OrganizationTools.GetOrganization(CurrentMember.OrganizationID);
             }
             PersonQualifications = CurrentMember.GetPersonnelQualifications();
-            if(CurrentMember != null && CurrentMember.MemberOrganization != null && OrganizationTools.GetParentOrganizations().Any(o=>o.OrganizationID == CurrentMember.MemberOrganization.ParentOrganizationID))
+            if (CurrentMember != null && CurrentMember.MemberOrganization != null && ParentOrganizations.Any(o => o.OrganizationID == CurrentMember.MemberOrganization.ParentOrganizationID))
             {
-                SelectedParentOrg = OrganizationTools.GetParentOrganizations().First(o => o.OrganizationID == CurrentMember.MemberOrganization.ParentOrganizationID);
+                SelectedParentOrg = ParentOrganizations.First(o => o.OrganizationID == CurrentMember.MemberOrganization.ParentOrganizationID);
                 _selectedParentOrgID = SelectedParentOrg.OrganizationID;
             }
-            
-            OnPropertyChanged(nameof(PersonQualifications));
-            OnPropertyChanged(nameof(SelectedParentOrg));
 
+            OnPropertyChanged(nameof(PersonQualifications));
+            OnPropertyChanged(nameof(ParentOrgIndex));
         }
 
 
         Guid _selectedParentOrgID = Guid.Empty;
         public Organization SelectedParentOrg
         {
-           get
+            get
             {
-                if (OrganizationTools.GetOrganization(_selectedParentOrgID) != null)
-                {
-                    return OrganizationTools.GetOrganization(_selectedParentOrgID);
-                } else
-                {
-                    return OrganizationTools.GetParentOrganizations().First();
-                }
+                if (ParentOrganizations.Any(o => o.OrganizationID == _selectedParentOrgID)) { return ParentOrganizations.First(o => o.OrganizationID == _selectedParentOrgID); }
+                else { return ParentOrganizations.First(); }
             }
             set
             {
                 _selectedParentOrgID = value.OrganizationID;
                 Organizations = OrganizationTools.GetOrganizations(_selectedParentOrgID);
+                if(Organizations.Any(o=>o.OrganizationID == CurrentMember.OrganizationID))
+                {
+                    Organization selected = Organizations.First(o => o.OrganizationID == CurrentMember.OrganizationID);
+                    OrgIndex = Organizations.IndexOf(selected);
+                }
+                if(OrgIndex >= Organizations.Count) { OrgIndex = 0; }
                 OnPropertyChanged(nameof(Organizations));
+                OnPropertyChanged(nameof(OrgIndex));
+
 
             }
         }
+        public int ParentOrgIndex
+        {
+            get
+            {
+                if (SelectedParentOrg != null && ParentOrganizations.IndexOf(SelectedParentOrg) != -1) { return ParentOrganizations.IndexOf(SelectedParentOrg); }
+                else { return 0; }
+            }
+            set { SelectedParentOrg = ParentOrganizations[value]; }
+        }
 
-        private List<Organization> _ParentOrgs = OrganizationTools.GetParentOrganizations();
-        public List<Organization> ParentOrganizations { get => _ParentOrgs; }
+
+        private int _OrgIndex = 0;
+        public int OrgIndex
+        {
+            get
+            {
+                return _OrgIndex;
+            }
+            set { _OrgIndex = value; }
+        }
 
 
         private async void OnCancelCommand()
@@ -105,6 +135,9 @@ namespace MySARAssist.ViewModels
         }
         private async void OnSaveCommand()
         {
+            if (Organizations.Count > OrgIndex) { CurrentMember.MemberOrganization = Organizations[OrgIndex]; }
+            else { CurrentMember.MemberOrganization = Organizations.First(); }
+
             ValidationResult validateResult = validateCurrent();
             if (!validateResult.success)
             {

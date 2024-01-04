@@ -36,6 +36,7 @@ namespace MySARAssist
             Routing.RegisterRoute(nameof(Views.CalculatorsPage) + "/" + nameof(Views.CalculatorVisualSearchSpacing), typeof(Views.CalculatorVisualSearchSpacing));
 
             Routing.RegisterRoute(nameof(Views.CalculatorsPage) + "/" + nameof(Views.VisualSearchResourceEstimation), typeof(Views.VisualSearchResourceEstimation));
+            Routing.RegisterRoute(nameof(Views.CalculatorsPage) + "/" + nameof(Views.CoordinateConversionPage), typeof(Views.CoordinateConversionPage));
         }
 
         protected override void OnAppearing()

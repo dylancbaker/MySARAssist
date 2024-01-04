@@ -37,10 +37,6 @@ namespace MySARAssist.ViewModels
 
         private void OnTestNetworkCommand()
         {
-            NetworkTestGuidValue = Guid.NewGuid();
-            silentNetworkTest = false;
-            
-            Services.Network_Services.SendNetworkObject(NetworkTestGuidValue, "test", ServerIP, PortNumber.ToString());
         }
     }
 }

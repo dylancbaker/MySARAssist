@@ -5,7 +5,7 @@
     x:Class="MySARAssist.Views.WelcomeScreenView"
     ios:Page.UseSafeArea="true"
     xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
-    Title="Welcome to MySARAssist"
+    Title="Welcome to My SAR Assist"
     >
     <ContentPage.Content>
          <ScrollView   Style="{DynamicResource backgroundStyle}" Padding="20">

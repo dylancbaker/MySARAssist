@@ -26,23 +26,23 @@
                 
 
                     <Label Style="{DynamicResource fieldLabelStyle}">SAR Group  / Organization</Label>
-
-                    <Picker x:Name="pickParentOrganization" ItemsSource="{Binding ParentOrganizations}" SelectedItem="{Binding SelectedParentOrg, Mode=TwoWay}"
-                            Title="Select a parent organization" 
+                    <Picker x:Name="pickParentOrganization" ItemsSource="{Binding ParentOrganizations}" SelectedIndex="{Binding ParentOrgIndex}" SelectedIndexChanged="pickParentOrganization_SelectedIndexChanged" 
+                            
                             Style="{DynamicResource pickerStyle}"
                             ItemDisplayBinding="{Binding OrganizationName}"
                             >
                     </Picker>
 
-                    <Picker x:Name="pickOrganization" ItemsSource="{Binding Organizations}" SelectedItem="{Binding CurrentMember.MemberOrganization, Mode=TwoWay}"
+                    <Picker x:Name="pickOrganization" 
                             Title="Select a SAR Team / Organization" 
                             Style="{DynamicResource pickerStyle}"
+                            SelectedIndex="{Binding OrgIndex}"
                             ItemDisplayBinding="{Binding OrganizationName}"
                             >
                     </Picker>
 
                     <Label Style="{DynamicResource fieldLabelStyle}">Email*</Label>
-                    <Entry  Style="{DynamicResource entryStyle}" Placeholder="Phone" Keyboard="Email" x:Name="txtEmail" Text="{Binding CurrentMember.Email, Mode=TwoWay}"></Entry>
+                    <Entry  Style="{DynamicResource entryStyle}" Placeholder="Email address (required)" Keyboard="Email" x:Name="txtEmail" Text="{Binding CurrentMember.Email, Mode=TwoWay}"></Entry>
 
                 
                     <Label Style="{DynamicResource fieldLabelStyle}">Home Address</Label>
