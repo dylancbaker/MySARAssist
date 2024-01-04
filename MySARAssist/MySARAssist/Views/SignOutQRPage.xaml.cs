@@ -28,7 +28,9 @@ namespace MySARAssist.Views
                 Height = 350,
                 Width = 350
             };
-
+            var brightnessService = DependencyService.Get<IBrightnessService>();
+            _lastBrightness = brightnessService.GetBrightness();
+            brightnessService.SetBrightness((float)1.0);
         }
 
         protected override void OnSizeAllocated(double width, double height)

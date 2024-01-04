@@ -24,7 +24,7 @@
                     <!--<Button x:Name="btnUpdateQR" Text="Update QR Code" HorizontalOptions="FillAndExpand" Clicked="btnUpdateQR_Clicked"></Button>-->
                 </StackLayout>
             </ScrollView>
-            <zxing:ZXingBarcodeImageView HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" BarcodeFormat="QR_CODE" x:Name="BarcodeImageView" HeightRequest="350" WidthRequest="350" BarcodeValue="{Binding FullQRString}" />
+            <zxing:ZXingBarcodeImageView HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" BarcodeFormat="QR_CODE" x:Name="BarcodeImageView" HeightRequest="350" WidthRequest="350" BarcodeValue="{Binding FullQRString}" />
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
