@@ -9,4 +9,5 @@ namespace MySARAssist.Interfaces
         void SetBrightness(float factor);
         float GetBrightness();
     }
+
 }
