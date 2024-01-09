@@ -316,6 +316,22 @@
     </Style>
 
 
+    <!-- subtitle label-->
+    <Style TargetType="Label" x:Key="fieldLabelStyleBasic">
+        <Setter Property="FontSize" Value="Medium"></Setter>
+        <Setter Property="Margin" Value="0, 10, 0, 0"></Setter>
+
+    </Style>
+    <Style TargetType="Label" x:Key="fieldLabelStyle" BasedOn="{StaticResource fieldLabelStyleBasic}">
+
+    </Style>
+    <Style TargetType="Label" x:Key="fieldLabelStyleLightTheme" BasedOn="{StaticResource fieldLabelStyleBasic}">
+        <Setter Property="TextColor" Value="{StaticResource darkGrey}"></Setter>
+    </Style>
+    <Style TargetType="Label" x:Key="fieldLabelStyleDarkTheme" BasedOn="{StaticResource fieldLabelStyleBasic}">
+        <Setter Property="TextColor" Value="{StaticResource lightGrey}"></Setter>
+    </Style>
+
 
 
     <!--- Flyout menu stuff-->
