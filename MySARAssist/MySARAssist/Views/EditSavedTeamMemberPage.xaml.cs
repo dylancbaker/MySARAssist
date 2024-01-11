@@ -56,5 +56,10 @@ namespace MySARAssist.Views
             pickOrganization.ItemsSource = _viewModel.Organizations;
             
         }
+
+        private void btnNext_Clicked(object sender, EventArgs e)
+        {
+
+        }
     }
 }

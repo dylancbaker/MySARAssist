@@ -30,6 +30,7 @@
             <Color x:Key="veryLightRed">#D9A49C</Color>
             <Color x:Key="veryDarkRed">#66171D</Color>
             <Color x:Key="darkRedButtonColour">#872c32</Color>
+            <Color x:Key="invalidBackgroundLight">#f08080</Color>
 
 
             <ResourceDictionary Source="/Styles/DefaultTheme.xaml" />
@@ -106,7 +107,7 @@
 
             <Style x:Key="CoordinateResultsBox" TargetType="StackLayout">
                 <Setter Property="BackgroundColor" Value="{StaticResource darkGrey}"></Setter>
-                <Setter Property="Padding" Value="10, 40, 10,40"></Setter>
+                <Setter Property="Padding" Value="10, 20, 10,20"></Setter>
                 <Setter Property="HorizontalOptions" Value="FillAndExpand"></Setter>
             </Style>
             

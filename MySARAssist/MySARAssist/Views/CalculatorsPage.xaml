@@ -7,21 +7,24 @@
              Title="SAR Calculators"
              >
     <ContentPage.Content>
-        <StackLayout Style="{DynamicResource backgroundStyle}" Padding="20">
+        <ScrollView>
+            <StackLayout x:Name="slPageContent" Orientation="Vertical" Style="{DynamicResource backgroundStyle}" Padding="20">
+                <StackLayout>
+                    <Label Text="Work Estimations" FontSize="Title" Style="{DynamicResource titleLabelStyle}"></Label>
+                    <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+                        <Button Text="Grid Search" ContentLayout="Top,0"  ImageSource="GridIcon.png"  HorizontalOptions="FillAndExpand" Command="{Binding GridCommand}" Style="{DynamicResource lgButtonStyle}"></Button>
+                        <Button Text="Linear Search" ContentLayout="Top,0"  ImageSource="LineIcon.png"  HorizontalOptions="FillAndExpand" Command="{Binding LineCommand}" Style="{DynamicResource lgButtonStyle}"></Button>
+                    </StackLayout>
+                    <Button Text="Visual Search Resource Est." ImageSource="GridIcon.png"  HorizontalOptions="FillAndExpand" Command="{Binding VisualSearchResourceEstCommand}" Style="{DynamicResource lgButtonStyle}"></Button>
+                </StackLayout>
 
-            <Label Text="Work Estimations" FontSize="Title" Style="{DynamicResource titleLabelStyle}"></Label>
-            <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
-                <Button Text="Grid Search" ContentLayout="Top,0"  ImageSource="GridIcon.png"  HorizontalOptions="FillAndExpand" Command="{Binding GridCommand}" Style="{DynamicResource lgButtonStyle}"></Button>
-                <Button Text="Linear Search" ContentLayout="Top,0"  ImageSource="LineIcon.png"  HorizontalOptions="FillAndExpand" Command="{Binding LineCommand}" Style="{DynamicResource lgButtonStyle}"></Button>
+                <StackLayout>
+                    <Label Text="Other Calculators" FontSize="Title" Style="{DynamicResource titleLabelStyle}"></Label>
+                    <Button Text="Pacing and Distance" ImageSource="FootstepIcon.png" Command="{Binding PacingCommand}" Style="{DynamicResource lgButtonStyle}"></Button>
+                    <Button Text="Visual Search Spacing" ImageSource="SpacingIcon.png" Command="{Binding VisualSpacingCommand}" Style="{DynamicResource lgButtonStyle}"></Button>
+                    <Button Text="Coordinate Converter" ImageSource="MapMarkIcon.png" Command="{Binding CoordinateConverterCommand}" Style="{DynamicResource lgButtonStyle}"></Button>
+                </StackLayout>
             </StackLayout>
-            <Button Text="Visual Search Resource Est." ImageSource="GridIcon.png"  HorizontalOptions="FillAndExpand" Command="{Binding VisualSearchResourceEstCommand}" Style="{DynamicResource lgButtonStyle}"></Button>
-
-
-            <Label Text="Other Calculators" FontSize="Title" Style="{DynamicResource titleLabelStyle}"></Label>
-            <Button Text="Pacing and Distance" ImageSource="FootstepIcon.png" Command="{Binding PacingCommand}" Style="{DynamicResource lgButtonStyle}"></Button>
-            <Button Text="Visual Search Spacing" ImageSource="SpacingIcon.png" Command="{Binding VisualSpacingCommand}" Style="{DynamicResource lgButtonStyle}"></Button>
-            <Button Text="Coordinate Converter" ImageSource="MapMarkIcon.png" Command="{Binding CoordinateConverterCommand}" Style="{DynamicResource lgButtonStyle}"></Button>
-            
-        </StackLayout>
+        </ScrollView>
     </ContentPage.Content>
 </ContentPage>

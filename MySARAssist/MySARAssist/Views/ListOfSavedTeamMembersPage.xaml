@@ -16,7 +16,7 @@
                     <DataTemplate>
                         <ViewCell>
                             <StackLayout Orientation="Horizontal" Margin="0,0,0,10">
-                                <Label Style="{DynamicResource labelStyle}" Text="{Binding NameWithGroupAndCurrent}"></Label>
+                                <Label Style="{DynamicResource labelStyle}" Text="{Binding NameWithGroupAndCurrent}" HorizontalOptions="FillAndExpand"></Label>
                                 <Button Style="{DynamicResource buttonStyle}" VerticalOptions="Center" Text="Select" CommandParameter="{Binding PersonID}" Command="{Binding 
                                         Path=BindingContext.SelectTeamMemberCommand, 
                                         Source={x:Reference lbMemberList}}"></Button>

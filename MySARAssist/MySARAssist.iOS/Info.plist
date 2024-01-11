@@ -35,7 +35,7 @@
 	<key>XSAppIconAssets</key>
 	<string>Assets.xcassets/AppIcon.appiconset</string>
 	<key>CFBundleShortVersionString</key>
-	<string>1.8</string>
+	<string>2.0</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>The app needs location permissions to retrieve your location</string>
 </dict>

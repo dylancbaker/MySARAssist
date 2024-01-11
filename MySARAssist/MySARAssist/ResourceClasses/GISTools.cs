@@ -232,6 +232,13 @@ namespace MySARAssist.ResourceClasses
                 return Math.Round(Latitude, decimalPlaces).ToString() + ", " + Math.Round(Longitude, decimalPlaces).ToString();
             }
         }
+        public string DecimalDegreesForURL
+        {
+            get
+            {
+                return Math.Round(Latitude, decimalPlaces).ToString() + "," + Math.Round(Longitude, decimalPlaces).ToString();
+            }
+        }
         public string DegreesMinutesSeconds
         {
             get

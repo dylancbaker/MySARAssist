@@ -30,7 +30,7 @@
 
     </Style>
     <Style TargetType="Label" x:Key="labelStyleLightTheme" BasedOn="{StaticResource labelStyleBasic}">
-        <Setter Property="TextColor" Value="{StaticResource ICABlue}"></Setter>
+        <Setter Property="TextColor" Value="{StaticResource darkGrey}"></Setter>
     </Style>
     <Style TargetType="Label" x:Key="labelStyleDarkTheme" BasedOn="{StaticResource labelStyleBasic}">
         <Setter Property="TextColor" Value="{StaticResource LightYellow}"></Setter>
@@ -99,7 +99,11 @@
         <Setter Property="BackgroundColor" Value="{StaticResource BackgroundColor_Dark}"></Setter>
     </Style>
 
-
+    <Style TargetType="Frame" x:Key="frameNoShadow">
+        <Setter Property="HasShadow" Value="False"></Setter>
+        <Setter Property="BorderColor" Value="Transparent"></Setter>
+        <Setter Property="BackgroundColor" Value="Transparent"></Setter>
+    </Style>
 
 
     <Style TargetType="Frame" x:Key="listFrameSelectedStyle" BasedOn="{StaticResource listFrameStyleBasic}">
@@ -149,7 +153,19 @@
         <Setter Property="BorderColor" Value="{StaticResource lightGrey}"></Setter>
     </Style>
 
+    <!-- Yellow Buttons-->
+    <Style x:Key="yellowButtonStyleBasic" TargetType="Button">
+        <Setter Property="BorderWidth" Value="1"></Setter>
+        <Setter Property="CornerRadius" Value="5"></Setter>
+        <Setter Property="Padding" Value="5, 10, 5, 10"></Setter>
+    </Style>
+    <Style x:Key="yellowButtonStyle" TargetType="Button" BasedOn="{StaticResource yellowButtonStyleBasic}">
+        <Setter Property="BorderColor" Value="{StaticResource mediumGrey}"></Setter>
+        <Setter Property="BackgroundColor" Value="{StaticResource ICAYellow}"></Setter>
+        <Setter Property="TextColor" Value="{StaticResource black}"></Setter>
+        <Setter Property="BorderColor" Value="{StaticResource ICAYellow}"></Setter>
 
+    </Style>
 
     <!-- LG Buttons-->
     <Style x:Key="lgButtonStyleBasic" TargetType="Button">
@@ -237,6 +253,7 @@
 
     <!-- Entry-->
     <Style TargetType="Entry" x:Key="entryStyleBasic">
+        <Setter Property="FontSize" Value="Large"></Setter>
     </Style>
     <Style TargetType="Entry" x:Key="entryStyle" BasedOn="{StaticResource entryStyleBasic}">
 
@@ -247,6 +264,25 @@
     <Style TargetType="Entry" x:Key="entryStyleDarkTheme" BasedOn="{StaticResource entryStyleBasic}">
         <Setter Property="TextColor" Value="{StaticResource white}"></Setter>
         <Setter Property="BackgroundColor" Value="{StaticResource darkerGrey}"></Setter>
+        <Setter Property="PlaceholderColor" Value="{StaticResource lightGrey}"></Setter>
+    </Style>
+
+    <Style TargetType="Entry" x:Key="invalidEntryStyle" BasedOn="{StaticResource entryStyleBasic}">
+
+    </Style>
+
+
+
+    <Style TargetType="Entry" x:Key="invalidEntryStyleLightTheme" BasedOn="{StaticResource entryStyleBasic}">
+        <Setter Property="TextColor" Value="{StaticResource darkGrey}"></Setter>
+        <Setter Property="BackgroundColor" Value="{StaticResource invalidBackgroundLight}"></Setter>
+    </Style>
+
+
+
+    <Style TargetType="Entry" x:Key="invalidEntryStyleDarkTheme" BasedOn="{StaticResource entryStyleBasic}">
+        <Setter Property="TextColor" Value="{StaticResource white}"></Setter>
+        <Setter Property="BackgroundColor" Value="{StaticResource darkRedButtonColour}"></Setter>
         <Setter Property="PlaceholderColor" Value="{StaticResource lightGrey}"></Setter>
     </Style>
 
@@ -332,6 +368,16 @@
         <Setter Property="TextColor" Value="{StaticResource lightGrey}"></Setter>
     </Style>
 
+
+    <!-- subtitle label-->
+
+    <Style TargetType="Label" x:Key="fieldLabelOnDarkStyle" BasedOn="{StaticResource fieldLabelStyleBasic}">
+        <Setter Property="FontSize" Value="Medium"></Setter>
+        <Setter Property="Margin" Value="0, 10, 0, 0"></Setter>
+        <Setter Property="TextColor" Value="{StaticResource lightGrey}"></Setter>
+
+
+    </Style>
 
 
     <!--- Flyout menu stuff-->

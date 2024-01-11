@@ -12,7 +12,7 @@
     </ContentPage.BindingContext>
     <ContentPage.Content>
         <StackLayout Style="{DynamicResource backgroundStyle}" x:Name="slPageContent">
-            <StackLayout Orientation="Vertical" VerticalOptions="FillAndExpand">
+            <StackLayout Orientation="Vertical" VerticalOptions="FillAndExpand" Padding="20">
 
                 <Label Style="{DynamicResource titleLabelStyle}">Coordinate Conversion</Label>
 
@@ -23,55 +23,59 @@
                     <Entry Keyboard="Default" x:Name="txtCoordinates" Style="{DynamicResource PacingPer100Entry}" Placeholder="UTM, MGRS, or Lat/Long" Text="{Binding CoordinateInputText, Mode=TwoWay}"></Entry>
                     <StackLayout Orientation="Horizontal">
                         <Label x:Name="lblCoordinateOK" VerticalOptions="CenterAndExpand" FontAttributes="Italic" HorizontalOptions="FillAndExpand" Text="{Binding CoordinateParseResult}"></Label>
-                        <Button x:Name="btnGetCurrent" ImageSource="MapMarkIcon.png"  Style="{DynamicResource lgButtonStyle}" Clicked="btnGetCurrent_Clicked" Text="Get Current"></Button>
+                        <Button x:Name="btnGetCurrent"  Style="{DynamicResource yellowButtonStyle}" Clicked="btnGetCurrent_Clicked" Text="Get Current"></Button>
                     </StackLayout>
                 </StackLayout>
             </StackLayout>
 
-            
+            <ScrollView HorizontalOptions="FillAndExpand">
             <StackLayout x:Name="slResults" Style="{DynamicResource CoordinateResultsBox}">
                 <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
-                    <Label  Style="{DynamicResource fieldLabelStyle}" Text="UTM:" FontAttributes="Bold"></Label>
-                    <Label   Text="{Binding UTM}" Style="{DynamicResource fieldLabelStyle}">
+                    <Label  Style="{DynamicResource fieldLabelOnDarkStyle}" Text="UTM:" FontAttributes="Bold"></Label>
+                    <Label   Text="{Binding UTM}" Style="{DynamicResource fieldLabelOnDarkStyle}">
                         <Label.GestureRecognizers>
                             <TapGestureRecognizer Command="{Binding CopyUTMCommand}" />
                         </Label.GestureRecognizers>
                     </Label>
                 </StackLayout>
                 <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
-                    <Label  Style="{DynamicResource fieldLabelStyle}" Text="Short UTM:" FontAttributes="Bold"></Label>
-                    <Label  Style="{DynamicResource fieldLabelStyle}"  Text="{Binding ShortUTM}">
+                    <Label  Style="{DynamicResource fieldLabelOnDarkStyle}" Text="Short UTM:" FontAttributes="Bold"></Label>
+                    <Label  Style="{DynamicResource fieldLabelOnDarkStyle}"  Text="{Binding ShortUTM}">
                         <Label.GestureRecognizers>
                             <TapGestureRecognizer Command="{Binding CopyShortUTMCommand}" />
                         </Label.GestureRecognizers>
                     </Label>
                 </StackLayout>
                 <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
-                    <Label  Style="{DynamicResource fieldLabelStyle}" Text="DD:" FontAttributes="Bold"></Label>
-                    <Label  Style="{DynamicResource fieldLabelStyle}"  Text="{Binding DecimalDegrees}">
+                    <Label  Style="{DynamicResource fieldLabelOnDarkStyle}" Text="DD:" FontAttributes="Bold"></Label>
+                    <Label  Style="{DynamicResource fieldLabelOnDarkStyle}"  Text="{Binding DecimalDegrees}">
                         <Label.GestureRecognizers>
                             <TapGestureRecognizer Command="{Binding CopyDDCommand}" />
                         </Label.GestureRecognizers>
                     </Label>
                 </StackLayout>
                 <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
-                    <Label  Style="{DynamicResource fieldLabelStyle}" Text="DMS:" FontAttributes="Bold"></Label>
-                    <Label  Style="{DynamicResource fieldLabelStyle}" Text="{Binding DMS}">
+                    <Label  Style="{DynamicResource fieldLabelOnDarkStyle}" Text="DMS:" FontAttributes="Bold"></Label>
+                    <Label  Style="{DynamicResource fieldLabelOnDarkStyle}" Text="{Binding DMS}">
                         <Label.GestureRecognizers>
                             <TapGestureRecognizer Command="{Binding CopyDMSCommand}" />
                         </Label.GestureRecognizers>
                     </Label>
                 </StackLayout>
                 <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
-                    <Label   Style="{DynamicResource fieldLabelStyle}" Text="MGRS:" FontAttributes="Bold"></Label>
-                    <Label  Style="{DynamicResource fieldLabelStyle}" Text="{Binding MGRS}">
+                    <Label   Style="{DynamicResource fieldLabelOnDarkStyle}" Text="MGRS:" FontAttributes="Bold"></Label>
+                    <Label  Style="{DynamicResource fieldLabelOnDarkStyle}" Text="{Binding MGRS}">
                         <Label.GestureRecognizers>
                             <TapGestureRecognizer Command="{Binding CopyMGRSCommand}" />
                         </Label.GestureRecognizers>
                     </Label>
                 </StackLayout>
-                <Label  Style="{DynamicResource titleLabelStyle}" FontSize="Small" FontAttributes="Italic">*Tap on a coordinate to copy it</Label>
+                <Label  Style="{DynamicResource fieldLabelOnDarkStyle}" FontSize="Small" FontAttributes="Italic">*Tap on a coordinate to copy it</Label>
+
+                <Button Style="{DynamicResource yellowButtonStyle}" Text="Map it" Command="{Binding OpenMapCommand}"></Button>
+
             </StackLayout>
+            </ScrollView>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

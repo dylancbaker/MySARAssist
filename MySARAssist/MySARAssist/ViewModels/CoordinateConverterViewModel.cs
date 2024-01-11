@@ -20,7 +20,7 @@ namespace MySARAssist.ViewModels
         public Command CopyDDCommand { get; }
         public Command CopyDMSCommand { get; }
         public Command CopyMGRSCommand { get; }
-
+        public Command OpenMapCommand { get; }
 
         public CoordinateConverterViewModel()
         {
@@ -30,7 +30,7 @@ namespace MySARAssist.ViewModels
             CopyDDCommand = new Command(async () => await OnCopyDDCommandAsync());
             CopyDMSCommand = new Command(async () => await OnCopyDMSCommandAsync());
             CopyMGRSCommand = new Command(async () => await OnCopyMGRSCommandAsync());
-
+            OpenMapCommand = new Command(async () => await OnOpenMapCommandAsync());
         }
 
 
@@ -44,7 +44,26 @@ namespace MySARAssist.ViewModels
         private async Task OnCopyDDCommandAsync() { await Clipboard.SetTextAsync(DecimalDegrees); DependencyService.Get<Toast>().Show("Copied!"); }
         private async Task OnCopyDMSCommandAsync() { await Clipboard.SetTextAsync(DMS); DependencyService.Get<Toast>().Show("Copied!"); }
         private async Task OnCopyMGRSCommandAsync() { await Clipboard.SetTextAsync(MGRS); DependencyService.Get<Toast>().Show("Copied!"); }
-
+        private async Task OnOpenMapCommandAsync()
+        {
+            if (!string.IsNullOrEmpty(DecimalDegrees))
+            {
+                if (Device.RuntimePlatform == Device.iOS)
+                {
+                    // https://developer.apple.com/library/ios/featuredarticles/iPhoneURLScheme_Reference/MapLinks/MapLinks.html
+                    await Launcher.OpenAsync("http://maps.apple.com/?q=" +_coordinate.DecimalDegreesForURL);
+                }
+                else if (Device.RuntimePlatform == Device.Android)
+                {
+                    // open the maps app directly
+                    await Launcher.OpenAsync("geo:0,0?q=" + _coordinate.DecimalDegreesForURL);
+                }
+                else if (Device.RuntimePlatform == Device.UWP)
+                {
+                    await Launcher.OpenAsync("bingmaps:?where=" + _coordinate.DecimalDegreesForURL);
+                }
+            }
+        }
 
         private void TrySettingCoordinate()
         {
