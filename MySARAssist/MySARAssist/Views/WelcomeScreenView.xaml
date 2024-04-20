@@ -14,8 +14,8 @@
                 <Label Text="What do you need a hand with?" FontSize="Title" Style="{DynamicResource subtitleLabelStyle}" HorizontalTextAlignment="Center" HorizontalOptions="FillAndExpand"></Label>
 
                  <Button x:Name="btnSignInOut" HorizontalOptions="FillAndExpand" ImageSource="ClockIcon.png" Style="{DynamicResource xlgButtonStyle}" Clicked="btnSignInOut_Clicked" Text="Sign in or out of a task"></Button>
-                    <Button x:Name="btnCalculator" HorizontalOptions="FillAndExpand" ImageSource="CalculatorIcon.png" Style="{DynamicResource xlgButtonStyle}" Clicked="btnCalculator_Clicked" Text="Calculators"></Button>
-
+                 <Button x:Name="btnCalculator" HorizontalOptions="FillAndExpand" ImageSource="CalculatorIcon.png" Style="{DynamicResource xlgButtonStyle}" Clicked="btnCalculator_Clicked" Text="Calculators"></Button>
+                 <Button x:Name="bnRADEMS" HorizontalOptions="FillAndExpand" ImageSource="CalculatorIcon.png" Style="{DynamicResource xlgButtonStyle}" Clicked="bnRADEMS_Clicked" Text="RADeMS"></Button>
             </StackLayout>
         </ScrollView>
     </ContentPage.Content>

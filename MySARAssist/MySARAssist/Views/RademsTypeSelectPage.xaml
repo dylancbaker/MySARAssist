@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MySARAssist.Views.RademsTypeSelectPage">
+    <ContentPage.Content>
+        <StackLayout Padding="20" Style="{DynamicResource backgroundStyle}">
+            <ListView  HasUnevenRows="True" Style="{DynamicResource listViewStyle}" ItemsSource="{Binding AllCagegories}" 
+                IsPullToRefreshEnabled="False"  SeparatorVisibility="None" >
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout Orientation="Horizontal" Margin="0,0,0,10">
+                                <Button HorizontalOptions="FillAndExpand" CommandParameter="{Binding ID}" Style="{DynamicResource xlgButtonStyle}" Text="{Binding Name}"></Button>
+
+
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

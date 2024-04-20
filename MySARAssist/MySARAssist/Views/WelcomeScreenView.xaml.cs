@@ -27,5 +27,10 @@ namespace MySARAssist.Views
             base.OnAppearing();
             ResourceHelper.setThemeColor();
         }
+
+        private void bnRADEMS_Clicked(object sender, EventArgs e)
+        {
+
+        }
     }
 }
